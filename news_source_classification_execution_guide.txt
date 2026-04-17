@@ -1,0 +1,494 @@
+NEWS SOURCE CLASSIFICATION — EXECUTION GUIDE
+Based on the CIS 4190/5190 Final Project handout
+
+PROJECT GOAL
+Build a binary text classification pipeline that predicts whether a news headline came from Fox News or NBC News. The course staff provides 3815 starter article URLs (2010 Fox, 1805 NBC). You must scrape the headlines, build and clean the dataset, train models, evaluate them, beat the baseline, submit at least one leaderboard entry, and turn in your final deliverables by May 6, 2026.
+
+==================================================
+1. WHAT YOU MUST PRODUCE
+==================================================
+
+By the final deadline, your team must submit:
+1. The dataset you collected and used.
+2. Your best-performing model.
+3. A 5-page project report.
+
+You must also make at least one leaderboard submission.
+
+Your model is expected to outperform the provided baseline model.
+
+==================================================
+2. HIGH-LEVEL PIPELINE
+==================================================
+
+You should execute the project in this order:
+
+Phase 1: Understand the task and baseline
+Phase 2: Scrape the headlines from the provided URLs
+Phase 3: Build a labeled dataset
+Phase 4: Clean and validate the text
+Phase 5: Create train/validation/test splits for internal evaluation
+Phase 6: Reproduce the baseline model
+Phase 7: Improve the model through experiments
+Phase 8: Run error analysis and document findings
+Phase 9: Submit your best model to the leaderboard
+Phase 10: Package dataset/model and write the final report
+
+==================================================
+3. REQUIRED TASK DETAILS
+==================================================
+
+STEP 1 — Get the starter data
+- Obtain the CSV file containing the Fox News and NBC News article URLs.
+- The handout says the CSV contains Fox links first and NBC links later.
+- Keep a copy of the original raw URL file unchanged.
+- Create a project folder structure before starting.
+
+Suggested folder structure:
+project/
+  data/
+    raw/
+    scraped/
+    processed/
+  notebooks/
+  src/
+  models/
+  reports/
+  figures/
+  logs/
+
+STEP 2 — Scrape headlines from each URL
+- Read the CSV file in Python using pandas.
+- For each URL, request the webpage HTML.
+- Parse the page with BeautifulSoup.
+- Extract the headline text from the appropriate HTML tag.
+- Save the raw scraped result.
+
+Important:
+- The handout gives an example using:
+  soup.find("h1", class_="headline speakable")
+- That exact HTML structure may not work for every page, so your scraper should be robust.
+- Some pages may fail, redirect, or return missing data.
+- Log all failures and keep track of which URLs were successfully scraped.
+
+For each article, save:
+- url
+- source label (FoxNews or NBC)
+- raw headline
+- cleaned headline
+- scrape status
+- notes / error message if failed
+
+STEP 3 — Build the labeled dataset
+- Assign a binary label to each headline based on its source.
+- Keep both the string label and numeric label.
+
+Suggested encoding:
+- 0 = one class
+- 1 = the other class
+
+Important note:
+- The handout's example code text says:
+  "0 for 'FoxNews', 1 for 'NBC'"
+  but the shown lambda code appears inconsistent.
+- Decide one mapping clearly and use it consistently everywhere.
+- Document the mapping in code, report, and saved files.
+
+STEP 4 — Clean and preprocess the headlines
+The handout suggests, but does not require, trying operations like:
+- Remove HTML remnants
+- Remove scripts / special characters if present
+- Normalize spaces, tabs, and newlines
+- Decide how to handle punctuation
+- Convert to lowercase (or another consistent normalization)
+- Remove stopwords
+- Try stemming or lemmatization
+- Remove or handle missing/incomplete headlines
+- Remove duplicates
+- Perform consistency checks
+- Manually inspect samples
+- Compute statistics like average headline length or word frequency
+
+Recommended workflow:
+A. Start with minimal cleaning:
+   - strip whitespace
+   - standardize spaces
+   - drop null headlines
+   - deduplicate exact duplicates
+
+B. Then create alternate preprocessing pipelines:
+   - lowercase only
+   - lowercase + punctuation handling
+   - lowercase + stopword removal
+   - lowercase + lemmatization
+
+C. Compare performance instead of assuming heavier cleaning is better.
+
+STEP 5 — Validate the dataset before modeling
+Before training anything, check:
+- Number of successful scrapes
+- Number of failures
+- Class balance between Fox and NBC
+- Number of duplicates removed
+- Average headline length
+- Very short or suspicious headlines
+- Whether some URLs produced non-headline text
+- Whether data leakage is possible through duplicates or nearly identical headlines
+
+Create a short dataset summary file with:
+- total URLs
+- total successful headlines
+- class counts
+- number dropped
+- reasons for dropping
+- final dataset size
+
+STEP 6 — Split the data for internal evaluation
+- The baseline uses an 80/20 train-test split.
+- For better development, you should ideally use:
+  - training split
+  - validation split
+  - optional held-out local test split
+or use cross-validation where appropriate.
+
+Recommended options:
+Option A:
+- train / validation / test = 70 / 15 / 15
+
+Option B:
+- train / validation = 80 / 20 for iteration
+- keep leaderboard for final external evaluation
+
+Best practice:
+- Use stratified splits so class proportions are preserved.
+- Set a random seed for reproducibility.
+- Save the split indices or row IDs so experiments are repeatable.
+
+STEP 7 — Reproduce the baseline model exactly
+The handout baseline is:
+- TF-IDF features
+- stop_words='english'
+- max_features=100
+- LogisticRegression(max_iter=100)
+
+The handout reports:
+- Accuracy = 0.6649
+
+You should first reproduce this baseline before doing anything advanced.
+
+Baseline workflow:
+1. Load merged headline dataset
+2. Split into train and test
+3. Encode labels
+4. Convert text to TF-IDF features
+5. Train logistic regression
+6. Evaluate accuracy, precision, recall, F1
+7. Save metrics
+
+This is your minimum comparison point.
+Your later models should beat this baseline.
+
+STEP 8 — Build stronger models
+After the baseline works, improve it through controlled experiments.
+
+Strong next experiments:
+A. Better bag-of-words models
+- TF-IDF with more features (e.g. 500, 1000, 5000, 10000)
+- word n-grams (1,2)
+- word n-grams (1,3)
+- character n-grams
+- logistic regression with tuned regularization
+- linear SVM
+- multinomial Naive Bayes
+- random forest only if useful, though linear models often work better for sparse text
+
+B. Better preprocessing variants
+- lowercasing vs original case
+- punctuation kept vs removed
+- stopwords kept vs removed
+- lemmatization vs no lemmatization
+- duplicate filtering strategies
+
+C. More data
+- The handout explicitly encourages collecting additional Fox and NBC headlines.
+- More high-quality labeled data may help more than model complexity.
+
+D. Neural / transformer methods
+If feasible, try:
+- DistilBERT
+- BERT
+- RoBERTa
+- other compact pretrained text classifiers
+
+If you do this:
+- keep training pipeline reproducible
+- compare fairly against simpler baselines
+- track compute cost and gains
+
+STEP 9 — Collect additional data (strongly recommended)
+The handout says you are encouraged to scrape and collect your own Fox and NBC headlines.
+
+If you expand the dataset:
+- keep source balance reasonable
+- record where each example came from
+- avoid mixing labels incorrectly
+- deduplicate against starter data
+- use the same scraping and cleaning pipeline
+- keep a raw copy and processed copy
+- document collection date and method
+
+This can also serve as part of your exploratory component if done well.
+
+STEP 10 — Evaluate properly
+For every model version, record:
+- model name
+- preprocessing version
+- feature settings
+- train/val split seed
+- accuracy
+- precision
+- recall
+- F1 score
+- confusion matrix
+- notes on errors / observations
+
+Minimum useful metrics:
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Classification report
+- Confusion matrix
+
+Since the official test set will be headlines scraped after the deadline, generalization matters.
+Do not overfit to one random split.
+
+Recommended:
+- Run multiple seeds or cross-validation
+- Report average and variance if possible
+
+STEP 11 — Perform error analysis
+Look at incorrectly classified headlines and ask:
+- Are the mistakes due to political-topic overlap?
+- Are some headlines stylistically neutral?
+- Are named entities driving predictions?
+- Is the model over-relying on a few partisan cue words?
+- Are duplicates inflating performance?
+- Are short headlines especially hard?
+- Are certain topics easier for one source than the other?
+
+Helpful analyses:
+- top positive / negative features for linear models
+- per-class confusion
+- headline length vs error rate
+- topic clusters or keyword analysis
+- examples of ambiguous headlines
+
+STEP 12 — Make leaderboard submission(s)
+- Every team must submit at least one entry to the live leaderboard.
+- Choose your best validated model for submission.
+- Keep notes on which run produced the submitted predictions.
+- Save exact code, seed, preprocessing version, and checkpoint used.
+
+STEP 13 — Save deliverables cleanly
+Before submission, package:
+- final dataset
+- preprocessing scripts
+- training scripts
+- evaluation scripts
+- best model weights / serialized model
+- inference script if applicable
+- final metrics
+- plots / figures for report
+
+==================================================
+4. WHAT TO INCLUDE IN THE REPORT
+==================================================
+
+Your 5-page report must describe:
+
+A. Data collection
+- how you obtained and scraped the data
+- how many URLs succeeded / failed
+- how you cleaned and curated the dataset
+- whether you collected extra data
+- how you split the data
+- what the final dataset looked like
+
+B. Model design
+- what baseline you reproduced
+- what models you tried
+- what feature choices or architectures you used
+- how the design evolved across experiments
+- what final model you selected
+
+C. Evaluation
+- what metrics you used
+- how you evaluated model iterations
+- line charts of model metrics, including the baseline
+- how you chose the final model
+- what results you achieved
+
+D. At least one exploratory component
+Examples:
+- collect a new dataset
+- test stronger text models
+- compare bag-of-words vs transformers
+- build a teaching artifact / blog post
+- analyze which words most distinguish the sources
+- create a robustness analysis on newer headlines
+- do efficiency comparisons
+- do an ablation study
+
+==================================================
+5. RECOMMENDED IMPLEMENTATION PLAN
+==================================================
+
+Milestone 1 — Setup
+- Create repo and folders
+- Load starter URL CSV
+- Write initial scraper
+- Save first scraped sample
+- Verify labels and output format
+
+Milestone 2 — Dataset build
+- Scrape all URLs
+- Log failures
+- Create raw and cleaned headline files
+- Deduplicate and summarize dataset
+- Save processed CSV
+
+Milestone 3 — Baseline
+- Reproduce TF-IDF + Logistic Regression
+- Confirm performance near the reported baseline
+- Save metrics and plots
+
+Milestone 4 — Improvement experiments
+- Increase TF-IDF feature count
+- Try n-grams
+- Try linear SVM / Naive Bayes
+- Try stronger preprocessing
+- Optionally collect additional data
+- Optionally try transformer models
+
+Milestone 5 — Analysis
+- Perform error analysis
+- Make charts and tables
+- Choose final model
+
+Milestone 6 — Submission package
+- Submit leaderboard entry
+- Save best model and code
+- Finalize dataset
+- Write 5-page report
+
+==================================================
+6. PRACTICAL CODING CHECKLIST
+==================================================
+
+Scraping checklist:
+- read URL CSV
+- infer or assign source label correctly
+- send request with headers / user agent if needed
+- handle timeouts and failures
+- parse headline tag
+- save raw text
+- log bad URLs
+
+Preprocessing checklist:
+- remove nulls
+- strip whitespace
+- normalize spaces
+- decide punctuation policy
+- optional lowercase
+- optional stopword removal
+- optional lemmatization
+- deduplicate
+- save processed file
+
+Modeling checklist:
+- stratified split
+- fixed random seed
+- TF-IDF baseline
+- logistic regression baseline
+- stronger models
+- save metrics
+- save confusion matrices
+- save best model
+
+Reproducibility checklist:
+- keep one main config per run
+- save dataset version
+- save split seed
+- save vectorizer
+- save model checkpoint
+- save run logs
+- record software package versions
+
+==================================================
+7. COMMON MISTAKES TO AVOID
+==================================================
+
+- Inconsistent label encoding
+- Training on rows with missing or broken headlines
+- Failing to deduplicate near-identical headlines
+- Using only one lucky split and overclaiming results
+- Not reproducing the baseline first
+- Changing too many variables at once during experiments
+- Forgetting to document preprocessing decisions
+- Not saving enough metadata to reproduce the best run
+- Reporting only accuracy without precision/recall/F1
+- Submitting a model to the leaderboard without local validation
+- Waiting too long to start scraping and cleaning
+
+==================================================
+8. MINIMUM SUCCESS CRITERIA
+==================================================
+
+At a minimum, you should:
+1. Build a working scraper for the provided Fox/NBC URLs.
+2. Produce a clean labeled dataset of headlines.
+3. Reproduce the baseline model.
+4. Beat the baseline with at least one improved model.
+5. Submit at least one leaderboard entry.
+6. Turn in dataset, best model, and 5-page report.
+
+==================================================
+9. STRONG PROJECT STRATEGY
+==================================================
+
+A strong project would likely do the following:
+- reproduce the baseline quickly
+- collect additional clean Fox/NBC headlines
+- compare multiple classical NLP baselines
+- try at least one stronger pretrained language model
+- perform careful ablations
+- include informative charts
+- include error analysis and feature interpretation
+- clearly justify the final model choice
+- make the pipeline reproducible end-to-end
+
+==================================================
+10. SUGGESTED FINAL FILES TO HAVE READY
+==================================================
+
+- data/raw/original_urls.csv
+- data/scraped/raw_scraped_headlines.csv
+- data/processed/clean_headlines.csv
+- src/scrape.py
+- src/preprocess.py
+- src/train_baseline.py
+- src/train_best_model.py
+- src/evaluate.py
+- src/predict.py
+- models/best_model.*
+- models/vectorizer.*
+- reports/final_report.pdf
+- reports/figures/*.png
+- README.md
+
+==================================================
+11. ONE-SENTENCE SUMMARY
+==================================================
+
+Scrape Fox and NBC headlines from the provided URLs, build a clean labeled dataset, reproduce and beat the TF-IDF + logistic regression baseline, evaluate carefully, submit to the leaderboard, and turn in your dataset, best model, and 5-page report.

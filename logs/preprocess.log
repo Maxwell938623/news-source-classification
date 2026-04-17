@@ -1,0 +1,11 @@
+2026-04-17 01:41:43,897  INFO      Loading raw scraped data from: C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\raw.csv
+2026-04-17 01:41:43,900  INFO      Total rows loaded: 6
+2026-04-17 01:41:43,905  INFO      Successful scrapes: 5  |  Failed/skipped: 1
+2026-04-17 01:41:43,910  INFO      Dropped 0 rows with null/empty raw headline.
+2026-04-17 01:41:43,914  INFO      Removed 1 within-source duplicates.
+2026-04-17 01:41:43,914  WARNING   2 headlines appear in both sources (potential label leakage) — removing.
+2026-04-17 01:41:43,915  INFO      Final clean dataset size: 2 rows
+2026-04-17 01:41:43,916  WARNING   NLTK not available — headline_nostop and headline_lemma fall back to lowercase.
+2026-04-17 01:41:43,919  INFO      Saved master clean dataset: C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\processed\clean_headlines.csv
+2026-04-17 01:41:43,927  INFO      Saved 5 variant CSV files to C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\processed
+2026-04-17 01:41:43,927  INFO      Saved dataset summary: C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\processed\dataset_summary.txt
