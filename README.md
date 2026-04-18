@@ -25,6 +25,38 @@ Expected URL file:
 
 ## 1) Gather Data
 
+### Step 0: Collect real Fox/NBC article links
+
+```bash
+python src/collect_urls.py --output data/raw/original_urls.csv --mode backfill --per-source 150
+```
+
+Large historical backfill (recommended for bigger training sets):
+```bash
+python src/collect_urls.py --output data/raw/original_urls.csv --mode backfill --per-source 5000 --max-sitemaps 4000
+```
+
+Restart backfill from newest again:
+```bash
+python src/collect_urls.py --output data/raw/original_urls.csv --mode backfill --reset-state
+```
+
+Maximum-volume pull from all discovered URLs in a run:
+```bash
+python src/collect_urls.py --output data/raw/original_urls.csv --mode backfill --per-source 0 --max-sitemaps 4000
+```
+
+Notes:
+- collector now crawls sitemap indexes (including nested ones), then feeds, then section pages.
+- in `backfill` mode it sorts by publication timestamp and advances a saved cursor each run.
+- state file: `data/raw/collect_urls_state.json`
+- this is the best practical way to get a lot of past + recent links.
+- "every possible" link is not guaranteed because publishers can remove/omit old items from public sitemaps.
+
+Main outputs:
+- `data/raw/original_urls.csv`
+- `logs/collect_urls.log`
+
 ### Step A: Scrape headlines from URLs
 
 ```bash
@@ -40,6 +72,32 @@ python src/scrape.py --delay 1.5 --timeout 20 --max-retries 3
 Main outputs:
 - `data/scraped/raw_scraped_headlines.csv`
 - `logs/scrape.log`
+
+### Optional: Run continuously (poll forever)
+
+```bash
+python src/continuous_scrape.py --interval-minutes 20 --per-source 80 --collector-mode backfill
+```
+
+What it does each cycle:
+- runs `collect_urls.py` to fetch fresh real links,
+- `backfill` mode keeps moving to older publication dates via saved cursor state,
+- merges only new URLs into `data/raw/original_urls.csv`,
+- runs `scrape.py --resume` so already-scraped links are skipped,
+- sleeps for the interval and repeats until you press `Ctrl+C`.
+
+For deeper per-cycle backfill, increase sitemap depth:
+```bash
+python src/continuous_scrape.py --interval-minutes 20 --per-source 200 --collector-mode backfill --collector-max-sitemaps 2500
+```
+
+Use all discovered URLs each cycle (very heavy):
+```bash
+python src/continuous_scrape.py --interval-minutes 20 --per-source 0 --collector-mode backfill --collector-max-sitemaps 2500
+```
+
+Log file:
+- `logs/continuous_scrape.log`
 
 ### Step B: Clean and preprocess
 

@@ -1,0 +1,12 @@
+{
+  "FoxNews": {
+    "cursor": 114777,
+    "total_candidates": 114777,
+    "updated_at_utc": "2026-04-18T08:30:53.574681+00:00"
+  },
+  "NBC": {
+    "cursor": 57155,
+    "total_candidates": 57155,
+    "updated_at_utc": "2026-04-18T08:38:33.140708+00:00"
+  }
+}

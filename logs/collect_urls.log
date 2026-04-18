@@ -1,0 +1,306 @@
+2026-04-18 02:47:49,865  INFO      Collecting FoxNews URLs from feeds...
+2026-04-18 02:47:51,904  WARNING   Fetch failed (1/3): https://moxie.foxnews.com/google-publisher/latest.xml -> HTTPSConnectionPool(host='moxie.foxnews.com', port=443): Max retries exceeded with url: /google-publisher/latest.xml (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD176E8D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:47:55,474  WARNING   Fetch failed (2/3): https://moxie.foxnews.com/google-publisher/latest.xml -> HTTPSConnectionPool(host='moxie.foxnews.com', port=443): Max retries exceeded with url: /google-publisher/latest.xml (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A23AD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:47:59,860  WARNING   Fetch failed (3/3): https://moxie.foxnews.com/google-publisher/latest.xml -> HTTPSConnectionPool(host='moxie.foxnews.com', port=443): Max retries exceeded with url: /google-publisher/latest.xml (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4290>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:01,926  WARNING   Fetch failed (1/3): https://feeds.foxnews.com/foxnews/latest -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/latest (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A23FB0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:05,187  WARNING   Fetch failed (2/3): https://feeds.foxnews.com/foxnews/latest -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/latest (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A23B00>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:09,598  WARNING   Fetch failed (3/3): https://feeds.foxnews.com/foxnews/latest -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/latest (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD176E8D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:11,635  WARNING   Fetch failed (1/3): https://feeds.foxnews.com/foxnews/politics -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4AA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:15,230  WARNING   Fetch failed (2/3): https://feeds.foxnews.com/foxnews/politics -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB5220>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:19,188  WARNING   Fetch failed (3/3): https://feeds.foxnews.com/foxnews/politics -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB5E80>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:21,239  WARNING   Fetch failed (1/3): https://feeds.foxnews.com/foxnews/national -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/national (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A22BD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:24,309  WARNING   Fetch failed (2/3): https://feeds.foxnews.com/foxnews/national -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/national (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A23C20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:28,027  WARNING   Fetch failed (3/3): https://feeds.foxnews.com/foxnews/national -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/national (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB5670>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:30,083  WARNING   Fetch failed (1/3): https://feeds.foxnews.com/foxnews/world -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4F20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:33,312  WARNING   Fetch failed (2/3): https://feeds.foxnews.com/foxnews/world -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4A10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:37,351  WARNING   Fetch failed (3/3): https://feeds.foxnews.com/foxnews/world -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6960>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:39,395  WARNING   Fetch failed (1/3): https://feeds.foxnews.com/foxnews/scitech -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/scitech (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A23EC0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:42,905  WARNING   Fetch failed (2/3): https://feeds.foxnews.com/foxnews/scitech -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/scitech (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A22ED0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:46,925  WARNING   Fetch failed (3/3): https://feeds.foxnews.com/foxnews/scitech -> HTTPSConnectionPool(host='feeds.foxnews.com', port=443): Max retries exceeded with url: /foxnews/scitech (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6900>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:46,925  INFO      Collecting FoxNews URLs from seed pages...
+2026-04-18 02:48:48,968  WARNING   Fetch failed (1/3): https://www.foxnews.com/ -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4650>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:52,478  WARNING   Fetch failed (2/3): https://www.foxnews.com/ -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB5070>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:56,886  WARNING   Fetch failed (3/3): https://www.foxnews.com/ -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB5A90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:48:58,932  WARNING   Fetch failed (1/3): https://www.foxnews.com/politics -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1649670>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:02,376  WARNING   Fetch failed (2/3): https://www.foxnews.com/politics -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A22EA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:06,576  WARNING   Fetch failed (3/3): https://www.foxnews.com/politics -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB5C40>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:08,612  WARNING   Fetch failed (1/3): https://www.foxnews.com/us -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /us (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB5220>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:11,703  WARNING   Fetch failed (2/3): https://www.foxnews.com/us -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /us (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4AA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:15,806  WARNING   Fetch failed (3/3): https://www.foxnews.com/us -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /us (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6D20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:17,833  WARNING   Fetch failed (1/3): https://www.foxnews.com/world -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB7680>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:21,139  WARNING   Fetch failed (2/3): https://www.foxnews.com/world -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A23800>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:24,865  WARNING   Fetch failed (3/3): https://www.foxnews.com/world -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6390>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:26,906  WARNING   Fetch failed (1/3): https://www.foxnews.com/business -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /business (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4B00>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:30,087  WARNING   Fetch failed (2/3): https://www.foxnews.com/business -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /business (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB5520>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:33,994  WARNING   Fetch failed (3/3): https://www.foxnews.com/business -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Max retries exceeded with url: /business (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6210>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:33,994  INFO      FoxNews: collected 0 URLs.
+2026-04-18 02:49:33,994  INFO      Collecting NBC URLs from feeds...
+2026-04-18 02:49:36,009  WARNING   Fetch failed (1/3): https://feeds.nbcnews.com/nbcnews/public/news -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/news (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB72F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:39,467  WARNING   Fetch failed (2/3): https://feeds.nbcnews.com/nbcnews/public/news -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/news (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A23650>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:43,750  WARNING   Fetch failed (3/3): https://feeds.nbcnews.com/nbcnews/public/news -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/news (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB54C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:45,784  WARNING   Fetch failed (1/3): https://feeds.nbcnews.com/nbcnews/public/politics -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6660>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:49,145  WARNING   Fetch failed (2/3): https://feeds.nbcnews.com/nbcnews/public/politics -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6900>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:53,478  WARNING   Fetch failed (3/3): https://feeds.nbcnews.com/nbcnews/public/politics -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB66F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:55,530  WARNING   Fetch failed (1/3): https://feeds.nbcnews.com/nbcnews/public/world -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AC8080>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:49:58,411  WARNING   Fetch failed (2/3): https://feeds.nbcnews.com/nbcnews/public/world -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A239E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:02,582  WARNING   Fetch failed (3/3): https://feeds.nbcnews.com/nbcnews/public/world -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4800>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:04,620  WARNING   Fetch failed (1/3): https://feeds.nbcnews.com/nbcnews/public/business -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/business (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4050>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:08,093  WARNING   Fetch failed (2/3): https://feeds.nbcnews.com/nbcnews/public/business -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/business (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4D10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:12,375  WARNING   Fetch failed (3/3): https://feeds.nbcnews.com/nbcnews/public/business -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/business (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AC8110>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:14,390  WARNING   Fetch failed (1/3): https://feeds.nbcnews.com/nbcnews/public/science -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/science (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AC8B00>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:17,450  WARNING   Fetch failed (2/3): https://feeds.nbcnews.com/nbcnews/public/science -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/science (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A22CF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:21,490  WARNING   Fetch failed (3/3): https://feeds.nbcnews.com/nbcnews/public/science -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/science (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4380>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:23,530  WARNING   Fetch failed (1/3): https://feeds.nbcnews.com/nbcnews/public/tech -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/tech (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4AD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:26,603  WARNING   Fetch failed (2/3): https://feeds.nbcnews.com/nbcnews/public/tech -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/tech (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB48F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:30,320  WARNING   Fetch failed (3/3): https://feeds.nbcnews.com/nbcnews/public/tech -> HTTPSConnectionPool(host='feeds.nbcnews.com', port=443): Max retries exceeded with url: /nbcnews/public/tech (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6AB0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:30,320  INFO      Collecting NBC URLs from seed pages...
+2026-04-18 02:50:32,369  WARNING   Fetch failed (1/3): https://www.nbcnews.com/ -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB71D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:35,737  WARNING   Fetch failed (2/3): https://www.nbcnews.com/ -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A23BC0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:39,426  WARNING   Fetch failed (3/3): https://www.nbcnews.com/ -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6D50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:41,472  WARNING   Fetch failed (1/3): https://www.nbcnews.com/politics -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB53A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:45,015  WARNING   Fetch failed (2/3): https://www.nbcnews.com/politics -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB5C40>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:49,396  WARNING   Fetch failed (3/3): https://www.nbcnews.com/politics -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /politics (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6FC0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:51,437  WARNING   Fetch failed (1/3): https://www.nbcnews.com/us-news -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /us-news (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6C60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:54,581  WARNING   Fetch failed (2/3): https://www.nbcnews.com/us-news -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /us-news (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1A22F60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:50:58,869  WARNING   Fetch failed (3/3): https://www.nbcnews.com/us-news -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /us-news (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4F20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:51:00,907  WARNING   Fetch failed (1/3): https://www.nbcnews.com/world -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB53D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:51:04,161  WARNING   Fetch failed (2/3): https://www.nbcnews.com/world -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB47A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:51:08,366  WARNING   Fetch failed (3/3): https://www.nbcnews.com/world -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /world (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB74A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:51:10,423  WARNING   Fetch failed (1/3): https://www.nbcnews.com/business -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /business (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AC8E60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:51:13,545  WARNING   Fetch failed (2/3): https://www.nbcnews.com/business -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /business (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB4E30>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:51:17,726  WARNING   Fetch failed (3/3): https://www.nbcnews.com/business -> HTTPSConnectionPool(host='www.nbcnews.com', port=443): Max retries exceeded with url: /business (Caused by ProxyError('Unable to connect to proxy', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017BD1AB6210>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')))
+2026-04-18 02:51:17,726  INFO      NBC: collected 0 URLs.
+2026-04-18 03:08:27,754  INFO      Collecting FoxNews URLs from feeds...
+2026-04-18 03:08:27,875  INFO      FoxNews: collected 20 URLs.
+2026-04-18 03:08:27,875  INFO      Collecting NBC URLs from feeds...
+2026-04-18 03:08:28,924  INFO      NBC: collected 20 URLs.
+2026-04-18 03:08:28,925  INFO      Wrote 40 total URLs to data\raw\original_urls.csv
+2026-04-18 03:18:26,457  INFO      Collecting FoxNews URLs from feeds...
+2026-04-18 03:18:29,268  INFO      FoxNews: collected 40 URLs.
+2026-04-18 03:18:29,268  INFO      Collecting NBC URLs from feeds...
+2026-04-18 03:18:31,962  INFO      NBC: collected 40 URLs.
+2026-04-18 03:18:31,963  INFO      Wrote 80 total URLs to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv
+2026-04-18 03:21:31,089  INFO      Collecting FoxNews URLs from sitemaps...
+2026-04-18 03:21:33,934  INFO      FoxNews sitemap crawl done: 2 sitemap files visited, 280 candidate URLs collected.
+2026-04-18 03:21:33,934  INFO      FoxNews: collected 10 URLs.
+2026-04-18 03:21:33,934  INFO      Collecting NBC URLs from sitemaps...
+2026-04-18 03:21:37,223  INFO      NBC sitemap crawl done: 2 sitemap files visited, 97 candidate URLs collected.
+2026-04-18 03:21:37,223  INFO      NBC: collected 10 URLs.
+2026-04-18 03:21:37,227  INFO      Wrote 20 total URLs to data\raw\original_urls.csv
+2026-04-18 03:25:34,192  INFO      Collecting FoxNews URLs from sitemaps...
+2026-04-18 03:25:36,113  INFO      FoxNews sitemap crawl done: 2 sitemap files visited, 280 candidate URLs collected.
+2026-04-18 03:25:36,113  INFO      FoxNews: collected 40 URLs.
+2026-04-18 03:25:36,113  INFO      Collecting NBC URLs from sitemaps...
+2026-04-18 03:25:39,375  INFO      NBC sitemap crawl done: 2 sitemap files visited, 97 candidate URLs collected.
+2026-04-18 03:25:39,375  INFO      NBC: collected 40 URLs.
+2026-04-18 03:25:39,378  INFO      Wrote 80 total URLs to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv
+2026-04-18 03:29:40,849  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 03:29:45,434  WARNING   Fetch failed (1/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:29:46,437  WARNING   Fetch failed (2/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:29:48,518  WARNING   Fetch failed (3/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:29:48,659  WARNING   Fetch failed (1/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:29:49,818  WARNING   Fetch failed (2/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:29:52,299  WARNING   Fetch failed (3/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:30:18,728  INFO      FoxNews sitemap crawl done: 20 sitemap files visited, 69887 raw records.
+2026-04-18 03:30:18,729  INFO      Collecting FoxNews from feeds...
+2026-04-18 03:30:26,061  INFO      Collecting FoxNews from seed pages...
+2026-04-18 03:30:31,681  INFO      FoxNews deduped records: 66499
+2026-04-18 03:30:31,699  INFO      FoxNews backfill slice: start=0 end=5 total=66499
+2026-04-18 03:30:31,700  INFO      FoxNews: selected 5 URLs for output.
+2026-04-18 03:30:31,700  INFO      Collecting NBC from sitemaps...
+2026-04-18 03:30:39,775  WARNING   Fetch failed (1/3): https://www.nbcnews.com/sitemap.xml -> 404 Client Error: Not Found for url: https://www.nbcnews.com/sitemap.xml
+2026-04-18 03:30:40,806  WARNING   Fetch failed (2/3): https://www.nbcnews.com/sitemap.xml -> 404 Client Error: Not Found for url: https://www.nbcnews.com/sitemap.xml
+2026-04-18 03:30:42,523  WARNING   Fetch failed (3/3): https://www.nbcnews.com/sitemap.xml -> 404 Client Error: Not Found for url: https://www.nbcnews.com/sitemap.xml
+2026-04-18 03:30:42,758  WARNING   Fetch failed (1/3): https://www.nbcnews.com/sitemaps/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.nbcnews.com/sitemaps/sitemap-index.xml
+2026-04-18 03:30:43,708  WARNING   Fetch failed (2/3): https://www.nbcnews.com/sitemaps/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.nbcnews.com/sitemaps/sitemap-index.xml
+2026-04-18 03:30:46,206  WARNING   Fetch failed (3/3): https://www.nbcnews.com/sitemaps/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.nbcnews.com/sitemaps/sitemap-index.xml
+2026-04-18 03:30:46,390  WARNING   Fetch failed (1/3): https://www.nbcnews.com/news-sitemap.xml -> 404 Client Error: Not Found for url: https://www.nbcnews.com/news-sitemap.xml
+2026-04-18 03:30:47,528  WARNING   Fetch failed (2/3): https://www.nbcnews.com/news-sitemap.xml -> 404 Client Error: Not Found for url: https://www.nbcnews.com/news-sitemap.xml
+2026-04-18 03:30:49,895  WARNING   Fetch failed (3/3): https://www.nbcnews.com/news-sitemap.xml -> 404 Client Error: Not Found for url: https://www.nbcnews.com/news-sitemap.xml
+2026-04-18 03:31:04,544  INFO      NBC sitemap crawl done: 20 sitemap files visited, 2297 raw records.
+2026-04-18 03:31:04,544  INFO      Collecting NBC from feeds...
+2026-04-18 03:31:11,621  INFO      Collecting NBC from seed pages...
+2026-04-18 03:31:17,865  INFO      NBC deduped records: 2209
+2026-04-18 03:31:17,871  INFO      NBC backfill slice: start=0 end=5 total=2209
+2026-04-18 03:31:17,871  INFO      NBC: selected 5 URLs for output.
+2026-04-18 03:31:17,873  INFO      Saved state to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\collect_urls_state.json
+2026-04-18 03:31:17,874  INFO      Wrote 10 total URLs to data\raw\original_urls.csv
+2026-04-18 03:31:41,213  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 03:31:43,714  WARNING   Fetch failed (1/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:31:45,164  WARNING   Fetch failed (2/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:31:47,350  WARNING   Fetch failed (3/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:31:47,555  WARNING   Fetch failed (1/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:31:49,241  WARNING   Fetch failed (2/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:31:51,580  WARNING   Fetch failed (3/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:32:09,286  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 03:32:11,352  WARNING   Fetch failed (1/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:32:12,341  WARNING   Fetch failed (2/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:32:15,038  WARNING   Fetch failed (3/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:32:15,163  WARNING   Fetch failed (1/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:32:16,572  WARNING   Fetch failed (2/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:32:18,405  WARNING   Fetch failed (3/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:32:19,455  INFO      FoxNews sitemap crawl done: 5 sitemap files visited, 560 raw records.
+2026-04-18 03:32:19,455  INFO      Collecting FoxNews from feeds...
+2026-04-18 03:32:26,849  INFO      Collecting FoxNews from seed pages...
+2026-04-18 03:32:28,761  INFO      FoxNews sitemap progress: 25 sitemap files visited, 119824 raw records.
+2026-04-18 03:32:32,415  INFO      FoxNews deduped records: 458
+2026-04-18 03:32:32,415  INFO      FoxNews backfill slice: start=5 end=10 total=458
+2026-04-18 03:32:32,415  INFO      FoxNews: selected 5 URLs for output.
+2026-04-18 03:32:32,415  INFO      Collecting NBC from sitemaps...
+2026-04-18 03:32:38,646  INFO      NBC sitemap crawl done: 5 sitemap files visited, 1444 raw records.
+2026-04-18 03:32:38,647  INFO      Collecting NBC from feeds...
+2026-04-18 03:32:45,707  INFO      Collecting NBC from seed pages...
+2026-04-18 03:32:52,965  INFO      NBC deduped records: 1511
+2026-04-18 03:32:52,966  INFO      NBC backfill slice: start=5 end=10 total=1511
+2026-04-18 03:32:52,966  INFO      NBC: selected 5 URLs for output.
+2026-04-18 03:32:52,967  INFO      Saved state to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\collect_urls_state.json
+2026-04-18 03:32:52,968  INFO      Wrote 10 total URLs to data\raw\original_urls.csv
+2026-04-18 03:33:19,870  INFO      FoxNews sitemap progress: 50 sitemap files visited, 369180 raw records.
+2026-04-18 03:34:09,287  INFO      FoxNews sitemap progress: 75 sitemap files visited, 618837 raw records.
+2026-04-18 03:34:37,085  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 03:34:39,720  WARNING   Fetch failed (1/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:34:41,246  WARNING   Fetch failed (2/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:34:43,235  WARNING   Fetch failed (3/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:34:43,334  WARNING   Fetch failed (1/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:34:44,621  WARNING   Fetch failed (2/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:34:47,209  WARNING   Fetch failed (3/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:35:52,210  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 03:35:56,130  WARNING   Fetch failed (1/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:35:57,404  WARNING   Fetch failed (2/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:35:59,508  WARNING   Fetch failed (3/3): https://www.foxnews.com/sitemap-index.xml -> 404 Client Error: Not Found for url: https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:35:59,674  WARNING   Fetch failed (1/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:36:01,297  WARNING   Fetch failed (2/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:36:03,143  WARNING   Fetch failed (3/3): https://moxie.foxnews.com/google-publisher/sitemap.xml -> 400 Client Error: Bad Request for url: https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:36:32,374  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 03:36:35,186  WARNING   Fetch failed (permanent 404): https://www.foxnews.com/sitemap-index.xml
+2026-04-18 03:36:35,388  WARNING   Fetch failed (permanent 400): https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 03:37:11,642  INFO      FoxNews sitemap progress: 25 sitemap files visited, 119824 raw records.
+2026-04-18 03:38:08,862  INFO      FoxNews sitemap progress: 50 sitemap files visited, 369180 raw records.
+2026-04-18 03:39:08,854  INFO      FoxNews sitemap progress: 75 sitemap files visited, 618837 raw records.
+2026-04-18 03:40:20,216  INFO      FoxNews sitemap progress: 100 sitemap files visited, 859690 raw records.
+2026-04-18 03:41:37,090  INFO      FoxNews sitemap progress: 125 sitemap files visited, 1107877 raw records.
+2026-04-18 03:42:57,385  INFO      FoxNews sitemap progress: 150 sitemap files visited, 1357092 raw records.
+2026-04-18 03:44:50,993  INFO      FoxNews sitemap progress: 175 sitemap files visited, 1606315 raw records.
+2026-04-18 03:45:53,910  INFO      FoxNews sitemap progress: 200 sitemap files visited, 1646220 raw records.
+2026-04-18 04:03:32,169  WARNING   Fetch failed (1/3): https://www.foxnews.com/sitemap.xml?type=videos&page=134 -> HTTPSConnectionPool(host='www.foxnews.com', port=443): Read timed out. (read timeout=20)
+2026-04-18 04:03:53,854  INFO      FoxNews sitemap progress: 225 sitemap files visited, 1646220 raw records.
+2026-04-18 04:04:57,660  INFO      FoxNews sitemap progress: 250 sitemap files visited, 1646220 raw records.
+2026-04-18 04:06:26,510  INFO      FoxNews sitemap progress: 275 sitemap files visited, 1646220 raw records.
+2026-04-18 04:07:44,608  INFO      FoxNews sitemap progress: 300 sitemap files visited, 1646220 raw records.
+2026-04-18 04:08:13,733  INFO      FoxNews sitemap crawl done: 312 sitemap files visited, 1646220 raw records.
+2026-04-18 04:08:13,752  INFO      Collecting FoxNews from feeds...
+2026-04-18 04:08:20,429  INFO      Collecting FoxNews from seed pages...
+2026-04-18 04:08:27,559  INFO      FoxNews deduped records: 1612217
+2026-04-18 04:08:28,164  INFO      FoxNews backfill slice: start=0 end=200 total=1612217
+2026-04-18 04:08:28,164  INFO      FoxNews: selected 200 URLs for output.
+2026-04-18 04:08:28,164  INFO      Collecting NBC from sitemaps...
+2026-04-18 04:08:35,898  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemap.xml
+2026-04-18 04:08:36,129  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemaps/sitemap-index.xml
+2026-04-18 04:08:36,411  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/news-sitemap.xml
+2026-04-18 04:08:54,423  INFO      NBC sitemap progress: 25 sitemap files visited, 2472 raw records.
+2026-04-18 04:09:24,956  INFO      NBC sitemap progress: 50 sitemap files visited, 2735 raw records.
+2026-04-18 04:09:57,309  INFO      NBC sitemap progress: 75 sitemap files visited, 3044 raw records.
+2026-04-18 04:10:30,295  INFO      NBC sitemap progress: 100 sitemap files visited, 3662 raw records.
+2026-04-18 04:11:01,428  INFO      NBC sitemap progress: 125 sitemap files visited, 4112 raw records.
+2026-04-18 04:11:35,167  INFO      NBC sitemap progress: 150 sitemap files visited, 4474 raw records.
+2026-04-18 04:12:16,246  INFO      NBC sitemap progress: 175 sitemap files visited, 4815 raw records.
+2026-04-18 04:12:56,397  INFO      NBC sitemap progress: 200 sitemap files visited, 5005 raw records.
+2026-04-18 04:13:37,246  INFO      NBC sitemap progress: 225 sitemap files visited, 5026 raw records.
+2026-04-18 04:14:18,780  INFO      NBC sitemap progress: 250 sitemap files visited, 5099 raw records.
+2026-04-18 04:14:56,916  INFO      NBC sitemap progress: 275 sitemap files visited, 5099 raw records.
+2026-04-18 04:15:34,670  INFO      NBC sitemap progress: 300 sitemap files visited, 5314 raw records.
+2026-04-18 04:16:12,185  INFO      NBC sitemap progress: 325 sitemap files visited, 5411 raw records.
+2026-04-18 04:16:46,318  INFO      NBC sitemap progress: 350 sitemap files visited, 7996 raw records.
+2026-04-18 04:17:18,844  INFO      NBC sitemap progress: 375 sitemap files visited, 23906 raw records.
+2026-04-18 04:17:53,723  INFO      NBC sitemap progress: 400 sitemap files visited, 57254 raw records.
+2026-04-18 04:18:23,059  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 04:18:26,273  WARNING   Fetch failed (permanent 404): https://www.foxnews.com/sitemap-index.xml
+2026-04-18 04:18:26,485  WARNING   Fetch failed (permanent 400): https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 04:19:01,781  INFO      FoxNews sitemap progress: 25 sitemap files visited, 119826 raw records.
+2026-04-18 04:19:02,764  INFO      FoxNews sitemap crawl done: 25 sitemap files visited, 119826 raw records.
+2026-04-18 04:19:02,774  INFO      Collecting FoxNews from feeds...
+2026-04-18 04:19:10,345  INFO      Collecting FoxNews from seed pages...
+2026-04-18 04:19:16,215  INFO      FoxNews deduped records: 114777
+2026-04-18 04:19:16,256  INFO      FoxNews backfill slice: start=0 end=114777 total=114777 (all records)
+2026-04-18 04:19:16,264  INFO      FoxNews: selected 114777 URLs for output.
+2026-04-18 04:19:16,264  INFO      Collecting NBC from sitemaps...
+2026-04-18 04:19:23,925  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemap.xml
+2026-04-18 04:19:24,316  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemaps/sitemap-index.xml
+2026-04-18 04:19:24,943  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/news-sitemap.xml
+2026-04-18 04:19:41,448  INFO      NBC sitemap progress: 25 sitemap files visited, 2472 raw records.
+2026-04-18 04:19:42,449  INFO      NBC sitemap crawl done: 25 sitemap files visited, 2472 raw records.
+2026-04-18 04:19:42,449  INFO      Collecting NBC from feeds...
+2026-04-18 04:19:49,449  INFO      Collecting NBC from seed pages...
+2026-04-18 04:19:55,745  INFO      NBC deduped records: 2384
+2026-04-18 04:19:55,769  INFO      NBC backfill slice: start=0 end=2384 total=2384 (all records)
+2026-04-18 04:19:55,769  INFO      NBC: selected 2384 URLs for output.
+2026-04-18 04:19:55,769  INFO      Saved state to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\collect_urls_state.json
+2026-04-18 04:19:55,938  INFO      Wrote 117161 total URLs to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv
+2026-04-18 04:21:22,127  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 04:21:24,692  WARNING   Fetch failed (permanent 404): https://www.foxnews.com/sitemap-index.xml
+2026-04-18 04:21:24,909  WARNING   Fetch failed (permanent 400): https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 04:21:56,489  INFO      FoxNews sitemap progress: 25 sitemap files visited, 119826 raw records.
+2026-04-18 04:21:57,316  INFO      FoxNews sitemap crawl done: 25 sitemap files visited, 119826 raw records.
+2026-04-18 04:21:57,322  INFO      Collecting FoxNews from feeds...
+2026-04-18 04:22:03,633  INFO      Collecting FoxNews from seed pages...
+2026-04-18 04:22:09,430  INFO      FoxNews deduped records: 114777
+2026-04-18 04:22:09,473  INFO      FoxNews backfill slice: start=114777 end=114777 total=114777
+2026-04-18 04:22:09,474  INFO      FoxNews: selected 0 URLs for output.
+2026-04-18 04:22:09,474  INFO      Collecting NBC from sitemaps...
+2026-04-18 04:22:17,106  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemap.xml
+2026-04-18 04:22:17,319  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemaps/sitemap-index.xml
+2026-04-18 04:22:17,745  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/news-sitemap.xml
+2026-04-18 04:22:34,407  INFO      NBC sitemap progress: 25 sitemap files visited, 2472 raw records.
+2026-04-18 04:22:35,249  INFO      NBC sitemap crawl done: 25 sitemap files visited, 2472 raw records.
+2026-04-18 04:22:35,249  INFO      Collecting NBC from feeds...
+2026-04-18 04:22:42,017  INFO      Collecting NBC from seed pages...
+2026-04-18 04:22:53,438  INFO      NBC deduped records: 2385
+2026-04-18 04:22:53,453  INFO      NBC backfill slice: start=2384 end=2385 total=2385
+2026-04-18 04:22:53,453  INFO      NBC: selected 1 URLs for output.
+2026-04-18 04:22:53,454  INFO      Saved state to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\collect_urls_state.json
+2026-04-18 04:22:53,457  INFO      Wrote 1 total URLs to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv
+2026-04-18 04:24:35,717  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 04:24:39,245  WARNING   Fetch failed (permanent 404): https://www.foxnews.com/sitemap-index.xml
+2026-04-18 04:24:39,473  WARNING   Fetch failed (permanent 400): https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 04:25:14,558  INFO      FoxNews sitemap progress: 25 sitemap files visited, 119826 raw records.
+2026-04-18 04:25:58,141  INFO      FoxNews sitemap progress: 50 sitemap files visited, 369182 raw records.
+2026-04-18 04:26:41,012  INFO      FoxNews sitemap progress: 75 sitemap files visited, 618839 raw records.
+2026-04-18 04:27:29,344  INFO      FoxNews sitemap progress: 100 sitemap files visited, 859692 raw records.
+2026-04-18 04:30:05,922  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 04:30:10,215  WARNING   Fetch failed (permanent 404): https://www.foxnews.com/sitemap-index.xml
+2026-04-18 04:30:10,438  WARNING   Fetch failed (permanent 400): https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 04:30:39,581  INFO      FoxNews sitemap progress: 25 sitemap files visited, 119828 raw records.
+2026-04-18 04:30:40,513  INFO      FoxNews sitemap crawl done: 25 sitemap files visited, 119828 raw records.
+2026-04-18 04:30:40,517  INFO      Collecting FoxNews from feeds...
+2026-04-18 04:30:47,839  INFO      Collecting FoxNews from seed pages...
+2026-04-18 04:30:53,528  INFO      FoxNews deduped records: 114777
+2026-04-18 04:30:53,574  INFO      FoxNews backfill slice: start=0 end=114777 total=114777 (all records)
+2026-04-18 04:30:53,584  INFO      FoxNews: selected 114777 URLs for output.
+2026-04-18 04:30:53,584  INFO      Collecting NBC from sitemaps...
+2026-04-18 04:31:01,183  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemap.xml
+2026-04-18 04:31:01,485  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemaps/sitemap-index.xml
+2026-04-18 04:31:01,702  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/news-sitemap.xml
+2026-04-18 04:31:20,763  INFO      NBC sitemap progress: 25 sitemap files visited, 2472 raw records.
+2026-04-18 04:31:46,293  INFO      NBC sitemap progress: 50 sitemap files visited, 2735 raw records.
+2026-04-18 04:32:12,777  INFO      NBC sitemap progress: 75 sitemap files visited, 3044 raw records.
+2026-04-18 04:32:39,207  INFO      NBC sitemap progress: 100 sitemap files visited, 3662 raw records.
+2026-04-18 04:33:07,101  INFO      NBC sitemap progress: 125 sitemap files visited, 4112 raw records.
+2026-04-18 04:33:34,346  INFO      NBC sitemap progress: 150 sitemap files visited, 4474 raw records.
+2026-04-18 04:34:01,864  INFO      NBC sitemap progress: 175 sitemap files visited, 4815 raw records.
+2026-04-18 04:34:29,788  INFO      NBC sitemap progress: 200 sitemap files visited, 5005 raw records.
+2026-04-18 04:34:59,360  INFO      NBC sitemap progress: 225 sitemap files visited, 5026 raw records.
+2026-04-18 04:35:29,383  INFO      NBC sitemap progress: 250 sitemap files visited, 5099 raw records.
+2026-04-18 04:35:58,567  INFO      NBC sitemap progress: 275 sitemap files visited, 5099 raw records.
+2026-04-18 04:36:27,334  INFO      NBC sitemap progress: 300 sitemap files visited, 5314 raw records.
+2026-04-18 04:36:55,887  INFO      NBC sitemap progress: 325 sitemap files visited, 5411 raw records.
+2026-04-18 04:37:25,170  INFO      NBC sitemap progress: 350 sitemap files visited, 7996 raw records.
+2026-04-18 04:37:51,211  INFO      NBC sitemap progress: 375 sitemap files visited, 23906 raw records.
+2026-04-18 04:38:19,834  INFO      NBC sitemap progress: 400 sitemap files visited, 57254 raw records.
+2026-04-18 04:38:20,796  INFO      NBC sitemap crawl done: 400 sitemap files visited, 57254 raw records.
+2026-04-18 04:38:20,797  INFO      Collecting NBC from feeds...
+2026-04-18 04:38:26,908  INFO      Collecting NBC from seed pages...
+2026-04-18 04:38:33,114  INFO      NBC deduped records: 57155
+2026-04-18 04:38:33,140  INFO      NBC backfill slice: start=0 end=57155 total=57155 (all records)
+2026-04-18 04:38:33,154  INFO      NBC: selected 57155 URLs for output.
+2026-04-18 04:38:33,156  INFO      Saved state to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\collect_urls_state.json
+2026-04-18 04:38:33,512  INFO      Wrote 171932 total URLs to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv
