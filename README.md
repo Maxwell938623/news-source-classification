@@ -186,3 +186,7 @@ python src/evaluate.py --model models/baseline_pipeline.joblib --suffix baseline
 ```
 
 This generates extra analysis (confusion matrix, misclassified samples, feature plots) under `reports/` and `reports/figures/`.
+
+
+
+python src/continuous_scrape.py --interval-minutes 20 --per-source 0 --collector-mode backfill --collector-max-sitemaps-foxnews 25 --collector-max-sitemaps-nbc 400
