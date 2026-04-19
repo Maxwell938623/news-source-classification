@@ -46,7 +46,8 @@ DEFAULT_LOG = LOGS_DIR / "scrape.log"
 # ---------------------------------------------------------------------------
 
 #: Label encoding — must be consistent with every other script in this project.
-LABEL_MAP: dict[str, int] = {"FoxNews": 0, "NBC": 1}
+# LABEL_MAP: dict[str, int] = {"FoxNews": 0, "NBC": 1}
+LABEL_MAP: dict[str, int] = {"NBC": 1}
 
 REQUEST_HEADERS = {
     "User-Agent": (
@@ -367,6 +368,7 @@ def scrape(
 
             # Skip unrecognised sources
             if source not in LABEL_MAP:
+                continue
                 msg = f"unrecognised source '{source}'"
                 log.warning("SKIP  %s  — %s", url, msg)
                 writer.writerow({

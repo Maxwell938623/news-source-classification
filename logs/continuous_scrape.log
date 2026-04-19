@@ -56,3 +56,23 @@
 2026-04-18 04:38:34,188  INFO      Cycle 1: added 54771 new URLs to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\original_urls.csv
 2026-04-18 04:38:34,188  INFO      Running: C:\Users\maxwe\AppData\Local\Programs\Python\Python312\python.exe C:\Users\maxwe\PromProjects\news-source-classification\src\scrape.py --urls C:\Users\maxwe\PromProjects\news-source-classification\data\raw\original_urls.csv --output C:\Users\maxwe\PromProjects\news-source-classification\data\scraped\raw_scraped_headlines.csv --resume --delay 1.0 --timeout 15 --max-retries 3
 2026-04-18 15:22:10,673  INFO      Stopped by user after 1 cycle(s).
+2026-04-18 12:36:12,886  INFO      Starting continuous scrape loop. Press Ctrl+C to stop.
+2026-04-18 12:36:12,984  INFO      ============================================================
+2026-04-18 12:36:12,984  INFO      Cycle 1 started
+2026-04-18 12:36:12,984  INFO      Running: C:\Users\hello\PromProjects\news-source-classification\venv\Scripts\python.exe C:\Users\hello\PromProjects\news-source-classification\src\collect_urls.py --output C:\Users\hello\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv --per-source 0 --mode backfill --state-file C:\Users\hello\PromProjects\news-source-classification\data\raw\collect_urls_state.json --timeout 20 --max-retries 3 --delay 0.8 --max-sitemaps 1500 --max-sitemaps-foxnews 25 --max-sitemaps-nbc 400
+2026-04-18 12:48:24,899  INFO      Cycle 1: added 352 new URLs to C:\Users\hello\PromProjects\news-source-classification\data\raw\original_urls.csv
+2026-04-18 12:48:24,900  INFO      Running: C:\Users\hello\PromProjects\news-source-classification\venv\Scripts\python.exe C:\Users\hello\PromProjects\news-source-classification\src\scrape.py --urls C:\Users\hello\PromProjects\news-source-classification\data\raw\original_urls.csv --output C:\Users\hello\PromProjects\news-source-classification\data\scraped\raw_scraped_headlines.csv --resume --delay 1.0 --timeout 15 --max-retries 3
+2026-04-18 22:42:12,687  INFO      Starting continuous scrape loop. Press Ctrl+C to stop.
+2026-04-18 22:42:12,688  INFO      ============================================================
+2026-04-18 22:42:12,688  INFO      Cycle 1 started
+2026-04-18 22:42:12,688  INFO      Running: C:\Users\hello\anaconda3\python.exe C:\Users\hello\PromProjects\news-source-classification\src\collect_urls.py --output C:\Users\hello\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv --per-source 0 --mode backfill --state-file C:\Users\hello\PromProjects\news-source-classification\data\raw\collect_urls_state.json --timeout 20 --max-retries 3 --delay 0.8 --max-sitemaps 1500 --max-sitemaps-foxnews 0 --max-sitemaps-nbc 400
+2026-04-18 22:52:55,844  INFO      Cycle 1: added 43 new URLs to C:\Users\hello\PromProjects\news-source-classification\data\raw\original_urls.csv
+2026-04-18 22:52:55,845  INFO      Running: C:\Users\hello\anaconda3\python.exe C:\Users\hello\PromProjects\news-source-classification\src\scrape.py --urls C:\Users\hello\PromProjects\news-source-classification\data\raw\original_urls.csv --output C:\Users\hello\PromProjects\news-source-classification\data\scraped\raw_scraped_headlines.csv --resume --delay 1.0 --timeout 15 --max-retries 3
+2026-04-18 22:56:51,903  INFO      Stopped by user after 1 cycle(s).
+2026-04-18 23:04:53,484  INFO      Starting continuous scrape loop. Press Ctrl+C to stop.
+2026-04-18 23:04:53,484  INFO      ============================================================
+2026-04-18 23:04:53,485  INFO      Cycle 1 started
+2026-04-18 23:04:53,485  INFO      Running: C:\Users\hello\anaconda3\python.exe C:\Users\hello\PromProjects\news-source-classification\src\collect_urls.py --output C:\Users\hello\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv --per-source 0 --mode backfill --state-file C:\Users\hello\PromProjects\news-source-classification\data\raw\collect_urls_state.json --timeout 20 --max-retries 3 --delay 0.8 --max-sitemaps 1500 --max-sitemaps-foxnews 0 --max-sitemaps-nbc 0
+2026-04-18 23:05:21,417  INFO      Cycle 1: added 1 new URLs to C:\Users\hello\PromProjects\news-source-classification\data\raw\original_urls.csv
+2026-04-18 23:05:21,418  INFO      Running: C:\Users\hello\anaconda3\python.exe C:\Users\hello\PromProjects\news-source-classification\src\scrape.py --urls C:\Users\hello\PromProjects\news-source-classification\data\raw\original_urls.csv --output C:\Users\hello\PromProjects\news-source-classification\data\scraped\raw_scraped_headlines.csv --resume --delay 1.0 --timeout 15 --max-retries 3
+2026-04-18 23:08:41,382  INFO      Stopped by user after 1 cycle(s).

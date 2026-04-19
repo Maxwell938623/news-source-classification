@@ -304,3 +304,92 @@
 2026-04-18 04:38:33,154  INFO      NBC: selected 57155 URLs for output.
 2026-04-18 04:38:33,156  INFO      Saved state to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\collect_urls_state.json
 2026-04-18 04:38:33,512  INFO      Wrote 171932 total URLs to C:\Users\maxwe\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv
+2026-04-18 12:36:13,648  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 12:36:16,977  WARNING   Fetch failed (permanent 404): https://www.foxnews.com/sitemap-index.xml
+2026-04-18 12:36:17,244  WARNING   Fetch failed (permanent 400): https://moxie.foxnews.com/google-publisher/sitemap.xml
+2026-04-18 12:37:22,390  INFO      FoxNews sitemap progress: 25 sitemap files visited, 119784 raw records.
+2026-04-18 12:37:23,370  INFO      FoxNews sitemap crawl done: 25 sitemap files visited, 119784 raw records.
+2026-04-18 12:37:23,372  INFO      Collecting FoxNews from feeds...
+2026-04-18 12:37:30,971  INFO      Collecting FoxNews from seed pages...
+2026-04-18 12:37:37,995  INFO      FoxNews deduped records: 114755
+2026-04-18 12:37:38,096  INFO      FoxNews backfill slice: start=0 end=114755 total=114755 (all records)
+2026-04-18 12:37:38,146  INFO      FoxNews: selected 114755 URLs for output.
+2026-04-18 12:37:38,146  INFO      Collecting NBC from sitemaps...
+2026-04-18 12:37:45,723  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemap.xml
+2026-04-18 12:37:45,967  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemaps/sitemap-index.xml
+2026-04-18 12:37:46,176  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/news-sitemap.xml
+2026-04-18 12:38:06,900  INFO      NBC sitemap progress: 25 sitemap files visited, 2465 raw records.
+2026-04-18 12:38:37,541  INFO      NBC sitemap progress: 50 sitemap files visited, 2728 raw records.
+2026-04-18 12:39:10,901  INFO      NBC sitemap progress: 75 sitemap files visited, 3037 raw records.
+2026-04-18 12:39:43,237  INFO      NBC sitemap progress: 100 sitemap files visited, 3655 raw records.
+2026-04-18 12:40:16,663  INFO      NBC sitemap progress: 125 sitemap files visited, 4105 raw records.
+2026-04-18 12:40:55,610  INFO      NBC sitemap progress: 150 sitemap files visited, 4467 raw records.
+2026-04-18 12:41:34,042  INFO      NBC sitemap progress: 175 sitemap files visited, 4808 raw records.
+2026-04-18 12:42:17,403  INFO      NBC sitemap progress: 200 sitemap files visited, 4998 raw records.
+2026-04-18 12:43:02,576  INFO      NBC sitemap progress: 225 sitemap files visited, 5019 raw records.
+2026-04-18 12:43:50,112  INFO      NBC sitemap progress: 250 sitemap files visited, 5092 raw records.
+2026-04-18 12:44:37,382  INFO      NBC sitemap progress: 275 sitemap files visited, 5092 raw records.
+2026-04-18 12:45:20,253  INFO      NBC sitemap progress: 300 sitemap files visited, 5307 raw records.
+2026-04-18 12:46:02,806  INFO      NBC sitemap progress: 325 sitemap files visited, 5404 raw records.
+2026-04-18 12:46:44,199  INFO      NBC sitemap progress: 350 sitemap files visited, 7989 raw records.
+2026-04-18 12:47:22,902  INFO      NBC sitemap progress: 375 sitemap files visited, 23899 raw records.
+2026-04-18 12:48:06,409  INFO      NBC sitemap progress: 400 sitemap files visited, 57247 raw records.
+2026-04-18 12:48:07,347  INFO      NBC sitemap crawl done: 400 sitemap files visited, 57247 raw records.
+2026-04-18 12:48:07,349  INFO      Collecting NBC from feeds...
+2026-04-18 12:48:14,018  INFO      Collecting NBC from seed pages...
+2026-04-18 12:48:23,125  INFO      NBC deduped records: 57168
+2026-04-18 12:48:23,187  INFO      NBC backfill slice: start=0 end=57168 total=57168 (all records)
+2026-04-18 12:48:23,209  INFO      NBC: selected 57168 URLs for output.
+2026-04-18 12:48:23,210  INFO      Saved state to C:\Users\hello\PromProjects\news-source-classification\data\raw\collect_urls_state.json
+2026-04-18 12:48:23,674  INFO      Wrote 171923 total URLs to C:\Users\hello\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv
+2026-04-18 22:42:17,143  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 22:42:17,252  INFO      FoxNews sitemap crawl done: 0 sitemap files visited, 0 raw records.
+2026-04-18 22:42:17,253  INFO      Collecting FoxNews from feeds...
+2026-04-18 22:42:24,224  INFO      Collecting FoxNews from seed pages...
+2026-04-18 22:42:29,975  INFO      FoxNews deduped records: 313
+2026-04-18 22:42:29,976  INFO      FoxNews backfill slice: start=0 end=313 total=313 (all records)
+2026-04-18 22:42:29,976  INFO      FoxNews: selected 313 URLs for output.
+2026-04-18 22:42:29,977  INFO      Collecting NBC from sitemaps...
+2026-04-18 22:42:39,075  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemap.xml
+2026-04-18 22:42:39,383  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/sitemaps/sitemap-index.xml
+2026-04-18 22:42:39,701  WARNING   Fetch failed (permanent 404): https://www.nbcnews.com/news-sitemap.xml
+2026-04-18 22:42:59,171  INFO      NBC sitemap progress: 25 sitemap files visited, 2465 raw records.
+2026-04-18 22:43:30,358  INFO      NBC sitemap progress: 50 sitemap files visited, 2728 raw records.
+2026-04-18 22:44:02,838  INFO      NBC sitemap progress: 75 sitemap files visited, 3037 raw records.
+2026-04-18 22:44:35,502  INFO      NBC sitemap progress: 100 sitemap files visited, 3655 raw records.
+2026-04-18 22:45:06,757  INFO      NBC sitemap progress: 125 sitemap files visited, 4105 raw records.
+2026-04-18 22:45:42,373  INFO      NBC sitemap progress: 150 sitemap files visited, 4467 raw records.
+2026-04-18 22:46:20,316  INFO      NBC sitemap progress: 175 sitemap files visited, 4808 raw records.
+2026-04-18 22:46:58,550  INFO      NBC sitemap progress: 200 sitemap files visited, 4998 raw records.
+2026-04-18 22:47:46,886  INFO      NBC sitemap progress: 225 sitemap files visited, 5019 raw records.
+2026-04-18 22:48:30,707  INFO      NBC sitemap progress: 250 sitemap files visited, 5092 raw records.
+2026-04-18 22:49:14,896  INFO      NBC sitemap progress: 275 sitemap files visited, 5092 raw records.
+2026-04-18 22:49:58,421  INFO      NBC sitemap progress: 300 sitemap files visited, 5307 raw records.
+2026-04-18 22:50:43,031  INFO      NBC sitemap progress: 325 sitemap files visited, 5404 raw records.
+2026-04-18 22:51:25,416  INFO      NBC sitemap progress: 350 sitemap files visited, 7989 raw records.
+2026-04-18 22:52:00,836  INFO      NBC sitemap progress: 375 sitemap files visited, 23899 raw records.
+2026-04-18 22:52:40,168  INFO      NBC sitemap progress: 400 sitemap files visited, 57247 raw records.
+2026-04-18 22:52:41,168  INFO      NBC sitemap crawl done: 400 sitemap files visited, 57247 raw records.
+2026-04-18 22:52:41,170  INFO      Collecting NBC from feeds...
+2026-04-18 22:52:48,149  INFO      Collecting NBC from seed pages...
+2026-04-18 22:52:54,753  INFO      NBC deduped records: 57177
+2026-04-18 22:52:54,790  INFO      NBC backfill slice: start=0 end=57177 total=57177 (all records)
+2026-04-18 22:52:54,810  INFO      NBC: selected 57177 URLs for output.
+2026-04-18 22:52:54,811  INFO      Saved state to C:\Users\hello\PromProjects\news-source-classification\data\raw\collect_urls_state.json
+2026-04-18 22:52:54,969  INFO      Wrote 57490 total URLs to C:\Users\hello\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv
+2026-04-18 23:04:53,873  INFO      Collecting FoxNews from sitemaps...
+2026-04-18 23:04:53,982  INFO      FoxNews sitemap crawl done: 0 sitemap files visited, 0 raw records.
+2026-04-18 23:04:53,982  INFO      Collecting FoxNews from feeds...
+2026-04-18 23:05:01,139  INFO      Collecting FoxNews from seed pages...
+2026-04-18 23:05:07,108  INFO      FoxNews deduped records: 315
+2026-04-18 23:05:07,110  INFO      FoxNews backfill slice: start=0 end=315 total=315 (all records)
+2026-04-18 23:05:07,110  INFO      FoxNews: selected 315 URLs for output.
+2026-04-18 23:05:07,111  INFO      Collecting NBC from sitemaps...
+2026-04-18 23:05:07,259  INFO      NBC sitemap crawl done: 0 sitemap files visited, 0 raw records.
+2026-04-18 23:05:07,260  INFO      Collecting NBC from feeds...
+2026-04-18 23:05:13,775  INFO      Collecting NBC from seed pages...
+2026-04-18 23:05:20,694  INFO      NBC deduped records: 160
+2026-04-18 23:05:20,695  INFO      NBC backfill slice: start=0 end=160 total=160 (all records)
+2026-04-18 23:05:20,696  INFO      NBC: selected 160 URLs for output.
+2026-04-18 23:05:20,697  INFO      Saved state to C:\Users\hello\PromProjects\news-source-classification\data\raw\collect_urls_state.json
+2026-04-18 23:05:20,704  INFO      Wrote 475 total URLs to C:\Users\hello\PromProjects\news-source-classification\data\raw\latest_collected_urls.csv
