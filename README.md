@@ -105,6 +105,16 @@ Log file:
 python src/preprocess.py --input data/scraped/raw_scraped_headlines.csv
 ```
 
+Filter out rows by URL substrings before preprocessing (optional):
+```bash
+python src/filter_csv_urls.py --input data/scraped/raw_scraped_headlines.csv --output data/scraped/raw_scraped_headlines_clean.csv --contains "/video" --contains "newsletter" --contains "utm_"
+```
+
+Or use a text file of blocked substrings (one per line):
+```bash
+python src/filter_csv_urls.py --input data/raw/original_urls.csv --output data/raw/original_urls_clean.csv --contains-file data/raw/blocked_substrings.txt
+```
+
 Main outputs:
 - `data/processed/clean_headlines.csv`
 - `data/processed/headlines_minimal.csv`
