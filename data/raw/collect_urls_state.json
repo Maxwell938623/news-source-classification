@@ -1,12 +1,12 @@
 {
   "FoxNews": {
-    "cursor": 315,
-    "total_candidates": 315,
-    "updated_at_utc": "2026-04-19T06:05:07.110809+00:00"
+    "cursor": 300,
+    "total_candidates": 300,
+    "updated_at_utc": "2026-04-20T16:35:50.468556+00:00"
   },
   "NBC": {
-    "cursor": 160,
-    "total_candidates": 160,
-    "updated_at_utc": "2026-04-19T06:05:20.695805+00:00"
+    "cursor": 164,
+    "total_candidates": 164,
+    "updated_at_utc": "2026-04-20T16:36:04.136712+00:00"
   }
 }
