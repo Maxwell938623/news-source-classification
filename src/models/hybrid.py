@@ -33,7 +33,7 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import FeatureUnion, Pipeline
-from sklearn.preprocessing import MaxAbsScaler
+from sklearn.preprocessing import MaxAbsScaler, FunctionTransformer
 
 try:
     from ._base import ModelConfig, standalone_train
@@ -122,11 +122,16 @@ def _hybrid_pipeline(
     # MaxAbsScaler normalises each feature column to [-1,1] while preserving
     # sparsity.  It prevents the stylometric features (small absolute values)
     # from being drowned out by the high-dimensional TF-IDF block.
-    return Pipeline([
+    steps = [
         ("features", FeatureUnion(branches)),
         ("scaler",   MaxAbsScaler()),
-        ("clf",      clf),
-    ])
+    ]
+
+    if isinstance(clf, HistGradientBoostingClassifier):
+        steps.append(("to_dense", FunctionTransformer(lambda x: x.toarray(), accept_sparse=True)))
+        
+    steps.append(("clf", clf))
+    return Pipeline(steps)
 
 
 # ---------------------------------------------------------------------------

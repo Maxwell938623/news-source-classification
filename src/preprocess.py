@@ -139,7 +139,7 @@ def preprocess(input_path: Path, output_dir: Path) -> None:
         sys.exit(1)
 
     log.info("Loading raw scraped data from: %s", input_path)
-    df = pd.read_csv(input_path, dtype=str)
+    df = pd.read_csv(input_path, dtype=str, on_bad_lines="warn")
     n_raw = len(df)
     log.info("Total rows loaded: %d", n_raw)
 

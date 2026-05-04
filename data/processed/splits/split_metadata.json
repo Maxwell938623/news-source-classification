@@ -1,0 +1,55 @@
+{
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "sizes": {
+    "total": 128861,
+    "train": 90202,
+    "val": 19329,
+    "test": 19330
+  },
+  "actual_ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "class_distribution": {
+    "train": {
+      "FoxNews": {
+        "count": 57285,
+        "pct": 63.51
+      },
+      "NBC": {
+        "count": 32917,
+        "pct": 36.49
+      }
+    },
+    "val": {
+      "FoxNews": {
+        "count": 12276,
+        "pct": 63.51
+      },
+      "NBC": {
+        "count": 7053,
+        "pct": 36.49
+      }
+    },
+    "test": {
+      "FoxNews": {
+        "count": 12276,
+        "pct": 63.51
+      },
+      "NBC": {
+        "count": 7054,
+        "pct": 36.49
+      }
+    }
+  }
+}

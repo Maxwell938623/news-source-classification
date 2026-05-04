@@ -9,3 +9,27 @@
 2026-04-17 01:41:43,919  INFO      Saved master clean dataset: C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\processed\clean_headlines.csv
 2026-04-17 01:41:43,927  INFO      Saved 5 variant CSV files to C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\processed
 2026-04-17 01:41:43,927  INFO      Saved dataset summary: C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\processed\dataset_summary.txt
+2026-05-03 23:25:35,488  INFO      Loading raw scraped data from: data/scraped/raw_scraped_headlines.csv
+2026-05-03 23:29:23,256  INFO      Loading raw scraped data from: data/scraped/raw_scraped_headlines.csv
+2026-05-03 23:29:23,407  INFO      Total rows loaded: 84825
+2026-05-03 23:29:23,416  INFO      Successful scrapes: 82126  |  Failed/skipped: 2699
+2026-05-03 23:29:23,432  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-03 23:29:23,600  INFO      Removed 211 within-source duplicates.
+2026-05-03 23:29:23,619  INFO      Final clean dataset size: 81915 rows
+2026-05-03 23:29:26,244  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-03 23:29:26,297  WARNING   7905 headlines are fewer than 3 words — inspect for navigation/stub text.
+2026-05-03 23:29:26,736  INFO      Saved master clean dataset: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/data/processed/clean_headlines.csv
+2026-05-03 23:29:27,359  INFO      Saved 5 variant CSV files to /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/data/processed
+2026-05-03 23:29:27,359  INFO      Saved dataset summary: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/data/processed/dataset_summary.txt
+2026-05-03 23:34:26,064  INFO      Loading raw scraped data from: data/scraped/combined_scraped_headlines.csv
+2026-05-03 23:34:26,279  INFO      Total rows loaded: 132271
+2026-05-03 23:34:26,294  INFO      Successful scrapes: 129331  |  Failed/skipped: 2940
+2026-05-03 23:34:26,318  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-03 23:34:26,588  INFO      Removed 314 within-source duplicates.
+2026-05-03 23:34:26,596  WARNING   156 headlines appear in both sources (potential label leakage) — removing.
+2026-05-03 23:34:26,632  INFO      Final clean dataset size: 128861 rows
+2026-05-03 23:34:30,576  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-03 23:34:30,755  WARNING   7940 headlines are fewer than 3 words — inspect for navigation/stub text.
+2026-05-03 23:34:31,322  INFO      Saved master clean dataset: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/data/processed/clean_headlines.csv
+2026-05-03 23:34:32,354  INFO      Saved 5 variant CSV files to /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/data/processed
+2026-05-03 23:34:32,355  INFO      Saved dataset summary: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/data/processed/dataset_summary.txt

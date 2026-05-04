@@ -1,0 +1,59 @@
+2026-05-03 23:30:59,134  INFO      Train size: 57340  |  Test size: 12288
+2026-05-03 23:30:59,137  INFO      Building baseline pipeline: TF-IDF(max_features=100) + LR(max_iter=100)
+2026-05-03 23:35:07,859  INFO      Train size: 90202  |  Test size: 19330
+2026-05-03 23:35:07,863  INFO      Building baseline pipeline: TF-IDF(max_features=100) + LR(max_iter=100)
+2026-05-03 23:35:08,360  INFO      ========================================================
+2026-05-03 23:35:08,360  INFO      BASELINE RESULTS (test split)
+2026-05-03 23:35:08,360  INFO        Accuracy:          0.7050   (handout reports ~0.6649)
+2026-05-03 23:35:08,360  INFO        F1 macro:          0.6481
+2026-05-03 23:35:08,360  INFO        F1 FoxNews:        0.7896
+2026-05-03 23:35:08,360  INFO        F1 NBC:            0.5066
+2026-05-03 23:35:08,360  INFO        Precision macro:   0.6858
+2026-05-03 23:35:08,360  INFO        Recall macro:      0.6433
+2026-05-03 23:35:08,360  INFO      ========================================================
+2026-05-03 23:35:08,366  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.72      0.87      0.79     12276
+         NBC       0.65      0.42      0.51      7054
+
+    accuracy                           0.70     19330
+   macro avg       0.69      0.64      0.65     19330
+weighted avg       0.70      0.70      0.69     19330
+
+2026-05-03 23:35:08,367  INFO      Top 15 features -> NBC  (positive coef):
+2026-05-03 23:35:08,367  INFO        +2.752  2024
+2026-05-03 23:35:08,367  INFO        +2.603  results
+2026-05-03 23:35:08,367  INFO        +2.333  trump
+2026-05-03 23:35:08,367  INFO        +2.055  dies
+2026-05-03 23:35:08,367  INFO        +1.998  ukraine
+2026-05-03 23:35:08,367  INFO        +1.944  shooting
+2026-05-03 23:35:08,367  INFO        +1.876  supreme
+2026-05-03 23:35:08,367  INFO        +1.748  million
+2026-05-03 23:35:08,367  INFO        +1.748  election
+2026-05-03 23:35:08,367  INFO        +1.510  say
+2026-05-03 23:35:08,367  INFO        +1.508  charged
+2026-05-03 23:35:08,367  INFO        +1.366  federal
+2026-05-03 23:35:08,367  INFO        +1.347  china
+2026-05-03 23:35:08,367  INFO        +1.332  accused
+2026-05-03 23:35:08,367  INFO        +1.316  years
+2026-05-03 23:35:08,367  INFO      Top 15 features -> FoxNews  (negative coef):
+2026-05-03 23:35:08,367  INFO        -3.025  obama
+2026-05-03 23:35:08,367  INFO        -2.350  scores
+2026-05-03 23:35:08,367  INFO        -2.228  cup
+2026-05-03 23:35:08,367  INFO        -2.101  beat
+2026-05-03 23:35:08,367  INFO        -1.213  points
+2026-05-03 23:35:08,367  INFO        -1.210  victory
+2026-05-03 23:35:08,367  INFO        -1.207  win
+2026-05-03 23:35:08,367  INFO        -1.087  game
+2026-05-03 23:35:08,367  INFO        -0.920  loss
+2026-05-03 23:35:08,367  INFO        -0.830  coach
+2026-05-03 23:35:08,367  INFO        -0.732  lead
+2026-05-03 23:35:08,367  INFO        -0.476  america
+2026-05-03 23:35:08,367  INFO        -0.468  news
+2026-05-03 23:35:08,367  INFO        -0.432  season
+2026-05-03 23:35:08,367  INFO        -0.420  state
+2026-05-03 23:35:08,369  INFO      Saved pipeline: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/models/baseline_pipeline.joblib
+2026-05-03 23:35:08,369  INFO      Saved baseline metadata: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/models/baseline_pipeline_metadata.json
+2026-05-03 23:35:08,369  INFO      Saved metrics: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/reports/metrics_baseline.json
+2026-05-03 23:35:08,582  INFO      Saved confusion matrix plot.
