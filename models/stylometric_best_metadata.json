@@ -1,0 +1,30 @@
+{
+  "group": "stylometric",
+  "experiment_name": "STYLO_HGB_iter300",
+  "prep_col": "headline_minimal",
+  "description": "15 stylometric features, HistGBM max_iter=300",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "val_f1_macro": 0.6716912438542202,
+  "test_metrics": {
+    "accuracy": 0.7028647568287808,
+    "f1_macro": 0.7020393811533052,
+    "f1_weighted": 0.70284386124206,
+    "f1_foxnews": 0.7177215189873418,
+    "f1_nbc": 0.6863572433192686,
+    "precision_macro": 0.7020690514770036,
+    "recall_macro": 0.7020122185670954,
+    "confusion_matrix": [
+      [
+        567,
+        222
+      ],
+      [
+        224,
+        488
+      ]
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "group": "hybrid",
+  "experiment_name": "HYB_word12_mf10000_style_LR",
+  "prep_col": "headline_minimal",
+  "description": "word (1, 2) mf=10000 + 15 stylo features \u2192 LR C=1",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "val_f1_macro": 0.7588522167114746,
+  "test_metrics": {
+    "accuracy": 0.7748167888074617,
+    "f1_macro": 0.774092340464944,
+    "f1_weighted": 0.7747486054340482,
+    "f1_foxnews": 0.7868852459016393,
+    "f1_nbc": 0.7612994350282486,
+    "precision_macro": 0.7742805050188206,
+    "recall_macro": 0.7739484983124707,
+    "confusion_matrix": [
+      [
+        624,
+        165
+      ],
+      [
+        173,
+        539
+      ]
+    ]
+  }
+}

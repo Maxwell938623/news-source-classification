@@ -1,0 +1,30 @@
+{
+  "experiment_name": "Stack_4base_style_HGB_meta",
+  "group": "G8_stacking",
+  "prep_col": "headline_minimal",
+  "description": "Stacking 4-base (minimal input): word LR + char LR + MNB + stylo LR \u2192 HistGBM meta, cv=5",
+  "estimator_type": "StackingClassifier",
+  "estimator_repr": "StackingClassifier(cv=5,\n                   estimators=[('word_lr',\n                                Pipeline(steps=[('tfidf',\n                                                 TfidfVectorizer(max_features=5000,\n                                                                 ngram_range=(1,\n                                                                              2),\n                                                                 stop_words='english',\n                                                                 sublinear_tf=True)),\n                                                ('clf'",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "train_date": "2026-05-06",
+  "train_size": 16999,
+  "test_size": 3001,
+  "val_metrics": {
+    "val_f1_macro": 0.8003884525276118,
+    "val_accuracy": 0.8006666666666666,
+    "val_f1_fox": 0.8078406169665809,
+    "val_f1_nbc": 0.7929362880886427
+  },
+  "test_metrics": {
+    "accuracy": 0.7957347550816395,
+    "f1_macro": 0.7955426023810739,
+    "f1_weighted": 0.7958621606765797,
+    "f1_foxnews": 0.8018105399288716,
+    "f1_nbc": 0.789274664833276,
+    "precision_macro": 0.7955029627852847,
+    "recall_macro": 0.7962414412232015
+  }
+}

@@ -30,6 +30,7 @@ import logging
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 import pandas as pd
 
@@ -67,6 +68,7 @@ PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 LOGS_DIR = PROJECT_ROOT / "logs"
 
 DEFAULT_INPUT = SCRAPED_DIR / "raw_scraped_headlines.csv"
+DEFAULT_HELPER_DISTRIBUTION = PROJECT_ROOT / "helpers" / "url_with_headlines.csv"
 
 # ---------------------------------------------------------------------------
 # Text-cleaning primitives
@@ -123,10 +125,235 @@ def clean_lemma(text: str, stop_words: set[str], lemmatizer: "WordNetLemmatizer"
 
 
 # ---------------------------------------------------------------------------
+# Topic/section alignment helpers
+# ---------------------------------------------------------------------------
+
+def _infer_source_from_url(url: str) -> str:
+    host = urlparse(str(url)).netloc.lower()
+    if "foxnews.com" in host:
+        return "FoxNews"
+    if "nbcnews.com" in host:
+        return "NBC"
+    return "Other"
+
+
+def _extract_section_from_url(url: str) -> str:
+    path = urlparse(str(url)).path.strip("/")
+    if not path:
+        return "_root"
+    return path.split("/")[0].lower()
+
+
+def _build_helper_section_distribution(helper_csv: Path) -> dict[str, dict[str, float]]:
+    helper_df = pd.read_csv(helper_csv, dtype=str)
+    if "url" not in helper_df.columns:
+        raise ValueError(f"Helper file missing required column 'url': {helper_csv}")
+
+    helper_df["source"] = helper_df["url"].apply(_infer_source_from_url)
+    helper_df = helper_df[helper_df["source"].isin(["FoxNews", "NBC"])].copy()
+    helper_df["section"] = helper_df["url"].apply(_extract_section_from_url)
+
+    dist: dict[str, dict[str, float]] = {}
+    for src, grp in helper_df.groupby("source"):
+        counts = grp["section"].value_counts()
+        total = counts.sum()
+        dist[src] = {sec: float(c / total) for sec, c in counts.items()}
+    return dist
+
+
+def _build_helper_source_distribution(helper_csv: Path) -> dict[str, float]:
+    helper_df = pd.read_csv(helper_csv, dtype=str)
+    if "url" not in helper_df.columns:
+        raise ValueError(f"Helper file missing required column 'url': {helper_csv}")
+    helper_df["source"] = helper_df["url"].apply(_infer_source_from_url)
+    helper_df = helper_df[helper_df["source"].isin(["FoxNews", "NBC"])].copy()
+    counts = helper_df["source"].value_counts()
+    total = counts.sum()
+    return {src: float(c / total) for src, c in counts.items()}
+
+
+def _trim_to_match_helper_sections(
+    df: pd.DataFrame,
+    helper_csv: Path,
+    keep_fraction: float = 0.50,
+    random_state: int = 42,
+) -> tuple[pd.DataFrame, str]:
+    """Trim rows to keep a target fraction while matching helper source/section ratios."""
+    helper_dist = _build_helper_section_distribution(helper_csv)
+    helper_source_props = _build_helper_source_distribution(helper_csv)
+
+    work = df.copy()
+    work = work[work["source"].isin(["FoxNews", "NBC"])].copy()
+    work["section"] = work["url"].apply(_extract_section_from_url)
+
+    trimmed_parts: list[pd.DataFrame] = []
+    notes: list[str] = []
+    per_source_state: dict[str, dict] = {}
+
+    for src in ("FoxNews", "NBC"):
+        sub = work[work["source"] == src].copy()
+        if sub.empty or src not in helper_dist:
+            continue
+
+        avail = sub["section"].value_counts().to_dict()
+        target_props = helper_dist[src]
+        usable = {sec: p for sec, p in target_props.items() if avail.get(sec, 0) > 0}
+
+        if not usable:
+            per_source_state[src] = {"sub": sub, "usable": None, "max_total": len(sub)}
+            continue
+
+        usable_total = sum(usable.values())
+        usable = {sec: p / usable_total for sec, p in usable.items()}
+        per_source_state[src] = {
+            "sub": sub,
+            "avail": avail,
+            "usable": usable,
+            "max_total": len(sub),
+            "missing_sections": [sec for sec in target_props if sec not in usable],
+        }
+
+    if not per_source_state:
+        out = work.drop(columns=["section"])
+        return out, "Section matching skipped (no usable overlap)."
+
+    desired_total = int(round(len(work) * keep_fraction))
+    desired_total = max(1, min(desired_total, len(work)))
+
+    # Target per-source counts according to helper source ratio; then adjust to exact total.
+    source_targets = {
+        src: int(round(desired_total * helper_source_props.get(src, 0.0)))
+        for src in per_source_state
+    }
+    for src in source_targets:
+        source_targets[src] = min(source_targets[src], per_source_state[src]["max_total"])
+    cur_total = sum(source_targets.values())
+    if cur_total < desired_total:
+        slack_sources = sorted(
+            per_source_state.keys(),
+            key=lambda s: per_source_state[s]["max_total"] - source_targets[s],
+            reverse=True,
+        )
+        need = desired_total - cur_total
+        for src in slack_sources:
+            room = per_source_state[src]["max_total"] - source_targets[src]
+            add = min(room, need)
+            source_targets[src] += add
+            need -= add
+            if need <= 0:
+                break
+    elif cur_total > desired_total:
+        reduce_sources = sorted(source_targets.keys(), key=lambda s: source_targets[s], reverse=True)
+        extra = cur_total - desired_total
+        for src in reduce_sources:
+            dec = min(source_targets[src], extra)
+            source_targets[src] -= dec
+            extra -= dec
+            if extra <= 0:
+                break
+
+    for src, state in per_source_state.items():
+        sub = state["sub"]
+        avail: dict[str, int] = state["avail"]
+        usable = state.get("usable")
+        if usable is None:
+            trimmed_parts.append(sub)
+            notes.append(f"{src}: no overlapping sections with helper; kept all {len(sub)} rows.")
+            continue
+
+        target_total = source_targets[src]
+        target_total = max(1, min(target_total, state["max_total"], len(sub)))
+
+        raw = {sec: target_total * usable[sec] for sec in usable}
+        take = {sec: min(int(v), avail[sec]) for sec, v in raw.items()}
+        remainder = target_total - sum(take.values())
+
+        # Redistribute leftover to sections with spare capacity, weighted by helper probs.
+        while remainder > 0:
+            candidates = [sec for sec in usable if take[sec] < avail[sec]]
+            if not candidates:
+                break
+            total_p = sum(usable[sec] for sec in candidates)
+            if total_p <= 0:
+                total_p = float(len(candidates))
+                cand_p = {sec: 1.0 / total_p for sec in candidates}
+            else:
+                cand_p = {sec: usable[sec] / total_p for sec in candidates}
+
+            add_raw = {sec: remainder * cand_p[sec] for sec in candidates}
+            add = {
+                sec: min(avail[sec] - take[sec], int(add_raw[sec]))
+                for sec in candidates
+            }
+            gained = sum(add.values())
+            for sec, n in add.items():
+                take[sec] += n
+            remainder -= gained
+
+            if remainder <= 0:
+                break
+
+            # Allocate one-by-one by fractional part if floors were too coarse.
+            by_frac = sorted(
+                candidates,
+                key=lambda s: (add_raw[s] - int(add_raw[s]), cand_p[s]),
+                reverse=True,
+            )
+            moved = 0
+            for sec in by_frac:
+                if remainder <= 0:
+                    break
+                room = avail[sec] - take[sec]
+                if room <= 0:
+                    continue
+                take[sec] += 1
+                remainder -= 1
+                moved += 1
+            if moved == 0:
+                break
+
+        sampled = []
+        for sec, n in take.items():
+            if n <= 0:
+                continue
+            part = sub[sub["section"] == sec]
+            sampled.append(part.sample(n=n, random_state=random_state))
+        out_src = pd.concat(sampled, ignore_index=False) if sampled else sub.head(0)
+        trimmed_parts.append(out_src)
+
+        notes.append(
+            f"{src}: {len(sub)} -> {len(out_src)} rows; "
+            f"matched_sections={len(usable)}; missing_sections={len(state['missing_sections'])}."
+        )
+
+    if not trimmed_parts:
+        out = work.drop(columns=["section"])
+        return out, "Section matching skipped (no usable overlap)."
+
+    out = (
+        pd.concat(trimmed_parts, ignore_index=False)
+        .sample(frac=1.0, random_state=random_state)
+        .reset_index(drop=True)
+    )
+    out = out.drop(columns=["section"])
+    note = (
+        f"Section-match trim applied (keep_fraction={keep_fraction:.2f}): "
+        + " | ".join(notes)
+    )
+    return out, note
+
+
+# ---------------------------------------------------------------------------
 # Core pipeline
 # ---------------------------------------------------------------------------
 
-def preprocess(input_path: Path, output_dir: Path) -> None:
+def preprocess(
+    input_path: Path,
+    output_dir: Path,
+    match_helper_distribution: bool = False,
+    helper_distribution_csv: Path = DEFAULT_HELPER_DISTRIBUTION,
+    helper_keep_fraction: float = 0.50,
+) -> None:
     # ---- Setup ----------------------------------------------------------
     output_dir.mkdir(parents=True, exist_ok=True)
     LOGS_DIR.mkdir(parents=True, exist_ok=True)
@@ -234,6 +461,24 @@ def preprocess(input_path: Path, output_dir: Path) -> None:
             "NLTK not available — headline_nostop and headline_lemma fall back to lowercase."
         )
 
+    section_match_note: str | None = None
+    if match_helper_distribution:
+        if not helper_distribution_csv.exists():
+            log.error("Helper distribution file not found: %s", helper_distribution_csv)
+            sys.exit(1)
+        if not (0.0 < helper_keep_fraction <= 1.0):
+            log.error("helper_keep_fraction must be in (0, 1], got: %.4f", helper_keep_fraction)
+            sys.exit(1)
+        before_trim = len(df_success)
+        df_success, section_match_note = _trim_to_match_helper_sections(
+            df_success,
+            helper_distribution_csv,
+            keep_fraction=helper_keep_fraction,
+            random_state=42,
+        )
+        log.info("Section-match trim: %d -> %d rows", before_trim, len(df_success))
+        log.info("%s", section_match_note)
+
     # ---- Compute statistics for summary ---------------------------------
     source_counts = df_success["source"].value_counts().to_dict()
     label_counts = df_success["label"].value_counts().to_dict()
@@ -300,6 +545,7 @@ def preprocess(input_path: Path, output_dir: Path) -> None:
         median_len=median_len,
         n_final=len(clean_df),
         nltk_used=NLTK_AVAILABLE,
+        section_match_note=section_match_note,
     )
     summary_path = output_dir / "dataset_summary.txt"
     summary_path.write_text(summary, encoding="utf-8")
@@ -330,6 +576,7 @@ def _build_summary(
     median_len: float,
     n_final: int,
     nltk_used: bool,
+    section_match_note: str | None = None,
 ) -> str:
     lines: list[str] = [
         "=" * 64,
@@ -390,8 +637,14 @@ def _build_summary(
         f"  headlines_lemma.csv      — lowercase + lemmatized         "
         f"({'NLTK' if nltk_used else 'fallback=lowercase'})",
         "",
-        "=" * 64,
     ]
+    if section_match_note:
+        lines += [
+            "HELPER DISTRIBUTION ALIGNMENT",
+            f"  {section_match_note}",
+            "",
+        ]
+    lines += ["=" * 64]
     return "\n".join(lines)
 
 
@@ -435,9 +688,40 @@ def _build_parser() -> argparse.ArgumentParser:
         default=PROCESSED_DIR,
         help="Directory where processed files will be written.",
     )
+    p.add_argument(
+        "--match-helper-distribution",
+        action="store_true",
+        help=(
+            "Trim cleaned dataset so source x section(URL first path segment) "
+            "distribution better matches helper/url_with_headlines.csv."
+        ),
+    )
+    p.add_argument(
+        "--helper-distribution-csv",
+        metavar="PATH",
+        type=Path,
+        default=DEFAULT_HELPER_DISTRIBUTION,
+        help="Helper CSV used as target section/topic distribution.",
+    )
+    p.add_argument(
+        "--helper-keep-fraction",
+        metavar="FLOAT",
+        type=float,
+        default=0.50,
+        help=(
+            "When matching helper distribution, keep approximately this fraction "
+            "of cleaned rows (e.g., 0.50 keeps ~50%%)."
+        ),
+    )
     return p
 
 
 if __name__ == "__main__":
     args = _build_parser().parse_args()
-    preprocess(input_path=args.input, output_dir=args.output_dir)
+    preprocess(
+        input_path=args.input,
+        output_dir=args.output_dir,
+        match_helper_distribution=args.match_helper_distribution,
+        helper_distribution_csv=args.helper_distribution_csv,
+        helper_keep_fraction=args.helper_keep_fraction,
+    )

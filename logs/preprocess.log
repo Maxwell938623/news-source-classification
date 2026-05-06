@@ -21,3 +21,97 @@
 2026-05-04 19:50:23,214  INFO      Saved master clean dataset: C:\Users\maxwe\PromProjects\news-source-classification\data\processed\clean_headlines.csv
 2026-05-04 19:50:24,716  INFO      Saved 5 variant CSV files to C:\Users\maxwe\PromProjects\news-source-classification\data\processed
 2026-05-04 19:50:24,717  INFO      Saved dataset summary: C:\Users\maxwe\PromProjects\news-source-classification\data\processed\dataset_summary.txt
+2026-05-06 01:45:55,997  INFO      Loading raw scraped data from: C:\Users\maxwe\PromProjects\news-source-classification\data\scraped\raw_scraped_headlines.csv
+2026-05-06 01:45:56,156  INFO      Total rows loaded: 68838
+2026-05-06 01:45:56,158  INFO      Successful scrapes: 68838  |  Failed/skipped: 0
+2026-05-06 01:45:56,162  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-06 01:45:56,384  INFO      Removed 15 within-source duplicates.
+2026-05-06 01:45:56,414  INFO      Final clean dataset size: 68823 rows
+2026-05-06 01:45:59,982  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-06 01:46:00,660  INFO      Saved master clean dataset: C:\Users\maxwe\PromProjects\news-source-classification\data\processed\clean_headlines.csv
+2026-05-06 01:46:01,583  INFO      Saved 5 variant CSV files to C:\Users\maxwe\PromProjects\news-source-classification\data\processed
+2026-05-06 01:46:01,584  INFO      Saved dataset summary: C:\Users\maxwe\PromProjects\news-source-classification\data\processed\dataset_summary.txt
+2026-05-06 01:46:25,663  INFO      Loading raw scraped data from: data\scraped\raw_scraped_headlines_merged.csv
+2026-05-06 01:46:25,944  INFO      Total rows loaded: 114306
+2026-05-06 01:46:25,946  INFO      Successful scrapes: 114306  |  Failed/skipped: 0
+2026-05-06 01:46:25,951  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-06 01:46:26,317  INFO      Removed 94 within-source duplicates.
+2026-05-06 01:46:26,332  WARNING   10 headlines appear in both sources (potential label leakage) — removing.
+2026-05-06 01:46:26,375  INFO      Final clean dataset size: 114202 rows
+2026-05-06 01:46:32,318  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-06 01:46:33,575  INFO      Saved master clean dataset: data\processed\clean_headlines.csv
+2026-05-06 01:46:35,331  INFO      Saved 5 variant CSV files to data\processed
+2026-05-06 01:46:35,332  INFO      Saved dataset summary: data\processed\dataset_summary.txt
+2026-05-06 02:54:08,373  INFO      Loading raw scraped data from: data\scraped\raw_scraped_headlines_merged.csv
+2026-05-06 02:54:08,698  INFO      Total rows loaded: 114306
+2026-05-06 02:54:08,701  INFO      Successful scrapes: 114306  |  Failed/skipped: 0
+2026-05-06 02:54:08,711  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-06 02:54:09,194  INFO      Removed 94 within-source duplicates.
+2026-05-06 02:54:09,208  WARNING   10 headlines appear in both sources (potential label leakage) — removing.
+2026-05-06 02:54:09,251  INFO      Final clean dataset size: 114202 rows
+2026-05-06 02:54:15,450  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-06 02:54:16,216  INFO      Section-match trim: 114202 -> 9009 rows
+2026-05-06 02:54:16,216  INFO      Section-match trim applied: FoxNews: 68818 -> 1704 rows; matched_sections=15; missing_sections=3. | NBC: 45384 -> 7305 rows; matched_sections=16; missing_sections=3.
+2026-05-06 02:54:16,312  INFO      Saved master clean dataset: data\processed\clean_headlines.csv
+2026-05-06 02:54:16,465  INFO      Saved 5 variant CSV files to data\processed
+2026-05-06 02:54:16,466  INFO      Saved dataset summary: data\processed\dataset_summary.txt
+2026-05-06 02:55:07,916  INFO      Loading raw scraped data from: data\scraped\raw_scraped_headlines_merged.csv
+2026-05-06 02:55:08,245  INFO      Total rows loaded: 114306
+2026-05-06 02:55:08,248  INFO      Successful scrapes: 114306  |  Failed/skipped: 0
+2026-05-06 02:55:08,254  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-06 02:55:08,706  INFO      Removed 94 within-source duplicates.
+2026-05-06 02:55:08,725  WARNING   10 headlines appear in both sources (potential label leakage) — removing.
+2026-05-06 02:55:08,779  INFO      Final clean dataset size: 114202 rows
+2026-05-06 02:55:14,942  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-06 02:55:15,604  INFO      Section-match trim: 114202 -> 3240 rows
+2026-05-06 02:55:15,604  INFO      Section-match trim applied: FoxNews: 68818 -> 1703 rows; matched_sections=15; missing_sections=3. | NBC: 45384 -> 1537 rows; matched_sections=16; missing_sections=3.
+2026-05-06 02:55:15,639  INFO      Saved master clean dataset: data\processed\clean_headlines.csv
+2026-05-06 02:55:15,696  INFO      Saved 5 variant CSV files to data\processed
+2026-05-06 02:55:15,697  INFO      Saved dataset summary: data\processed\dataset_summary.txt
+2026-05-06 02:58:57,753  INFO      Loading raw scraped data from: data\scraped\raw_scraped_headlines_merged.csv
+2026-05-06 02:58:58,058  INFO      Total rows loaded: 114306
+2026-05-06 02:58:58,061  INFO      Successful scrapes: 114306  |  Failed/skipped: 0
+2026-05-06 02:58:58,068  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-06 02:58:58,452  INFO      Removed 94 within-source duplicates.
+2026-05-06 02:58:58,467  WARNING   10 headlines appear in both sources (potential label leakage) — removing.
+2026-05-06 02:58:58,510  INFO      Final clean dataset size: 114202 rows
+2026-05-06 02:59:04,101  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-06 02:59:04,739  INFO      Section-match trim: 114202 -> 3241 rows
+2026-05-06 02:59:04,739  INFO      Section-match trim applied (keep_fraction=0.50): FoxNews: 68818 -> 1704 rows; matched_sections=15; missing_sections=3. | NBC: 45384 -> 1537 rows; matched_sections=16; missing_sections=3.
+2026-05-06 02:59:04,777  INFO      Saved master clean dataset: data\processed\clean_headlines.csv
+2026-05-06 02:59:04,837  INFO      Saved 5 variant CSV files to data\processed
+2026-05-06 02:59:04,838  INFO      Saved dataset summary: data\processed\dataset_summary.txt
+2026-05-06 03:02:17,835  INFO      Loading raw scraped data from: data\scraped\raw_scraped_headlines_merged.csv
+2026-05-06 03:02:18,117  INFO      Total rows loaded: 114306
+2026-05-06 03:02:18,120  INFO      Successful scrapes: 114306  |  Failed/skipped: 0
+2026-05-06 03:02:18,125  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-06 03:02:18,498  INFO      Removed 94 within-source duplicates.
+2026-05-06 03:02:18,513  WARNING   10 headlines appear in both sources (potential label leakage) — removing.
+2026-05-06 03:02:18,554  INFO      Final clean dataset size: 114202 rows
+2026-05-06 03:02:24,209  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-06 03:02:24,879  INFO      Section-match trim: 114202 -> 57101 rows
+2026-05-06 03:02:24,879  INFO      Section-match trim applied (keep_fraction=0.50): FoxNews: 68818 -> 30014 rows; matched_sections=15; missing_sections=3. | NBC: 45384 -> 27087 rows; matched_sections=16; missing_sections=3.
+2026-05-06 03:02:25,619  INFO      Saved master clean dataset: data\processed\clean_headlines.csv
+2026-05-06 03:02:26,854  INFO      Saved 5 variant CSV files to data\processed
+2026-05-06 03:02:26,855  INFO      Saved dataset summary: data\processed\dataset_summary.txt
+2026-05-06 03:05:12,166  INFO      Loading raw scraped data from: data\scraped\raw_scraped_headlines_merged.csv
+2026-05-06 03:05:12,443  INFO      Total rows loaded: 114306
+2026-05-06 03:05:12,444  INFO      Successful scrapes: 114306  |  Failed/skipped: 0
+2026-05-06 03:05:12,450  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-06 03:05:12,823  INFO      Removed 94 within-source duplicates.
+2026-05-06 03:05:12,839  WARNING   10 headlines appear in both sources (potential label leakage) — removing.
+2026-05-06 03:05:12,881  INFO      Final clean dataset size: 114202 rows
+2026-05-06 03:05:18,614  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-06 03:05:20,128  INFO      Saved master clean dataset: data\processed\clean_headlines.csv
+2026-05-06 03:05:22,549  INFO      Saved 5 variant CSV files to data\processed
+2026-05-06 03:05:22,550  INFO      Saved dataset summary: data\processed\dataset_summary.txt
+2026-05-06 03:24:59,832  INFO      Loading raw scraped data from: data\scraped\helper_as_raw.csv
+2026-05-06 03:24:59,860  INFO      Total rows loaded: 3805
+2026-05-06 03:24:59,861  INFO      Successful scrapes: 3805  |  Failed/skipped: 0
+2026-05-06 03:24:59,866  INFO      Dropped 4 rows with null/empty raw headline.
+2026-05-06 03:24:59,880  INFO      Removed 2 within-source duplicates.
+2026-05-06 03:24:59,882  INFO      Final clean dataset size: 3799 rows
+2026-05-06 03:25:00,630  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-06 03:25:00,675  INFO      Saved master clean dataset: data\processed\clean_headlines.csv
+2026-05-06 03:25:00,752  INFO      Saved 5 variant CSV files to data\processed
+2026-05-06 03:25:00,752  INFO      Saved dataset summary: data\processed\dataset_summary.txt

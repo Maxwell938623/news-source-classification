@@ -1,0 +1,76 @@
+{
+  "best_global_step": 438,
+  "best_metric": 0.7899436995597291,
+  "best_model_checkpoint": "C:\\Users\\maxwe\\PromProjects\\news-source-classification\\models\\distilbert_hf\\checkpoint-438",
+  "epoch": 1.0,
+  "eval_steps": 500,
+  "global_step": 438,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 0.228310502283105,
+      "grad_norm": 4.859936714172363,
+      "learning_rate": 1.773972602739726e-05,
+      "loss": 0.6387,
+      "step": 100
+    },
+    {
+      "epoch": 0.45662100456621,
+      "grad_norm": 6.63823938369751,
+      "learning_rate": 1.5456621004566213e-05,
+      "loss": 0.5463,
+      "step": 200
+    },
+    {
+      "epoch": 0.684931506849315,
+      "grad_norm": 4.44749116897583,
+      "learning_rate": 1.3173515981735162e-05,
+      "loss": 0.4967,
+      "step": 300
+    },
+    {
+      "epoch": 0.91324200913242,
+      "grad_norm": 6.305500507354736,
+      "learning_rate": 1.089041095890411e-05,
+      "loss": 0.449,
+      "step": 400
+    },
+    {
+      "epoch": 1.0,
+      "eval_accuracy": 0.7906666666666666,
+      "eval_f1_foxnews": 0.8022670025188917,
+      "eval_f1_macro": 0.7899436995597291,
+      "eval_f1_nbc": 0.7776203966005666,
+      "eval_loss": 0.4564267098903656,
+      "eval_precision_macro": 0.7902067313100005,
+      "eval_recall_macro": 0.7897514880236158,
+      "eval_runtime": 24.6308,
+      "eval_samples_per_second": 60.899,
+      "eval_steps_per_second": 3.816,
+      "step": 438
+    }
+  ],
+  "logging_steps": 100,
+  "max_steps": 876,
+  "num_input_tokens_seen": 0,
+  "num_train_epochs": 2,
+  "save_steps": 500,
+  "stateful_callbacks": {
+    "TrainerControl": {
+      "args": {
+        "should_epoch_stop": false,
+        "should_evaluate": false,
+        "should_log": false,
+        "should_save": true,
+        "should_training_stop": false
+      },
+      "attributes": {}
+    }
+  },
+  "total_flos": 49289256217104.0,
+  "train_batch_size": 16,
+  "trial_name": null,
+  "trial_params": null
+}

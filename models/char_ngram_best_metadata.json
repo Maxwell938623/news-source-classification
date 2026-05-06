@@ -1,0 +1,30 @@
+{
+  "group": "char_ngram",
+  "experiment_name": "G5_CNG_combined_c36_wmf5000_cmf10000",
+  "prep_col": "headline_lowercase",
+  "description": "char_wb (3, 6) mf=10000 + word (1,2) mf=5000 | LR C=1",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "val_f1_macro": 0.7636657589283317,
+  "test_metrics": {
+    "accuracy": 0.7861425716189208,
+    "f1_macro": 0.7850296497135416,
+    "f1_weighted": 0.785823121812747,
+    "f1_foxnews": 0.800497203231821,
+    "f1_nbc": 0.7695620961952621,
+    "precision_macro": 0.7862218401919703,
+    "recall_macro": 0.7845160279688412,
+    "confusion_matrix": [
+      [
+        644,
+        145
+      ],
+      [
+        176,
+        536
+      ]
+    ]
+  }
+}

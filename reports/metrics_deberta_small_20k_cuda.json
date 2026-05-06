@@ -1,0 +1,30 @@
+{
+  "run_name": "deberta_small_20k_cuda",
+  "model_name": "microsoft/deberta-v3-small",
+  "text_col": "headline_minimal",
+  "seed": 42,
+  "epochs": 2,
+  "batch_size": 16,
+  "learning_rate": 2e-05,
+  "max_length": 96,
+  "device": "cuda",
+  "max_train_samples": 0,
+  "max_val_samples": 0,
+  "max_test_samples": 0,
+  "val_metrics": {
+    "accuracy": 0.8153333333333334,
+    "f1_macro": 0.8148949222402748,
+    "f1_foxnews": 0.8058864751226349,
+    "f1_nbc": 0.8239033693579149,
+    "precision_macro": 0.8263622980987342,
+    "recall_macro": 0.8199923264459993
+  },
+  "test_metrics": {
+    "accuracy": 0.8247250916361213,
+    "f1_macro": 0.8244006247385798,
+    "f1_foxnews": 0.8168523676880223,
+    "f1_nbc": 0.8319488817891374,
+    "precision_macro": 0.8344901256976287,
+    "recall_macro": 0.829071608729418
+  }
+}

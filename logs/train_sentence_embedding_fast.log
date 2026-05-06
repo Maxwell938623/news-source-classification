@@ -1,0 +1,30 @@
+2026-05-06 01:03:02,863  INFO      CUDA device: NVIDIA GeForce RTX 4060 Laptop GPU
+2026-05-06 01:03:04,354  INFO      Running 4 fast configs.
+2026-05-06 01:03:04,390  INFO      Use pytorch device_name: cuda
+2026-05-06 01:03:04,391  INFO      Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-05-06 01:04:17,523  INFO      
+Fast results:
+                        name  val_f1_macro  val_accuracy
+SE_all-MiniLM-L6-v2_lightgbm      0.750435      0.772466
+ SE_all-MiniLM-L6-v2_xgboost      0.749355      0.771328
+     SE_all-MiniLM-L6-v2_svm      0.734570      0.757929
+  SE_all-MiniLM-L6-v2_logreg      0.729485      0.753893
+2026-05-06 01:04:17,526  INFO      Best fast config: SE_all-MiniLM-L6-v2_lightgbm (val_f1_macro=0.7504)
+2026-05-06 01:05:18,726  INFO      Saved fast model: C:\Users\maxwe\PromProjects\news-source-classification\models\sentence_embedding_fast_best.joblib
+2026-05-06 01:05:18,727  INFO      Saved fast metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\sentence_embedding_fast_best_metadata.json
+2026-05-06 01:05:18,727  INFO      Test accuracy=0.7722 | Test F1-macro=0.7510
+2026-05-06 11:27:03,953  INFO      CUDA device: NVIDIA GeForce RTX 4060 Laptop GPU
+2026-05-06 11:27:04,097  INFO      Running 4 fast configs.
+2026-05-06 11:27:04,104  INFO      Use pytorch device_name: cuda
+2026-05-06 11:27:04,104  INFO      Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-05-06 11:27:27,821  INFO      
+Fast results:
+                        name  val_f1_macro  val_accuracy
+SE_all-MiniLM-L6-v2_lightgbm      0.724785      0.726333
+ SE_all-MiniLM-L6-v2_xgboost      0.722981      0.724667
+     SE_all-MiniLM-L6-v2_svm      0.702250      0.704000
+  SE_all-MiniLM-L6-v2_logreg      0.695071      0.696333
+2026-05-06 11:27:27,822  INFO      Best fast config: SE_all-MiniLM-L6-v2_lightgbm (val_f1_macro=0.7248)
+2026-05-06 11:27:42,743  INFO      Saved fast model: C:\Users\maxwe\PromProjects\news-source-classification\models\sentence_embedding_fast_best.joblib
+2026-05-06 11:27:42,744  INFO      Saved fast metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\sentence_embedding_fast_best_metadata.json
+2026-05-06 11:27:42,744  INFO      Test accuracy=0.7128 | Test F1-macro=0.7115

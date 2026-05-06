@@ -1,24 +1,24 @@
 {
-  "model": "TUNE_HYB_word12_char36_wmf10000_cmf10000_C0.5_none",
+  "model": "Stack_4base_style_HGB_meta",
   "text_column": "headline_minimal",
-  "train_size": 109531,
-  "test_size": 19330,
+  "train_size": 16999,
+  "test_size": 3001,
   "metrics": {
-    "accuracy": 0.8481634764614588,
-    "f1_macro": 0.835936397287685,
-    "f1_weighted": 0.8480360386455488,
-    "f1_foxnews": 0.8807249969520868,
-    "f1_nbc": 0.7911477976232832,
-    "precision_macro": 0.8365085844892123,
-    "recall_macro": 0.8353807286396437,
+    "accuracy": 0.7957347550816395,
+    "f1_macro": 0.7955426023810739,
+    "f1_weighted": 0.7958621606765797,
+    "f1_foxnews": 0.8018105399288716,
+    "f1_nbc": 0.789274664833276,
+    "precision_macro": 0.7955029627852847,
+    "recall_macro": 0.7962414412232015,
     "confusion_matrix": [
       [
-        10836,
-        1440
+        1240,
+        337
       ],
       [
-        1495,
-        5559
+        276,
+        1148
       ]
     ]
   }

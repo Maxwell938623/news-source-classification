@@ -1,0 +1,71 @@
+{
+  "results": [
+    {
+      "family": "tfidf_word_char_svm",
+      "best_variant": "wc_svm_wmf30000_cmf30000_C1.0",
+      "val_accuracy": 0.7913333333333333,
+      "val_f1_macro": 0.7901423679539574,
+      "test_accuracy": 0.7917360879706764,
+      "test_f1_macro": 0.7911274213767701,
+      "details": {
+        "saved_model": "C:\\Users\\maxwe\\PromProjects\\news-source-classification\\models\\word_char_svm_best.joblib",
+        "num_candidates": 3
+      }
+    },
+    {
+      "family": "fasttext_supervised",
+      "best_variant": "wordNgrams=3_dim=120_epoch=20",
+      "val_accuracy": 0.7873333333333333,
+      "val_f1_macro": 0.7859634997316156,
+      "test_accuracy": 0.7910696434521826,
+      "test_f1_macro": 0.7902983624984495,
+      "details": {
+        "saved_model": "C:\\Users\\maxwe\\PromProjects\\news-source-classification\\models\\fasttext_supervised_best.bin",
+        "best_cfg": {
+          "wordNgrams": 3,
+          "lr": 0.3,
+          "epoch": 20,
+          "dim": 120
+        }
+      }
+    },
+    {
+      "family": "static_embedding_avg",
+      "best_variant": "word2vec+mlp",
+      "val_accuracy": 0.674,
+      "val_f1_macro": 0.6662205656366905,
+      "test_accuracy": 0.7037654115294901,
+      "test_f1_macro": 0.7025478593982899,
+      "details": {
+        "saved_classifier": "C:\\Users\\maxwe\\PromProjects\\news-source-classification\\models\\static_embedding_best_classifier.joblib",
+        "saved_vectors": "C:\\Users\\maxwe\\PromProjects\\news-source-classification\\models\\static_embedding_best_vectors.kv"
+      }
+    }
+  ],
+  "leaderboard": [
+    {
+      "family": "tfidf_word_char_svm",
+      "best_variant": "wc_svm_wmf30000_cmf30000_C1.0",
+      "val_accuracy": 0.7913333333333333,
+      "val_f1_macro": 0.7901423679539574,
+      "test_accuracy": 0.7917360879706764,
+      "test_f1_macro": 0.7911274213767701
+    },
+    {
+      "family": "fasttext_supervised",
+      "best_variant": "wordNgrams=3_dim=120_epoch=20",
+      "val_accuracy": 0.7873333333333333,
+      "val_f1_macro": 0.7859634997316156,
+      "test_accuracy": 0.7910696434521826,
+      "test_f1_macro": 0.7902983624984495
+    },
+    {
+      "family": "static_embedding_avg",
+      "best_variant": "word2vec+mlp",
+      "val_accuracy": 0.674,
+      "val_f1_macro": 0.6662205656366905,
+      "test_accuracy": 0.7037654115294901,
+      "test_f1_macro": 0.7025478593982899
+    }
+  ]
+}

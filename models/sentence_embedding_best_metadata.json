@@ -1,0 +1,30 @@
+{
+  "group": "sentence_embedding",
+  "experiment_name": "SE_all-mpnet-base-v2_mlp",
+  "prep_col": "headline_minimal",
+  "description": "MLPClassifier over sentence embeddings; embed=sentence-transformers/all-mpnet-base-v2",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "val_f1_macro": 0.754068123129893,
+  "test_metrics": {
+    "accuracy": 0.7781479013990673,
+    "f1_macro": 0.7777181369224577,
+    "f1_weighted": 0.7782195288118355,
+    "f1_foxnews": 0.7874920229738354,
+    "f1_nbc": 0.7679442508710801,
+    "precision_macro": 0.7775807386389899,
+    "recall_macro": 0.7779394696743139,
+    "confusion_matrix": [
+      [
+        617,
+        172
+      ],
+      [
+        161,
+        551
+      ]
+    ]
+  }
+}

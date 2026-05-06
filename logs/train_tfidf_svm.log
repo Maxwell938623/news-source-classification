@@ -26,3 +26,31 @@ weighted avg       0.81      0.81      0.81     19330
 
 2026-05-04 21:49:21,366  INFO      Saved model : C:\Users\maxwe\PromProjects\news-source-classification\models\tfidf_svm_best.joblib
 2026-05-04 21:49:21,366  INFO      Saved meta  : C:\Users\maxwe\PromProjects\news-source-classification\models\tfidf_svm_best_metadata.json
+2026-05-06 05:04:46,649  INFO      Running 22 configs for 'tfidf_svm'.
+2026-05-06 05:04:50,887  INFO      
+Top 5 by val_f1_macro:
+                      name  val_f1_macro  val_accuracy
+     G2_SVM_w12_mf20000_C1      0.731764      0.732667
+G4_SVM_cal_w12_mf5000_C1.0      0.727226      0.728667
+G4_SVM_cal_w12_mf5000_C0.5      0.726635      0.728000
+G4_SVM_cal_w12_mf5000_C0.1      0.725427      0.727333
+     G2_SVM_w12_mf10000_C1      0.725199      0.726000
+2026-05-06 05:04:50,887  INFO      Best: G2_SVM_w12_mf20000_C1  (val_f1_macro=0.7318)
+2026-05-06 05:04:51,125  INFO      ========================================================
+2026-05-06 05:04:51,125  INFO      BEST (tfidf_svm): G2_SVM_w12_mf20000_C1
+2026-05-06 05:04:51,125  INFO        val F1-macro  = 0.7318
+2026-05-06 05:04:51,125  INFO        test accuracy = 0.7455
+2026-05-06 05:04:51,125  INFO        test F1-macro = 0.7443
+2026-05-06 05:04:51,125  INFO      ========================================================
+2026-05-06 05:04:51,129  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.75      0.77      0.76       789
+         NBC       0.74      0.71      0.73       712
+
+    accuracy                           0.75      1501
+   macro avg       0.75      0.74      0.74      1501
+weighted avg       0.75      0.75      0.75      1501
+
+2026-05-06 05:04:51,298  INFO      Saved model : C:\Users\maxwe\PromProjects\news-source-classification\models\tfidf_svm_best.joblib
+2026-05-06 05:04:51,298  INFO      Saved meta  : C:\Users\maxwe\PromProjects\news-source-classification\models\tfidf_svm_best_metadata.json

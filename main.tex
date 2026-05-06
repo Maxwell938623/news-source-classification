@@ -42,7 +42,7 @@
 \hbox to 6.28in{\hfill \large\bf #2 \hfill}% % centered title
 \vspace{4mm}
 \hbox to 6.28in
-{{\it #3 \hfill #4}}
+{{#3 \hfill #4}}
 }}
 \end{center}
 }
@@ -51,160 +51,162 @@
 \begin{document}
 \head{Spring 2026}{News Source Classification from Headlines}{Team Members: Isaac Dcruz, Arjun Verma, Maxwell Zhang}{Project: News Source}
 
+Code: \href{https://github.com/Maxwell938623/news-source-classification}{GitHub repository (Maxwell938623/news-source-classification)}\\
+Dataset: \href{https://huggingface.co/datasets/Maxwell938/CIS5190Project/tree/main}{Hugging Face dataset CIS5190Project}
+
 \section{Introduction}
-In this project, we built an end-to-end binary NLP classification pipeline to predict whether a headline came from Fox News or NBC News. Our core objective was to make the system reproducible and extensible: every major stage (URL collection, scraping, preprocessing, splitting, training, evaluation, and prediction) is implemented as a script with explicit inputs/outputs and logs.
+In this project, we built an end-to-end binary NLP classification pipeline to predict whether a headline came from Fox News or NBC News. Our core objective was to make the system reproducible and extensible: every major stage (URL collection, scraping, preprocessing, splitting, training, evaluation, and prediction) is implemented as a script.
 
-We first reproduced the handout baseline (\texttt{TF-IDF(max\_features=100) + LogisticRegression(max\_iter=100)}), then expanded to a controlled experiment framework covering multiple feature/model families. Our training framework evaluates a large configuration space and selects the best model by validation macro-F1 before retraining on train+validation and evaluating once on the held-out test set.
+We first reproduced a simple reference baseline (TF-IDF capped at 100 terms plus logistic regression with a 100-iteration limit), then expanded to a controlled experiment framework covering multiple feature and model families. Our training framework evaluates a large configuration space and selects the best model by validation macro-F1 before retraining on train+validation and evaluating once on the held-out test set.
 
-This report reflects the current repository state and includes finalized implementation details and experimental outcomes produced in our latest run cycle.
+This report reflects the finalized implementation details and experimental outcomes produced.
 
 \section{Core Components}
 
 \subsection{Data Collection and Dataset}
-Our data pipeline follows a two-stage collection process designed to maximize coverage while keeping source labels reliable. First, we discover article URLs using \texttt{src/collect\_urls.py}. This script traverses robots-discovered sitemap indexes, configured sitemap seeds, RSS/Atom feeds, and section pages for FoxNews and NBC domains. We use this broad discovery strategy because a single source (for example, only one sitemap) misses many valid article pages, especially for historical coverage.
-
-Second, we scrape headline text with \texttt{src/scrape.py}. The scraper fetches each URL with retry/backoff logic and then applies a robust extraction cascade so that template variation across pages does not cause widespread failures:
-\begin{enumerate}
-    \item source-specific \texttt{h1} class heuristics,
-    \item \texttt{itemprop=headline},
-    \item first generic \texttt{h1},
-    \item \texttt{og:title},
-    \item fallback \texttt{title}.
-\end{enumerate}
-
-At the raw-data stage, our repository contains:
+Our data pipeline follows a two-stage collection process designed to maximize coverage while keeping source labels reliable.
 \begin{itemize}
-    \item \texttt{data/raw/original\_urls.csv}: 172,488 rows (115,266 FoxNews; 57,222 NBC).
-    \item \texttt{data/scraped/raw\_scraped\_headlines.csv}: 84,825 rows (82,126 success; 2,699 fetch failures), currently only FoxNews labels in file.
-    \item \texttt{data/scraped/raw\_scraped\_headlines\_nbc.csv}: 47,446 rows (47,205 success; 241 fetch failures), NBC-only.
+    \item \textbf{URL discovery.} A dedicated collector traverses robots-discovered sitemap indexes, configured sitemap seeds, RSS/Atom feeds, and section pages for FoxNews and NBC domains. We avoid relying on a single source (for example only one sitemap) because that misses many valid article pages, especially for historical coverage. To increase size and coverage, we ran the data scraper continuously for seven consecutive days. Collection stays within publicly advertised article URLs for the two outlets, respects robots.txt where applicable, uses modest concurrency, and pairs exponential backoff with retries so we do not hammer hosts when pages fail transiently.
+
+    \item \textbf{Headline scraping.} The headline scraper fetches each URL with retry/backoff logic and applies a robust extraction cascade so template variation across pages does not cause widespread failures:
+    \begin{enumerate}
+        \item source-specific heading-tag class heuristics,
+        \item Open Graph and schema.org headline fields where present,
+        \item first generic page heading,
+        \item Open Graph title,
+        \item fallback document title.
+    \end{enumerate}
 \end{itemize}
 
-We then consolidate and preprocess using \texttt{src/preprocess.py}. The preprocessing stage enforces quality and leakage controls by applying scrape-status filtering, null/empty removal, HTML unescaping/tag stripping, whitespace normalization, within-source deduplication, cross-source duplicate removal, and label validation. In addition to the canonical cleaned text, we generate multiple preprocessing variants to support fair ablation studies:
-\texttt{headline\_minimal}, \texttt{headline\_lowercase}, \texttt{headline\_nopunct}, \texttt{headline\_nostop}, \texttt{headline\_lemma}.
+At the URL-discovery stage we have 172,488 discovered URLs (115,266 FoxNews; 57,222 NBC). Each row carries a binary label from the publisher associated with the URL (FoxNews versus NBC); preprocessing drops rows with missing labels, conflicting labels, or failed scrapes. Preprocessing enforces scrape-status filtering, null/empty removal, HTML cleanup, whitespace normalization, within-source deduplication, cross-source duplicate removal, and label validation. After cleaning, the merged scrape pool contains 114,306 successfully scraped headlines.
 
-For internal evaluation, we use \texttt{src/split.py} to produce stratified 70/15/15 train/val/test splits with fixed seed 42 and store split metadata for reproducibility.
-
-After merging Fox and NBC scraped files into \texttt{raw\_scraped\_headlines\_merged.csv}, the final processed dataset contains 128,861 headlines with stratified splits (train: 90,202; val: 19,329; test: 19,330). We also identified 7,940 very short headlines (\textless 3 words). Instead of dropping these automatically, we retain them and account for their behavior in error analysis, since short headlines are a meaningful real-world edge case.
+For the classical-model experiments we built a 20,000-headline cleaned dataset: we keep the provided helper CSV as the anchor set and draw a fixed-seed random sample from the larger scrape, excluding duplicate helper URLs and headlines and targeting an approximately balanced source mix. The cleaned table has 10,513 FoxNews headlines (class 0) and 9,487 NBC headlines (class 1), with mean headline length about 13.2 words on minimally normalized text. Stratified 70/15/15 splits use seed 42 and yield 13,999 training examples, 3,000 validation examples, and 3,001 held-out test examples. The split is random within each class rather than chronological: train, validation, and test all draw from the same underlying time range, which simplifies variance estimation but means topical drift toward the leaderboard deadline is handled only indirectly through the limitations summarized under Error Analysis and Limitations.
 
 \subsection{Model Design}
-We designed model development as a staged but fully scripted process from baseline reproduction to representation-rich and ensemble architectures. All model files in \texttt{src/models} share the same training contract through \texttt{src/models/\_base.py}: each \texttt{ModelConfig} specifies \texttt{name}, \texttt{prep\_col}, and an unfitted sklearn estimator; the runner trains on \texttt{train.csv}, ranks by validation macro-F1, retrains the selected configuration on train+val, and evaluates exactly once on held-out test. This standardized protocol ensures direct comparability across families.
+We compared sparse classical models, dense embedding heads, ensemble combinations, and fine-tuned transformer classifiers on the shared headline splits.
 
-\textbf{Global training/evaluation protocol (applies to every classical family):}
+Training protocol (classical and embedding heads): FoxNews encoded as class 0 and NBC as class 1; stratified splits use seed 42; hyperparameters are chosen by validation macro-F1; the selected model is refit on train plus validation and scored once on the held-out test set.
+
+Baseline:
 \begin{itemize}
-    \item Fixed label encoding (\texttt{FoxNews=0}, \texttt{NBC=1}) and fixed split seed (42).
-    \item Selection metric: validation macro-F1 (\texttt{val\_f1\_macro}).
-    \item Final reporting metrics: accuracy, macro/weighted F1, per-class F1, macro precision/recall, confusion matrix.
-    \item Refit policy: winner retrained on train+val before single test evaluation.
-    \item Artifact policy: save model (\texttt{models/*\_best.joblib}) and metadata JSON with winning config and test metrics.
+    \item TF-IDF (100 features) with logistic regression.
 \end{itemize}
 
-\textbf{Baseline model (\texttt{src/train\_baseline.py}):}
+Classical and dense families:
 \begin{itemize}
-    \item Handout-consistent baseline: \texttt{TfidfVectorizer(max\_features=100)} + \texttt{LogisticRegression(max\_iter=100)}.
-    \item Used as a low-capacity anchor to quantify absolute gains from richer representations and stronger learners.
+    \item Word TF-IDF with logistic regression, linear SVM, or multinomial naive Bayes.
+    \item Character n-gram TF-IDF with linear models (including fused word--character pipelines).
+    \item Stylometric features with logistic regression, SVM, random forest, or histogram gradient boosting.
+    \item Hybrid sparse inputs combining word TF-IDF, character TF-IDF, and stylometry.
+    \item Soft-voting ensembles over heterogeneous calibrated bases.
+    \item Stacking ensembles with a meta-classifier on base-model probabilities.
+    \item Gradient boosted trees built from sparse text-derived features (TF-IDF plus stylometry).
+    \item Sentence-transformer embeddings with linear, MLP, LightGBM, or XGBoost heads.
+    \item Combined word--character TF-IDF with linear SVM; supervised fastText; averaged static embeddings with a classifier head.
 \end{itemize}
 
-\textbf{Classical model families (all implemented and executed):}
-\begin{enumerate}
-    \item \textbf{Word TF-IDF + Logistic Regression (\texttt{tfidf\_logreg.py}, 25 configs).}
-    We sweep vocabulary size (\texttt{max\_features} from 100 to 20,000), word n-gram ranges \((1,1)\), \((1,2)\), \((1,3)\), \((2,2)\), regularization strength \(C\in\{0.01,\dots,20\}\), and preprocessing variants (\texttt{minimal/lowercase/nopunct/nostop/lemma}). All variants use \texttt{sublinear\_tf=True}; stopword handling is adjusted to avoid confounding in already de-stopped columns.
-
-    \item \textbf{Word TF-IDF + LinearSVC (\texttt{tfidf\_svm.py}, 22 configs).}
-    We evaluate large-margin linear SVMs on sparse TF-IDF with sweeps over \(C\), \texttt{max\_features}, and n-gram ranges. Because raw \texttt{LinearSVC} has no probability output, calibrated variants (\texttt{CalibratedClassifierCV}, sigmoid/Platt scaling, CV=3) are included for downstream soft-voting/stacking compatibility.
-
-    \item \textbf{Word TF-IDF + MultinomialNB (\texttt{tfidf\_nb.py}, 22 configs).}
-    We sweep smoothing \(\alpha\), feature counts, n-gram ranges, and preprocessing variants. Critically, all NB pipelines set \texttt{norm=None} in TF-IDF to preserve count-like magnitude semantics required by multinomial likelihood modeling.
-
-    \item \textbf{Character n-gram models (\texttt{char\_ngram.py}, 24 configs).}
-    We use \texttt{analyzer=char\_wb} (token-boundary-aware character n-grams) with LR/SVM, ranges such as \((2,4)\) to \((5,7)\), and feature-count sweeps up to 20,000. We explicitly test capitalization-preserving input (\texttt{headline\_minimal}) vs lowercased input, and include combined word+char \texttt{FeatureUnion} pipelines to exploit complementary lexical and orthographic cues.
-
-    \item \textbf{Stylometric tabular models (\texttt{stylometric.py}, 12 configs).}
-    We extract 15 handcrafted headline-style features (e.g., length statistics, punctuation frequencies, capitalization ratios, digit ratio, title-case ratio) and train LR, LinearSVC, RandomForest, and HistGradientBoosting variants. This family isolates writing-style signal independent of specific vocabulary identity.
-
-    \item \textbf{Hybrid sparse unions (\texttt{hybrid.py}, 10 configs).}
-    We combine word TF-IDF, optional char TF-IDF, and stylometric features through \texttt{FeatureUnion}, using \texttt{SparseWrapper} to keep stylometric outputs CSR-compatible. A \texttt{MaxAbsScaler} is applied before the classifier so low-magnitude style features are not drowned out by high-dimensional TF-IDF coordinates.
-
-    \item \textbf{Soft-voting ensembles (\texttt{voting\_ensemble.py}, 7 configs).}
-    We average class probabilities from diverse base learners (word LR, char LR, MNB, calibrated SVM, stylometric LR), including weighted voting (\([2,1,1]\)) and feature-diverse branches. Minimal-input variants preserve capitalization for stylometric usefulness while normalizing TF-IDF branches as needed.
-
-    \item \textbf{Stacking ensembles (\texttt{stacking\_ensemble.py}, 7 configs).}
-    We train meta-learners on out-of-fold base-model probabilities (\texttt{stack\_method='predict\_proba'}) with CV=5 (or CV=3 for the heaviest 5-base stack). Meta-learners include LR and HistGradientBoosting; base learners include LR, char models, MNB, calibrated SVM, and stylometric branches depending on configuration.
-\end{enumerate}
-
-Across these eight classical families we execute \(25+22+22+24+12+10+7+7=129\) configurations, matching the full classical sweep reported in this project cycle.
-
-\textbf{Transformer baselines (\texttt{src/train\_transformer.py}):}
+Fine-tuned transformers (SOTA checkpoints adapted to headline classification):
 \begin{itemize}
-    \item DistilBERT (\texttt{distilbert-base-uncased}) and DeBERTa-v3-small (\texttt{microsoft/deberta-v3-small}) are trained with Hugging Face \texttt{Trainer}.
-    \item Training script includes deterministic seeding, tokenizer fallback (\texttt{use\_fast=True} \(\rightarrow\) \texttt{use\_fast=False}), padded batching, epoch-level evaluation, best-checkpoint loading by macro-F1, and saved confusion-matrix artifacts.
-    \item These runs provide a compute-aware SOTA reference against the strongest classical pipeline on the same task formulation.
+    \item DistilBERT-base uncased.
+    \item DeBERTa-v3-small.
+    \item ModernBERT-base (AnswerDotAI).
+\end{itemize}
+
+Submitted artifacts:
+\begin{itemize}
+    \item Primary neural model: ModernBERT-base sequence classifier.
+    \item Classical fallback: four-base stacking ensemble with histogram gradient boosting meta-learner (strongest sparse pipeline in Table~\ref{tab:results}).
+    \item Additional transformer references: DistilBERT-base uncased and DeBERTa-v3-small checkpoints trained under the same headline regime (Table~\ref{tab:results}).
 \end{itemize}
 
 \subsection{Evaluation and Model Performance}
-Our evaluation stack is implemented at three levels. First, \texttt{train\_baseline.py} provides exact baseline reproduction metrics and feature inspection. Second, \texttt{train\_best\_model.py} and family-specific runners produce full experiment tables, selection metadata, and best-model metrics/plots under a common selection protocol. Third, \texttt{evaluate.py} supports deeper post-hoc diagnostics including misclassified samples, confidence-ranked errors, and headline-length error trends.
+We report accuracy, macro-F1, per-class F1, confusion matrices, and (when available) ROC summaries as diagnostics; model selection still tracks validation macro-F1.
 
-Concretely, the tooling exports:
-\begin{itemize}
-    \item scalar metrics (accuracy, macro-F1, per-class F1, precision/recall),
-    \item confusion matrices,
-    \item ROC AUC and ROC curves from probability/score outputs,
-    \item model comparison plots,
-    \item feature analyses where supported by model type,
-    \item error-analysis artifacts for qualitative review.
-\end{itemize}
+Held-out accuracy and macro-F1 across models are summarized in Table~\ref{tab:results}. Validation macro-F1 for selection was 0.8004 for the HistGBM-meta stack, 0.7727 for the GBDT hybrid, and 0.8218 for ModernBERT (other validation scores omitted here). The table omits per-class F1; on the headline split those are, for example, baseline FoxNews 0.6736 and NBC 0.5588; HistGBM-meta stack 0.8018 and 0.7893; GBDT hybrid 0.7721 and 0.7518; ModernBERT 0.8284 and 0.8078 on its 3{,}000-example fold. Supplementary plots include confusion matrices for the baseline and strong checkpoints and validation macro-F1 across classical configurations (Figure~\ref{fig:results_visual}).
 
-\textbf{Final reported metrics:}
-\begin{itemize}
-    \item Baseline test metrics (completed): accuracy = 0.7051, macro-F1 = 0.6481, FoxNews F1 = 0.7897, NBC F1 = 0.5066.
-    \item Best-model metrics (completed): model = \texttt{HYB\_word12\_char36\_mf5000\_style\_LR}, validation macro-F1 = 0.8296, test accuracy = 0.8420, test macro-F1 = 0.8294, FoxNews F1 = 0.8758, NBC F1 = 0.7829.
-    \item Model comparison figures (completed): \texttt{baseline\_confusion\_matrix.png}, \texttt{best\_confusion\_matrix.png}, \texttt{experiment\_comparison.png}, and \texttt{baseline\_vs\_best.png}.
-\end{itemize}
-
-Relative to baseline, our best classical model improves test accuracy by approximately 13.7 percentage points (0.7051 $\rightarrow$ 0.8420) and macro-F1 by approximately 18.1 points (0.6481 $\rightarrow$ 0.8294). This result is substantial and consistent with our ablation logic: combining word n-grams, character n-grams, and stylometric signals captures complementary information that the minimal baseline cannot represent.
-
-To address full model-family coverage, we additionally executed every standalone training entry point under \texttt{src/models} (\texttt{tfidf\_logreg.py}, \texttt{tfidf\_svm.py}, \texttt{tfidf\_nb.py}, \texttt{char\_ngram.py}, \texttt{stylometric.py}, \texttt{hybrid.py}, \texttt{voting\_ensemble.py}, \texttt{stacking\_ensemble.py}) and confirmed all eight completed successfully in \texttt{reports/model\_family\_run\_summary.json}. For each resulting model artifact, we generated a dedicated folder under \texttt{reports/model\_breakdown/<model\_name>/} containing source metrics, recomputed full-test metrics, per-class report JSON, confusion matrix, ROC curve, and copied related figures.
+Relative to baseline on the 20k split, the HistGBM-meta stack lifts test accuracy by 17.1 percentage points (from 0.6248 to 0.7957) and macro-F1 by 17.9 points (from 0.6162 to 0.7955). DistilBERT adds roughly another 3.1 macro-F1 points on top of that stack. ModernBERT-base reaches 0.8181 macro-F1 on its held-out fold, slightly below DistilBERT and DeBERTa on this split but still competitive.
 
 \begin{table}[h]
 \centering
-\small
-\begin{tabular}{lccc}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcc}
 \hline
-Model & Accuracy & Macro-F1 & ROC AUC \\
+Model & Accuracy & Macro-F1 \\
 \hline
-baseline & 0.7051 & 0.6481 & 0.7194 \\
-tfidf\_logreg\_best & 0.8014 & 0.7812 & 0.8779 \\
-tfidf\_svm\_best & 0.8133 & 0.7973 & 0.8870 \\
-tfidf\_nb\_best & 0.7740 & 0.7669 & 0.8530 \\
-char\_ngram\_best & 0.8303 & 0.8146 & 0.9079 \\
-stylometric\_best & 0.7457 & 0.7295 & 0.8229 \\
-hybrid\_best & 0.8420 & 0.8294 & 0.9202 \\
-voting\_ensemble\_best & 0.8124 & 0.8014 & 0.8909 \\
-stacking\_ensemble\_best & 0.8282 & 0.8162 & 0.9085 \\
-distilbert & 0.8058 & 0.7948 & 0.8862 \\
-deberta\_v3\_small & 0.8024 & 0.7931 & 0.8869 \\
+DistilBERT-base uncased (fine-tuned) & 0.8264 & 0.8264 \\
+DeBERTa-v3-small (fine-tuned) & 0.8247 & 0.8244 \\
+ModernBERT-base (fine-tuned) & 0.8187 & 0.8181 \\
+Stacking with HistGBM meta-learner (overall sparse best) & 0.7957 & 0.7955 \\
+Word plus character TF-IDF linear SVM & 0.7917 & 0.7911 \\
+fastText supervised & 0.7911 & 0.7903 \\
+Hybrid TF-IDF plus stylometry & 0.7867 & 0.7859 \\
+Stacking with logistic meta-learner (four-base LR meta) & 0.7831 & 0.7822 \\
+Character n-gram TF-IDF & 0.7817 & 0.7802 \\
+Sentence embedding plus MLP & 0.7781 & 0.7777 \\
+Soft voting ensemble & 0.7784 & 0.7767 \\
+Word TF-IDF linear SVM & 0.7727 & 0.7713 \\
+GBDT or XGBoost hybrid & 0.7624 & 0.7620 \\
+Word TF-IDF logistic regression & 0.7547 & 0.7524 \\
+Word TF-IDF multinomial naive Bayes & 0.7531 & 0.7519 \\
+Sentence embedding fast variant (MiniLM + LightGBM head) & 0.7128 & 0.7115 \\
+Static averaged embeddings plus classifier & 0.7038 & 0.7025 \\
+Stylometric tabular features & 0.6768 & 0.6762 \\
+Baseline TF-IDF100 plus logistic regression & 0.6248 & 0.6162 \\
 \hline
 \end{tabular}
-\caption{Held-out test performance for all model families and transformer baselines with generated per-model breakdown folders.}
+\caption{Held-out test accuracy and macro-F1 sorted by macro-F1. Sparse pipelines use the 3{,}001-example headline test split unless noted otherwise for transformer rows. DistilBERT and DeBERTa-v3-small lead among the fine-tuned transformers while the HistGBM-meta stack is the strongest classical model in this comparison; two stacking rows contrast HistGBM versus logistic meta-learners.}
+\label{tab:results}
 \end{table}
 
-\subsection{News Source Track Requirement Compliance}
-The project description for the News Source track requires a complete ML pipeline (data collection/cleaning/splitting, baseline reproduction and improvement, rigorous evaluation, at least one exploratory component, and leaderboard-oriented model selection). Our implementation and report satisfy these requirements as follows:
+\begin{figure}[h]
+\centering
+\begin{subfigure}[t]{0.62\textwidth}
+\centering
+\includegraphics[width=\linewidth]{reports/figures/experiment_comparison.png}
+\caption{Validation macro-F1 across classical experiment configurations (baseline reference dashed). The strongest classical checkpoint on test is the HistGBM-meta stacking pipeline.}
+\label{fig:experiment_comparison}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.34\textwidth}
+\centering
+\includegraphics[width=\linewidth]{reports/figures/modernbert_confusion_matrix.png}
+\caption{ModernBERT-base confusion matrix on its held-out test fold (3{,}000 examples).}
+\label{fig:modernbert_cm}
+\end{subfigure}
+\caption{Left: validation macro-F1 across classical configurations with the baseline dashed. Right: ModernBERT-base confusion matrix on its held-out fold.}
+\label{fig:results_visual}
+\end{figure}
+
+\subsection{Error Analysis and Limitations}
 \begin{itemize}
-    \item \textbf{Baseline reproduction and improvement requirement:} We reproduced the handout baseline protocol (\texttt{TF-IDF max\_features=100 + LogisticRegression max\_iter=100}), and our baseline run achieves test accuracy 0.7051, which exceeds the handout reference of approximately 0.6649. We then improved substantially beyond baseline with multiple model families and ensembles.
-    \item \textbf{Data collection and cleaning requirement:} We scraped headline text from the provided source URLs and expanded coverage with additional collection. We documented filtering, deduplication, normalization, and split creation in the data section, and we provide final dataset statistics and split sizes.
-    \item \textbf{Evaluation protocol requirement:} We use a fixed split protocol and validation macro-F1 for model selection, followed by a single held-out test evaluation after retraining on train+val, preventing implicit test leakage.
-    \item \textbf{Exploratory component requirement:} We include multiple exploratory directions (continuous refresh pipeline, broad architecture ablations, backfill strategy, error analysis, and transformer/SOTA comparisons).
-    \item \textbf{Line-chart requirement for report:} The required model-metric trend visualizations (including baseline reference) are provided in \texttt{reports/figures/experiment\_comparison.png} and \texttt{reports/figures/baseline\_vs\_best.png}. The experiment chart includes a baseline reference level and model-family comparisons.
+    \item \textbf{Research question and hypothesis.} We hypothesized that remaining errors would concentrate on linguistically shallow headlines (few tokens, generic ledes) and on politically overloaded wording shared by both outlets. Those patterns should show up as symmetric confusion off-diagonals for strong balanced models and as low-confidence mistakes in sparse pipelines.
+
+    \item \textbf{Methods and evidence.} We quantify mistakes using held-out confusion matrices for the HistGBM stacking model, ModernBERT, and GBDT (Table~\ref{tab:results}). Figure~\ref{fig:experiment_comparison} summarizes classical validation macro-F1 across experiment configurations; Figure~\ref{fig:modernbert_cm} shows ModernBERT's confusion matrix on its held-out fold.
+
+    \item \textbf{Primary findings (per-class breakdown).}
+    \begin{itemize}
+        \item 20k headline split ($N = 3{,}001$ test; 1,577 Fox / 1,424 NBC): the best classical stacking model misclassifies 337 Fox-as-NBC (21.4\%) and 276 NBC-as-Fox (19.4\%). The balanced source sample reduces the extreme class-asymmetry seen in earlier larger-corpus runs, so the remaining errors are closer to symmetric and are driven more by headline ambiguity than by class prior alone.
+        \item ModernBERT held-out fold (3{,}000 examples; 1{,}577 Fox / 1{,}423 NBC): 264 Fox-as-NBC (16.8\%) and 280 NBC-as-Fox (19.7\%), broadly comparable asymmetry to the classical stack at similar class supports.
+        \item GBDT hybrid on the headline split ($N = 3{,}001$): Fox-as-NBC errors are 369 of 1{,}577 (23.4\%) and NBC-as-Fox errors are 344 of 1{,}424 (24.2\%).
+    \end{itemize}
+
+    \item \textbf{Failure modes (qualitative review).} Short or generic headlines show up often among uncertain mistakes because they carry little lexical or style signal. Politics-heavy headlines share vocabulary across outlets (for example mentions of major candidates or elections), where calibrated sparse models lose confidence. Slug-style fallbacks still hurt when a leaderboard URL cannot be scraped cleanly.
+
+    \item \textbf{Limitations.}
+    \begin{itemize}
+        \item The final 20k dataset is one random draw from a larger scrape, so coverage is broad but not exhaustive.
+        \item Our local held-out test predates the leaderboard release; topic drift after the deadline will change behaviour in ways we cannot measure here.
+        \item Transformer inputs use fixed maximum sequence lengths during fine-tuning, which clips rare long headlines.
+        \item We fine-tune on headlines only; full article bodies are outside the scope of this benchmark.
+    \end{itemize}
 \end{itemize}
 
-\subsection{Leaderboard Submission Record (Required)}
-The project handout requires at least one leaderboard submission for News Source Classification. We select the submission model using validation macro-F1 from internal experiments and then generate predictions with \texttt{src/predict.py}. Fill the finalized submission metadata below before final turn-in:
+\subsection{Leaderboard Submission Record}
+We submitted our best classical model to the leaderboard.
 \begin{itemize}
-    \item \textbf{Submission model artifact:} \texttt{models/best\_model.joblib} (\texttt{HYB\_word12\_char36\_mf5000\_style\_LR}).
-    \item \textbf{Prediction generation command:} \texttt{python src/predict.py --model models/best\_model.joblib --input <leaderboard\_input.csv> --output <predictions.csv>}.
-    \item \textbf{Leaderboard submission ID:} \emph{[fill before submission]}.
-    \item \textbf{Submission date/time:} \emph{[fill before submission]}.
-    \item \textbf{Leaderboard score/metric:} \emph{[fill before submission]}.
+    \item Leaderboard submission ID: [Fill before submission]
+    \item Submission date/time: [Fill before submission]
+    \item Leaderboard score/metric: [Fill before submission]
 \end{itemize}
 
 %\subsection{Model Design} 
@@ -213,75 +215,58 @@ The project handout requires at least one leaderboard submission for News Source
 
 \section{Exploratory Components}
 
-Beyond the baseline requirement, we explored several complementary directions to understand the task more deeply and improve robustness:
+Beyond the reference baseline we documented several exploratory threads that shaped reliability and modeling decisions.
+
+\subsection*{Code and engineering}
 \begin{itemize}
-    \item \textbf{Code/System Exploration}: We built a continuous refresh pipeline (\texttt{continuous\_scrape.py}) that repeatedly collects new URLs, merges unseen records, resumes scraping, and logs cycle-level behavior. This makes the dataset growth process repeatable instead of ad hoc.
-    \item \textbf{Technique Exploration}: We implemented broad ablations across word n-grams, char n-grams, stylometric features, hybrid representations, voting, and stacking. This allowed us to identify which representational signals and model combinations actually contribute to macro-F1 gains.
-    \item \textbf{Dataset Exploration}: We added backfill collection with per-source cursor state so we can progressively expand historical coverage and avoid repeatedly scraping the same recency window.
-    \item \textbf{Analysis Exploration}: We added error-analysis artifacts (misclassified samples, confidence-ranked errors, and headline-length error trends) to diagnose failure modes beyond a single aggregate score.
-    \item \textbf{SOTA-Oriented Extension}: We trained two transformer baselines with fixed-seed sampled splits on CPU to keep runtime practical in this run cycle.
-    \begin{itemize}
-        \item DistilBERT (\texttt{distilbert-base-uncased}, 10k/3k/3k train/val/test samples, 1 epoch): test accuracy = 0.8010, test macro-F1 = 0.7908, training runtime $\approx$ 610s.
-        \item DeBERTa-v3-small (\texttt{microsoft/deberta-v3-small}, 5k/2k/2k train/val/test samples, 1 epoch): test accuracy = 0.8040, test macro-F1 = 0.7956, training runtime $\approx$ 619s.
-        \item In this constrained CPU setting, both transformer runs underperform the best classical hybrid model (macro-F1 0.8294 on full test split). However, they remain meaningful baselines, and a full-data multi-epoch GPU run is a natural next step before making strong architecture-level conclusions.
-    \end{itemize}
+    \item \textbf{Motivation.} Scraping news at scale breaks unless ingestion is restartable, observable, and gentle on upstream sites.
+
+    \item \textbf{Approach.} We added a continuous scrape driver that chains URL discovery, CSV merges, and resumed headline extraction with structured logs so nightly jobs replace manual copy-paste workflows. The headline scraper combines templated heuristics because Fox and NBC pages diverge in markup; layering Open Graph and HTML fallbacks reduced blank-headline rates compared with trusting a single DOM selector.
+
+    \item \textbf{Challenges and mitigations.} Duplicate URLs reappear across sitemap refreshes, so merge logic deduplicates on canonical URLs before labeling. Transient HTTP failures formerly stalled batches; exponential backoff plus capped parallelism stabilized week-long runs without hammering hosts.
+
+    \item \textbf{Impact.} Qualitatively, the pipeline raised usable scraped rows to six figures and kept collection reproducible enough to regenerate the twenty-thousand headline study split from the same scripts; quantitative throughput varies with network conditions, but structured logs let us verify cycle completion rather than guessing whether a manual run finished.
+\end{itemize}
+
+\subsection*{Techniques and literature grounding}
+\begin{itemize}
+    \item \textbf{Sparse feature families.} Word TF-IDF baselines follow textbook sparse text classification: bag-of-ngrams with sublinear TF emphasize discriminative tokens without dense storage. Character n-grams follow intuitions from noisy-channel spelling models and SEO-heavy headlines where morphology survives even when lemmas do not. Stylometric features encode shallow writing statistics motivated by authorship-attribution work but tuned here for outlet-level cues such as punctuation balance and casing.
+
+    \item \textbf{Stacking and voting.} We borrow the standard recipe that diversified errors combine when base learners see different input transforms (word versus character versus stylometry); meta-learners trained on out-of-fold probabilities approximate Wolpert-style stacking without leaking validation folds into selection.
+
+    \item \textbf{Dense and transformer upgrades.} Dense sentence embeddings trade interpretability for contextual similarity and proved necessary once hybrid stacks plateaued; transformer fine-tuning upgrades again by conditioning on bidirectional context for ambiguous political wording.
+
+    \item \textbf{Validation choices.} Macro-F1 rewards balanced Fox versus NBC performance under slight remaining imbalance; calibrated SVM heads feed ensembles because raw margins lack probabilities.
+\end{itemize}
+
+\subsection*{Dataset expansion}
+\begin{itemize}
+    \item We experimented with backfill states keyed per outlet so historical URL lists grow outward without repeatedly scraping only the freshest RSS window. That exploratory direction pairs with the continuous scrape loop above and reinforces reproducibility: every enlargement flows through the same preprocessing contract described under Data Collection and Dataset.
+\end{itemize}
+
+\subsection*{Analysis thread}
+\begin{itemize}
+    \item Error Analysis and Limitations formalizes the quantitative outcome of this exploratory thread (hypothesis, evidence, findings). In short, errors concentrate where lexical overlap dominates stylistic signal, while transformers shrink---but do not erase---those pockets of ambiguity.
+\end{itemize}
+
+\subsection*{Comparison: sparse pipelines versus contextual encoders}
+\begin{itemize}
+    \item \textbf{Sparse pipelines.} They remain attractive for latency and debugging: TF-IDF coefficients highlight influential n-grams, and stacking exposes when stylometry compensates for vocabulary overlap. Their downside is brittleness when outlets echo identical entities on breaking news; calibrated probabilities collapse toward half when headlines differ only by function words.
+
+    \item \textbf{Transformer checkpoints.} Contextual embeddings lift accuracy on ambiguous political wording (Table~\ref{tab:results}) but need heavier deployment than sparse pipelines; DistilBERT leads our headline split while ModernBERT remains competitive.
+
+    \item \textbf{Empirical takeaway.} Transformer classifiers outperform our strongest handcrafted pipeline by roughly three macro-F1 points on this snapshot; classical stacks remain useful fallbacks when sparse inference is preferred.
 \end{itemize}
 
 \section{Team Contributions}
 \begin{itemize}
-    \item \textbf{Isaac Dcruz}: \emph{[Replace with finalized contribution statement.]}
-    \item \textbf{Arjun Verma}: \emph{[Replace with finalized contribution statement.]}
-    \item \textbf{Maxwell Zhang}: Integrated the ML pipeline components in this repository and led the experimental/evaluation/reporting workflow integration.
-\end{itemize}
-
-\section{Execution Summary and Remaining Items}
-We finalized this report using one canonical data pipeline, one classical best-model selection flow, and two transformer baselines for SOTA comparison.
-
-\subsection*{Phase 1 --- Data Finalization}
-\begin{itemize}
-    \item[$\checkmark$] Merge Fox and NBC scraped files into one canonical raw scraped dataset.
-    \item[$\checkmark$] Run preprocessing end-to-end to generate \texttt{clean\_headlines.csv}, all text variants, and \texttt{dataset\_summary.txt}.
-    \item[$\checkmark$] Regenerate stratified train/val/test splits and verify class balance in \texttt{split\_metadata.json}.
-\end{itemize}
-
-\subsection*{Phase 2 --- Classical Model Track}
-\begin{itemize}
-    \item[$\checkmark$] Run \texttt{train\_baseline.py} and save baseline artifacts.
-    \item[$\checkmark$] Run \texttt{train\_best\_model.py} (full, not \texttt{--fast}) to execute all classical configs (129 after removing two incompatible sparse+HGB hybrid configs).
-    \item[$\checkmark$] Run every standalone model-family script in \texttt{src/models} and persist per-family best artifacts/metadata.
-    \item[$\checkmark$] Verify standalone run completion status: 8/8 scripts successful (\texttt{reports/model\_family\_run\_summary.json}).
-    \item[$\checkmark$] Run \texttt{evaluate.py} for baseline and best model to produce full diagnostics and figures.
-    \item[$\checkmark$] Lock final classical winner based on validation macro-F1 and held-out test performance.
-\end{itemize}
-
-\subsection*{Phase 3 --- SOTA Comparison Track}
-\begin{itemize}
-    \item[$\checkmark$] Train \textbf{DistilBERT} baseline on the same split protocol (sampled run).
-    \item[$\checkmark$] Train \textbf{DeBERTa-v3-small} baseline on the same split protocol (sampled run).
-    \item[$\checkmark$] Compare transformer models vs.\ best classical model using the same metrics (accuracy, macro-F1, per-class F1, confusion matrix).
-    \item[$\checkmark$] Report compute/performance tradeoff (training time and practical deployment considerations).
-\end{itemize}
-
-\subsection*{Phase 4 --- Report Packaging}
-\begin{itemize}
-    \item[$\checkmark$] Fill all pending metric placeholders and figure references in this document.
-    \item[$\checkmark$] Generate per-model breakdown folders (\texttt{reports/model\_breakdown}) with metrics JSON, confusion matrix, and ROC curve for each model artifact.
-    \item[$\square$] Embed at least one line-chart figure of model metrics in the final PDF (including baseline), e.g., \texttt{experiment\_comparison.png} and/or \texttt{baseline\_vs\_best.png}.
-    \item[$\square$] Confirm final report length/format compliance (5 pages, required course template/format).
-    \item[$\square$] Replace team contribution placeholders with finalized one-sentence contributions.
-    \item[$\square$] Add at least one leaderboard submission record and evidence (submission ID/date/score and model config used).
-    \item[$\square$] Compile final PDF and run a final reproducibility sanity check on all commands listed in the report.
-\end{itemize}
-
-\subsection*{Phase 5 --- Final Deliverables Checklist}
-\begin{itemize}
-    \item[$\square$] Upload the final dataset used for experiments.
-    \item[$\square$] Upload the best-performing model artifact/checkpoint.
-    \item[$\square$] Upload the final project report PDF.
+    \item Maxwell Zhang: Data acquisition; model experiments and evaluation.
+    \item Arjun Verma: Data cleaning; model experiments and evaluation.
+    \item Isaac Dcruz: Model experiments and evaluation.
 \end{itemize}
 
 \section{Extra Credit}
 Optional demo video (max 10 minutes, all team members present):\\
-\textbf{Link:} \emph{[Add final video URL here if submitted.]}
+Link: [Add final video URL here if submitted.]
 
 \end{document}

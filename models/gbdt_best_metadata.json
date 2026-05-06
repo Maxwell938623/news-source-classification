@@ -1,0 +1,30 @@
+{
+  "group": "gbdt",
+  "experiment_name": "GBDT_word12_char36_mf5000_style",
+  "prep_col": "headline_minimal",
+  "description": "word (1,2) + char (3, 6) mf=10000 + stylo \u2192 HistGBM (default)",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "val_f1_macro": 0.7727344633926466,
+  "test_metrics": {
+    "accuracy": 0.7624125291569477,
+    "f1_macro": 0.7619795148113652,
+    "f1_weighted": 0.7624971022713193,
+    "f1_foxnews": 0.7721316714605305,
+    "f1_nbc": 0.7518273581621998,
+    "precision_macro": 0.7618460651853749,
+    "recall_macro": 0.7622191901847484,
+    "confusion_matrix": [
+      [
+        1208,
+        369
+      ],
+      [
+        344,
+        1080
+      ]
+    ]
+  }
+}

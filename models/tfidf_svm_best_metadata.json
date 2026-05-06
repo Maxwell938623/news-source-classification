@@ -1,0 +1,30 @@
+{
+  "group": "tfidf_svm",
+  "experiment_name": "G2_SVM_w12_mf20000_C1",
+  "prep_col": "headline_lowercase",
+  "description": "LinearSVC, word (1,2), mf=20000, C=1",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "val_f1_macro": 0.7317643218453544,
+  "test_metrics": {
+    "accuracy": 0.7455029980013325,
+    "f1_macro": 0.7443454610308542,
+    "f1_weighted": 0.7452279397113178,
+    "f1_foxnews": 0.7615480649188514,
+    "f1_nbc": 0.7271428571428571,
+    "precision_macro": 0.7450665422351899,
+    "recall_macro": 0.7440090927215506,
+    "confusion_matrix": [
+      [
+        610,
+        179
+      ],
+      [
+        203,
+        509
+      ]
+    ]
+  }
+}

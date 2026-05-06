@@ -26,3 +26,31 @@ weighted avg       0.83      0.83      0.83     19330
 
 2026-05-04 22:20:41,493  INFO      Saved model : C:\Users\maxwe\PromProjects\news-source-classification\models\stacking_ensemble_best.joblib
 2026-05-04 22:20:41,493  INFO      Saved meta  : C:\Users\maxwe\PromProjects\news-source-classification\models\stacking_ensemble_best_metadata.json
+2026-05-06 05:05:48,370  INFO      Running 7 configs for 'stacking_ensemble'.
+2026-05-06 05:06:26,365  INFO      
+Top 5 by val_f1_macro:
+                       name  val_f1_macro  val_accuracy
+  Stack_4base_style_LR_meta      0.773128      0.774000
+ Stack_4base_style_HGB_meta      0.769594      0.770000
+   Stack_3base_LR_meta_C0.1      0.750403      0.752000
+ Stack_5base_calSVM_LR_meta      0.750349      0.752000
+Stack_3base_charSVM_LR_meta      0.749061      0.750667
+2026-05-06 05:06:26,365  INFO      Best: Stack_4base_style_LR_meta  (val_f1_macro=0.7731)
+2026-05-06 05:06:33,478  INFO      ========================================================
+2026-05-06 05:06:33,478  INFO      BEST (stacking_ensemble): Stack_4base_style_LR_meta
+2026-05-06 05:06:33,478  INFO        val F1-macro  = 0.7731
+2026-05-06 05:06:33,478  INFO        test accuracy = 0.8015
+2026-05-06 05:06:33,478  INFO        test F1-macro = 0.8005
+2026-05-06 05:06:33,478  INFO      ========================================================
+2026-05-06 05:06:33,482  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.80      0.83      0.81       789
+         NBC       0.80      0.77      0.79       712
+
+    accuracy                           0.80      1501
+   macro avg       0.80      0.80      0.80      1501
+weighted avg       0.80      0.80      0.80      1501
+
+2026-05-06 05:06:33,637  INFO      Saved model : C:\Users\maxwe\PromProjects\news-source-classification\models\stacking_ensemble_best.joblib
+2026-05-06 05:06:33,637  INFO      Saved meta  : C:\Users\maxwe\PromProjects\news-source-classification\models\stacking_ensemble_best_metadata.json

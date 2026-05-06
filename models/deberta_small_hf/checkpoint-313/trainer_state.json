@@ -1,0 +1,69 @@
+{
+  "best_global_step": 313,
+  "best_metric": 0.7944835749452064,
+  "best_model_checkpoint": "C:\\Users\\maxwe\\PromProjects\\news-source-classification\\models\\deberta_small_hf\\checkpoint-313",
+  "epoch": 1.0,
+  "eval_steps": 500,
+  "global_step": 313,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 0.3194888178913738,
+      "grad_norm": 3.7365951538085938,
+      "learning_rate": 1.36741214057508e-05,
+      "loss": 0.5934,
+      "step": 100
+    },
+    {
+      "epoch": 0.6389776357827476,
+      "grad_norm": 6.24110221862793,
+      "learning_rate": 7.284345047923324e-06,
+      "loss": 0.4742,
+      "step": 200
+    },
+    {
+      "epoch": 0.9584664536741214,
+      "grad_norm": 5.99772834777832,
+      "learning_rate": 8.945686900958467e-07,
+      "loss": 0.4314,
+      "step": 300
+    },
+    {
+      "epoch": 1.0,
+      "eval_accuracy": 0.8025,
+      "eval_f1_foxnews": 0.8350730688935282,
+      "eval_f1_macro": 0.7944835749452064,
+      "eval_f1_nbc": 0.7538940809968847,
+      "eval_loss": 0.40556997060775757,
+      "eval_precision_macro": 0.790179025531482,
+      "eval_recall_macro": 0.8068215428463876,
+      "eval_runtime": 39.4205,
+      "eval_samples_per_second": 50.735,
+      "eval_steps_per_second": 3.171,
+      "step": 313
+    }
+  ],
+  "logging_steps": 100,
+  "max_steps": 313,
+  "num_input_tokens_seen": 0,
+  "num_train_epochs": 1,
+  "save_steps": 500,
+  "stateful_callbacks": {
+    "TrainerControl": {
+      "args": {
+        "should_epoch_stop": false,
+        "should_evaluate": false,
+        "should_log": false,
+        "should_save": true,
+        "should_training_stop": true
+      },
+      "attributes": {}
+    }
+  },
+  "total_flos": 31271699177856.0,
+  "train_batch_size": 16,
+  "trial_name": null,
+  "trial_params": null
+}

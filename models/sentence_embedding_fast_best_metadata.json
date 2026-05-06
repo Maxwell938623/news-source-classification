@@ -1,0 +1,29 @@
+{
+  "experiment_name": "SE_all-MiniLM-L6-v2_lightgbm",
+  "group": "sentence_embedding_fast",
+  "prep_col": "headline_minimal",
+  "description": "LightGBM over sentence embeddings; embed=sentence-transformers/all-MiniLM-L6-v2",
+  "val_metrics": {
+    "val_f1_macro": 0.7247852503666457,
+    "val_accuracy": 0.7263333333333334
+  },
+  "test_metrics": {
+    "accuracy": 0.712762412529157,
+    "f1_macro": 0.7114680556794861,
+    "f1_weighted": 0.7124533123859519,
+    "f1_foxnews": 0.730793254216115,
+    "f1_nbc": 0.6921428571428572,
+    "precision_macro": 0.7121075581395349,
+    "recall_macro": 0.7111962783125405,
+    "confusion_matrix": [
+      [
+        1170,
+        407
+      ],
+      [
+        455,
+        969
+      ]
+    ]
+  }
+}

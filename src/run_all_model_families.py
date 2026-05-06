@@ -24,6 +24,7 @@ MODEL_SCRIPTS = [
     "src/models/hybrid.py",
     "src/models/voting_ensemble.py",
     "src/models/stacking_ensemble.py",
+    "src/models/sentence_embedding.py",
 ]
 
 

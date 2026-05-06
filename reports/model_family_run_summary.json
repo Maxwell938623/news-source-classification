@@ -1,47 +1,52 @@
 {
-  "total": 8,
-  "success": 8,
+  "total": 9,
+  "success": 9,
   "failed": 0,
   "results": [
     {
       "script": "src/models/tfidf_logreg.py",
       "exit_code": 0,
-      "elapsed_seconds": 98.31
+      "elapsed_seconds": 7.03
     },
     {
       "script": "src/models/tfidf_svm.py",
       "exit_code": 0,
-      "elapsed_seconds": 114.09
+      "elapsed_seconds": 6.59
     },
     {
       "script": "src/models/tfidf_nb.py",
       "exit_code": 0,
-      "elapsed_seconds": 98.19
+      "elapsed_seconds": 5.92
     },
     {
       "script": "src/models/char_ngram.py",
       "exit_code": 0,
-      "elapsed_seconds": 376.19
+      "elapsed_seconds": 21.19
     },
     {
       "script": "src/models/stylometric.py",
       "exit_code": 0,
-      "elapsed_seconds": 84.54
+      "elapsed_seconds": 8.81
     },
     {
       "script": "src/models/hybrid.py",
       "exit_code": 0,
-      "elapsed_seconds": 167.12
+      "elapsed_seconds": 8.14
     },
     {
       "script": "src/models/voting_ensemble.py",
       "exit_code": 0,
-      "elapsed_seconds": 191.75
+      "elapsed_seconds": 10.88
     },
     {
       "script": "src/models/stacking_ensemble.py",
       "exit_code": 0,
-      "elapsed_seconds": 962.33
+      "elapsed_seconds": 47.37
+    },
+    {
+      "script": "src/models/sentence_embedding.py",
+      "exit_code": 0,
+      "elapsed_seconds": 374.99
     }
   ]
 }

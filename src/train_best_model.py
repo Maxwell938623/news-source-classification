@@ -87,6 +87,12 @@ from models.stylometric       import get_configs as _stylo_configs
 from models.hybrid            import get_configs as _hybrid_configs
 from models.voting_ensemble   import get_configs as _voting_configs
 from models.stacking_ensemble import get_configs as _stacking_configs
+try:
+    from models.sentence_embedding import get_configs as _sentence_embedding_configs
+    _SENTENCE_EMBEDDING_AVAILABLE = True
+except Exception:  # noqa: BLE001 — torch/torchvision DLL issues on some Windows envs
+    _sentence_embedding_configs = lambda: []  # type: ignore[assignment]
+    _SENTENCE_EMBEDDING_AVAILABLE = False
 
 
 # ---------------------------------------------------------------------------
@@ -111,6 +117,7 @@ def build_all_configs(fast: bool = False) -> list[ModelConfig]:
         configs += _hybrid_configs()
         configs += _voting_configs()
         configs += _stacking_configs()
+        configs += _sentence_embedding_configs()
 
     return configs
 
@@ -241,6 +248,12 @@ def train_best_model(fast: bool = False) -> None:
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    if not _SENTENCE_EMBEDDING_AVAILABLE:
+        log.warning(
+            "sentence_embedding configs unavailable (torch/torchvision DLL issue); "
+            "sentence-transformer experiments will be skipped."
+        )
 
     # ---- Load splits -------------------------------------------------------
     train_df, val_df, test_df = load_splits()

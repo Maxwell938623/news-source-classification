@@ -55,3 +55,345 @@ weighted avg       0.70      0.71      0.69     19330
 2026-05-04 19:51:12,908  INFO      Saved baseline metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline_metadata.json
 2026-05-04 19:51:12,909  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_baseline.json
 2026-05-04 19:51:13,072  INFO      Saved confusion matrix plot.
+2026-05-06 03:02:55,594  INFO      Train size: 39970  |  Test size: 8566
+2026-05-06 03:02:55,598  INFO      Building baseline pipeline: TF-IDF(max_features=100) + LR(max_iter=100)
+2026-05-06 03:02:56,030  INFO      ========================================================
+2026-05-06 03:02:56,030  INFO      BASELINE RESULTS (test split)
+2026-05-06 03:02:56,030  INFO        Accuracy:          0.6334   (handout reports ~0.6649)
+2026-05-06 03:02:56,030  INFO        F1 macro:          0.6245
+2026-05-06 03:02:56,030  INFO        F1 FoxNews:        0.6823
+2026-05-06 03:02:56,030  INFO        F1 NBC:            0.5668
+2026-05-06 03:02:56,030  INFO        Precision macro:   0.6358
+2026-05-06 03:02:56,030  INFO        Recall macro:      0.6272
+2026-05-06 03:02:56,030  INFO      ========================================================
+2026-05-06 03:02:56,035  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.63      0.75      0.68      4503
+         NBC       0.64      0.51      0.57      4063
+
+    accuracy                           0.63      8566
+   macro avg       0.64      0.63      0.62      8566
+weighted avg       0.64      0.63      0.63      8566
+
+2026-05-06 03:02:56,035  INFO      Top 15 features -> NBC  (positive coef):
+2026-05-06 03:02:56,035  INFO        +2.365  harris
+2026-05-06 03:02:56,035  INFO        +2.104  supreme
+2026-05-06 03:02:56,035  INFO        +2.055  politics
+2026-05-06 03:02:56,035  INFO        +1.629  trump
+2026-05-06 03:02:56,036  INFO        +1.547  democratic
+2026-05-06 03:02:56,036  INFO        +1.513  shooting
+2026-05-06 03:02:56,036  INFO        +1.475  election
+2026-05-06 03:02:56,036  INFO        +1.468  black
+2026-05-06 03:02:56,036  INFO        +1.382  dies
+2026-05-06 03:02:56,036  INFO        +1.251  ukraine
+2026-05-06 03:02:56,036  INFO        +1.198  say
+2026-05-06 03:02:56,036  INFO        +1.114  ai
+2026-05-06 03:02:56,036  INFO        +1.087  republicans
+2026-05-06 03:02:56,036  INFO        +0.998  democrats
+2026-05-06 03:02:56,036  INFO        +0.951  million
+2026-05-06 03:02:56,036  INFO      Top 15 features -> FoxNews  (negative coef):
+2026-05-06 03:02:56,036  INFO        -2.269  obama
+2026-05-06 03:02:56,036  INFO        -1.468  win
+2026-05-06 03:02:56,036  INFO        -1.188  game
+2026-05-06 03:02:56,036  INFO        -1.064  warns
+2026-05-06 03:02:56,036  INFO        -0.949  iran
+2026-05-06 03:02:56,036  INFO        -0.938  anti
+2026-05-06 03:02:56,036  INFO        -0.811  america
+2026-05-06 03:02:56,036  INFO        -0.698  report
+2026-05-06 03:02:56,036  INFO        -0.668  state
+2026-05-06 03:02:56,036  INFO        -0.639  star
+2026-05-06 03:02:56,036  INFO        -0.603  police
+2026-05-06 03:02:56,036  INFO        -0.565  group
+2026-05-06 03:02:56,036  INFO        -0.493  leader
+2026-05-06 03:02:56,036  INFO        -0.462  news
+2026-05-06 03:02:56,036  INFO        -0.450  border
+2026-05-06 03:02:56,039  INFO      Saved pipeline: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline.joblib
+2026-05-06 03:02:56,040  INFO      Saved baseline metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline_metadata.json
+2026-05-06 03:02:56,040  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_baseline.json
+2026-05-06 03:02:56,252  INFO      Saved confusion matrix plot.
+2026-05-06 03:05:51,219  INFO      Train size: 79941  |  Test size: 17131
+2026-05-06 03:05:51,227  INFO      Building baseline pipeline: TF-IDF(max_features=100) + LR(max_iter=100)
+2026-05-06 03:05:52,038  INFO      ========================================================
+2026-05-06 03:05:52,038  INFO      BASELINE RESULTS (test split)
+2026-05-06 03:05:52,038  INFO        Accuracy:          0.6732   (handout reports ~0.6649)
+2026-05-06 03:05:52,038  INFO        F1 macro:          0.6328
+2026-05-06 03:05:52,038  INFO        F1 FoxNews:        0.7547
+2026-05-06 03:05:52,038  INFO        F1 NBC:            0.5108
+2026-05-06 03:05:52,038  INFO        Precision macro:   0.6598
+2026-05-06 03:05:52,038  INFO        Recall macro:      0.6317
+2026-05-06 03:05:52,038  INFO      ========================================================
+2026-05-06 03:05:52,044  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.69      0.83      0.75     10323
+         NBC       0.63      0.43      0.51      6808
+
+    accuracy                           0.67     17131
+   macro avg       0.66      0.63      0.63     17131
+weighted avg       0.67      0.67      0.66     17131
+
+2026-05-06 03:05:52,044  INFO      Top 15 features -> NBC  (positive coef):
+2026-05-06 03:05:52,044  INFO        +2.151  trump
+2026-05-06 03:05:52,044  INFO        +1.799  dies
+2026-05-06 03:05:52,044  INFO        +1.770  supreme
+2026-05-06 03:05:52,044  INFO        +1.579  ukraine
+2026-05-06 03:05:52,044  INFO        +1.560  election
+2026-05-06 03:05:52,044  INFO        +1.555  shooting
+2026-05-06 03:05:52,044  INFO        +1.422  million
+2026-05-06 03:05:52,044  INFO        +1.281  say
+2026-05-06 03:05:52,044  INFO        +1.134  federal
+2026-05-06 03:05:52,044  INFO        +1.113  biden
+2026-05-06 03:05:52,044  INFO        +1.107  charged
+2026-05-06 03:05:52,045  INFO        +1.065  accused
+2026-05-06 03:05:52,045  INFO        +1.052  china
+2026-05-06 03:05:52,045  INFO        +1.006  senate
+2026-05-06 03:05:52,045  INFO        +0.980  years
+2026-05-06 03:05:52,045  INFO      Top 15 features -> FoxNews  (negative coef):
+2026-05-06 03:05:52,045  INFO        -3.370  obama
+2026-05-06 03:05:52,045  INFO        -2.622  scores
+2026-05-06 03:05:52,045  INFO        -2.533  beat
+2026-05-06 03:05:52,045  INFO        -2.394  cup
+2026-05-06 03:05:52,045  INFO        -1.605  points
+2026-05-06 03:05:52,045  INFO        -1.569  win
+2026-05-06 03:05:52,045  INFO        -1.522  victory
+2026-05-06 03:05:52,045  INFO        -1.366  game
+2026-05-06 03:05:52,045  INFO        -1.193  loss
+2026-05-06 03:05:52,045  INFO        -0.917  lead
+2026-05-06 03:05:52,045  INFO        -0.783  coach
+2026-05-06 03:05:52,045  INFO        -0.653  america
+2026-05-06 03:05:52,045  INFO        -0.648  state
+2026-05-06 03:05:52,045  INFO        -0.591  season
+2026-05-06 03:05:52,045  INFO        -0.508  report
+2026-05-06 03:05:52,048  INFO      Saved pipeline: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline.joblib
+2026-05-06 03:05:52,048  INFO      Saved baseline metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline_metadata.json
+2026-05-06 03:05:52,049  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_baseline.json
+2026-05-06 03:05:52,132  INFO      Saved confusion matrix plot.
+2026-05-06 03:25:31,707  INFO      Train size: 2659  |  Test size: 571
+2026-05-06 03:25:31,709  INFO      Building baseline pipeline: TF-IDF(max_features=100) + LR(max_iter=100)
+2026-05-06 03:25:31,754  INFO      ========================================================
+2026-05-06 03:25:31,754  INFO      BASELINE RESULTS (test split)
+2026-05-06 03:25:31,754  INFO        Accuracy:          0.6655   (handout reports ~0.6649)
+2026-05-06 03:25:31,754  INFO        F1 macro:          0.6545
+2026-05-06 03:25:31,754  INFO        F1 FoxNews:        0.7162
+2026-05-06 03:25:31,754  INFO        F1 NBC:            0.5928
+2026-05-06 03:25:31,754  INFO        Precision macro:   0.6732
+2026-05-06 03:25:31,754  INFO        Recall macro:      0.6577
+2026-05-06 03:25:31,754  INFO      ========================================================
+2026-05-06 03:25:31,759  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.65      0.80      0.72       301
+         NBC       0.70      0.51      0.59       270
+
+    accuracy                           0.67       571
+   macro avg       0.67      0.66      0.65       571
+weighted avg       0.67      0.67      0.66       571
+
+2026-05-06 03:25:31,759  INFO      Top 15 features -> NBC  (positive coef):
+2026-05-06 03:25:31,759  INFO        +3.473  jan
+2026-05-06 03:25:31,759  INFO        +2.285  gaza
+2026-05-06 03:25:31,759  INFO        +2.105  netanyahu
+2026-05-06 03:25:31,759  INFO        +1.949  china
+2026-05-06 03:25:31,759  INFO        +1.805  desantis
+2026-05-06 03:25:31,759  INFO        +1.708  korea
+2026-05-06 03:25:31,759  INFO        +1.663  best
+2026-05-06 03:25:31,759  INFO        +1.590  capitol
+2026-05-06 03:25:31,759  INFO        +1.333  iran
+2026-05-06 03:25:31,759  INFO        +1.263  vote
+2026-05-06 03:25:31,759  INFO        +1.225  black
+2026-05-06 03:25:31,759  INFO        +1.146  israeli
+2026-05-06 03:25:31,759  INFO        +1.025  attack
+2026-05-06 03:25:31,759  INFO        +1.008  service
+2026-05-06 03:25:31,759  INFO        +0.933  officials
+2026-05-06 03:25:31,759  INFO      Top 15 features -> FoxNews  (negative coef):
+2026-05-06 03:25:31,759  INFO        -2.538  history
+2026-05-06 03:25:31,759  INFO        -2.509  cnn
+2026-05-06 03:25:31,759  INFO        -1.887  school
+2026-05-06 03:25:31,759  INFO        -1.830  reveals
+2026-05-06 03:25:31,759  INFO        -1.787  america
+2026-05-06 03:25:31,759  INFO        -1.722  admin
+2026-05-06 03:25:31,759  INFO        -1.679  time
+2026-05-06 03:25:31,760  INFO        -1.673  american
+2026-05-06 03:25:31,760  INFO        -1.624  family
+2026-05-06 03:25:31,760  INFO        -1.516  texas
+2026-05-06 03:25:31,760  INFO        -1.439  attempt
+2026-05-06 03:25:31,760  INFO        -1.397  border
+2026-05-06 03:25:31,760  INFO        -1.390  kamala
+2026-05-06 03:25:31,760  INFO        -1.384  health
+2026-05-06 03:25:31,760  INFO        -1.228  debate
+2026-05-06 03:25:31,762  INFO      Saved pipeline: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline.joblib
+2026-05-06 03:25:31,764  INFO      Saved baseline metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline_metadata.json
+2026-05-06 03:25:31,765  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_baseline.json
+2026-05-06 03:25:31,912  INFO      Saved confusion matrix plot.
+2026-05-06 03:56:03,175  INFO      Train size: 5325  |  Test size: 1142
+2026-05-06 03:56:03,177  INFO      Building baseline pipeline: TF-IDF(max_features=100) + LR(max_iter=100)
+2026-05-06 03:56:03,246  INFO      ========================================================
+2026-05-06 03:56:03,246  INFO      BASELINE RESULTS (test split)
+2026-05-06 03:56:03,246  INFO        Accuracy:          0.6296   (handout reports ~0.6649)
+2026-05-06 03:56:03,246  INFO        F1 macro:          0.6192
+2026-05-06 03:56:03,246  INFO        F1 FoxNews:        0.6822
+2026-05-06 03:56:03,246  INFO        F1 NBC:            0.5561
+2026-05-06 03:56:03,246  INFO        Precision macro:   0.6329
+2026-05-06 03:56:03,246  INFO        Recall macro:      0.6228
+2026-05-06 03:56:03,246  INFO      ========================================================
+2026-05-06 03:56:03,250  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.62      0.76      0.68       600
+         NBC       0.64      0.49      0.56       542
+
+    accuracy                           0.63      1142
+   macro avg       0.63      0.62      0.62      1142
+weighted avg       0.63      0.63      0.62      1142
+
+2026-05-06 03:56:03,250  INFO      Top 15 features -> NBC  (positive coef):
+2026-05-06 03:56:03,250  INFO        +3.665  jan
+2026-05-06 03:56:03,250  INFO        +2.156  gaza
+2026-05-06 03:56:03,250  INFO        +2.067  charged
+2026-05-06 03:56:03,250  INFO        +1.569  best
+2026-05-06 03:56:03,250  INFO        +1.379  russia
+2026-05-06 03:56:03,250  INFO        +1.366  china
+2026-05-06 03:56:03,250  INFO        +1.295  politics
+2026-05-06 03:56:03,250  INFO        +1.272  israeli
+2026-05-06 03:56:03,250  INFO        +1.227  black
+2026-05-06 03:56:03,250  INFO        +1.150  election
+2026-05-06 03:56:03,250  INFO        +1.127  abortion
+2026-05-06 03:56:03,250  INFO        +1.001  million
+2026-05-06 03:56:03,250  INFO        +0.672  democrats
+2026-05-06 03:56:03,251  INFO        +0.645  israel
+2026-05-06 03:56:03,251  INFO        +0.636  arrested
+2026-05-06 03:56:03,251  INFO      Top 15 features -> FoxNews  (negative coef):
+2026-05-06 03:56:03,251  INFO        -2.621  illegal
+2026-05-06 03:56:03,251  INFO        -1.982  reveals
+2026-05-06 03:56:03,251  INFO        -1.854  american
+2026-05-06 03:56:03,251  INFO        -1.787  history
+2026-05-06 03:56:03,251  INFO        -1.640  america
+2026-05-06 03:56:03,251  INFO        -1.609  anti
+2026-05-06 03:56:03,251  INFO        -1.533  ice
+2026-05-06 03:56:03,251  INFO        -1.405  school
+2026-05-06 03:56:03,251  INFO        -1.264  border
+2026-05-06 03:56:03,251  INFO        -1.258  kamala
+2026-05-06 03:56:03,251  INFO        -1.104  claims
+2026-05-06 03:56:03,251  INFO        -1.087  poll
+2026-05-06 03:56:03,251  INFO        -1.040  family
+2026-05-06 03:56:03,251  INFO        -1.034  group
+2026-05-06 03:56:03,251  INFO        -0.998  health
+2026-05-06 03:56:03,254  INFO      Saved pipeline: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline.joblib
+2026-05-06 03:56:03,255  INFO      Saved baseline metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline_metadata.json
+2026-05-06 03:56:03,256  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_baseline.json
+2026-05-06 03:56:03,331  INFO      Saved confusion matrix plot.
+2026-05-06 05:04:27,814  INFO      Train size: 7001  |  Test size: 1501
+2026-05-06 05:04:27,818  INFO      Building baseline pipeline: TF-IDF(max_features=100) + LR(max_iter=100)
+2026-05-06 05:04:27,908  INFO      ========================================================
+2026-05-06 05:04:27,908  INFO      BASELINE RESULTS (test split)
+2026-05-06 05:04:27,908  INFO        Accuracy:          0.6103   (handout reports ~0.6649)
+2026-05-06 05:04:27,908  INFO        F1 macro:          0.5978
+2026-05-06 05:04:27,908  INFO        F1 FoxNews:        0.6686
+2026-05-06 05:04:27,908  INFO        F1 NBC:            0.5271
+2026-05-06 05:04:27,908  INFO        Precision macro:   0.6127
+2026-05-06 05:04:27,908  INFO        Recall macro:      0.6028
+2026-05-06 05:04:27,908  INFO      ========================================================
+2026-05-06 05:04:27,911  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.60      0.75      0.67       789
+         NBC       0.62      0.46      0.53       712
+
+    accuracy                           0.61      1501
+   macro avg       0.61      0.60      0.60      1501
+weighted avg       0.61      0.61      0.60      1501
+
+2026-05-06 05:04:27,912  INFO      Top 15 features -> NBC  (positive coef):
+2026-05-06 05:04:27,912  INFO        +3.654  jan
+2026-05-06 05:04:27,912  INFO        +2.188  gaza
+2026-05-06 05:04:27,912  INFO        +1.584  china
+2026-05-06 05:04:27,912  INFO        +1.421  shooting
+2026-05-06 05:04:27,912  INFO        +1.281  black
+2026-05-06 05:04:27,912  INFO        +1.211  election
+2026-05-06 05:04:27,912  INFO        +1.161  best
+2026-05-06 05:04:27,912  INFO        +1.098  israeli
+2026-05-06 05:04:27,912  INFO        +1.056  rep
+2026-05-06 05:04:27,912  INFO        +1.007  sen
+2026-05-06 05:04:27,912  INFO        +0.870  north
+2026-05-06 05:04:27,912  INFO        +0.823  say
+2026-05-06 05:04:27,912  INFO        +0.769  democrats
+2026-05-06 05:04:27,912  INFO        +0.697  murder
+2026-05-06 05:04:27,912  INFO        +0.696  dead
+2026-05-06 05:04:27,912  INFO      Top 15 features -> FoxNews  (negative coef):
+2026-05-06 05:04:27,912  INFO        -3.487  dem
+2026-05-06 05:04:27,912  INFO        -2.476  illegal
+2026-05-06 05:04:27,912  INFO        -2.147  history
+2026-05-06 05:04:27,912  INFO        -1.752  america
+2026-05-06 05:04:27,912  INFO        -1.527  american
+2026-05-06 05:04:27,913  INFO        -1.379  news
+2026-05-06 05:04:27,913  INFO        -1.261  kamala
+2026-05-06 05:04:27,913  INFO        -1.260  anti
+2026-05-06 05:04:27,913  INFO        -1.210  warns
+2026-05-06 05:04:27,913  INFO        -1.186  poll
+2026-05-06 05:04:27,913  INFO        -1.110  school
+2026-05-06 05:04:27,913  INFO        -0.962  ex
+2026-05-06 05:04:27,913  INFO        -0.937  family
+2026-05-06 05:04:27,913  INFO        -0.910  claims
+2026-05-06 05:04:27,913  INFO        -0.891  state
+2026-05-06 05:04:27,915  INFO      Saved pipeline: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline.joblib
+2026-05-06 05:04:27,917  INFO      Saved baseline metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline_metadata.json
+2026-05-06 05:04:27,917  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_baseline.json
+2026-05-06 05:04:28,002  INFO      Saved confusion matrix plot.
+2026-05-06 11:25:12,325  INFO      Train size: 13999  |  Test size: 3001
+2026-05-06 11:25:12,329  INFO      Building baseline pipeline: TF-IDF(max_features=100) + LR(max_iter=100)
+2026-05-06 11:25:12,531  INFO      ========================================================
+2026-05-06 11:25:12,532  INFO      BASELINE RESULTS (test split)
+2026-05-06 11:25:12,532  INFO        Accuracy:          0.6248   (handout reports ~0.6649)
+2026-05-06 11:25:12,532  INFO        F1 macro:          0.6162
+2026-05-06 11:25:12,532  INFO        F1 FoxNews:        0.6736
+2026-05-06 11:25:12,532  INFO        F1 NBC:            0.5588
+2026-05-06 11:25:12,532  INFO        Precision macro:   0.6262
+2026-05-06 11:25:12,532  INFO        Recall macro:      0.6188
+2026-05-06 11:25:12,532  INFO      ========================================================
+2026-05-06 11:25:12,537  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.62      0.74      0.67      1577
+         NBC       0.63      0.50      0.56      1424
+
+    accuracy                           0.62      3001
+   macro avg       0.63      0.62      0.62      3001
+weighted avg       0.63      0.62      0.62      3001
+
+2026-05-06 11:25:12,537  INFO      Top 15 features -> NBC  (positive coef):
+2026-05-06 11:25:12,537  INFO        +3.447  jan
+2026-05-06 11:25:12,537  INFO        +1.997  gaza
+2026-05-06 11:25:12,537  INFO        +1.785  politics
+2026-05-06 11:25:12,537  INFO        +1.627  dies
+2026-05-06 11:25:12,537  INFO        +1.513  charged
+2026-05-06 11:25:12,537  INFO        +1.504  election
+2026-05-06 11:25:12,537  INFO        +1.329  ukraine
+2026-05-06 11:25:12,537  INFO        +1.151  black
+2026-05-06 11:25:12,537  INFO        +1.012  rep
+2026-05-06 11:25:12,537  INFO        +1.000  supreme
+2026-05-06 11:25:12,537  INFO        +0.986  shooting
+2026-05-06 11:25:12,537  INFO        +0.967  hamas
+2026-05-06 11:25:12,538  INFO        +0.955  killed
+2026-05-06 11:25:12,538  INFO        +0.885  china
+2026-05-06 11:25:12,538  INFO        +0.822  north
+2026-05-06 11:25:12,538  INFO      Top 15 features -> FoxNews  (negative coef):
+2026-05-06 11:25:12,538  INFO        -4.089  dem
+2026-05-06 11:25:12,538  INFO        -2.702  reveals
+2026-05-06 11:25:12,538  INFO        -2.405  illegal
+2026-05-06 11:25:12,538  INFO        -1.848  warns
+2026-05-06 11:25:12,538  INFO        -1.670  dhs
+2026-05-06 11:25:12,538  INFO        -1.438  history
+2026-05-06 11:25:12,538  INFO        -1.410  america
+2026-05-06 11:25:12,538  INFO        -1.291  claims
+2026-05-06 11:25:12,538  INFO        -1.277  american
+2026-05-06 11:25:12,538  INFO        -1.268  news
+2026-05-06 11:25:12,538  INFO        -1.103  border
+2026-05-06 11:25:12,538  INFO        -1.103  anti
+2026-05-06 11:25:12,538  INFO        -1.013  star
+2026-05-06 11:25:12,538  INFO        -0.801  life
+2026-05-06 11:25:12,538  INFO        -0.791  win
+2026-05-06 11:25:12,540  INFO      Saved pipeline: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline.joblib
+2026-05-06 11:25:12,541  INFO      Saved baseline metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\baseline_pipeline_metadata.json
+2026-05-06 11:25:12,542  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_baseline.json
+2026-05-06 11:25:12,641  INFO      Saved confusion matrix plot.
