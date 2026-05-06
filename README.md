@@ -100,34 +100,29 @@ git lfs pull
 
 ## Repository Layout
 
+Each top-level directory has its own `README.md` describing what's inside.
+
 ```
 .
-├── main.tex                       # 5-page project report (compile to main.pdf)
-├── README.md                      # this file
-├── requirements.txt
-├── url_only_data.csv              # course-provided URL CSV (input format reference)
-├── helpers/                       # course-provided handouts, templates, eval script, helper data
-├── src/                           # full ML pipeline (data → train → eval → predict)
-│   ├── collect_urls.py
-│   ├── scrape.py
-│   ├── preprocess.py
-│   ├── split.py
-│   ├── train_baseline.py
-│   ├── train_best_model.py
-│   ├── train_transformer.py
-│   ├── tune_hybrid_best.py
-│   ├── evaluate.py
-│   ├── predict.py
-│   └── models/                    # per-family model definitions (TF-IDF, char-ngram, hybrid, voting, stacking, stylometric, NB, SVM)
-├── data/
-│   ├── raw/                       # discovered URLs + scraping cursor state
-│   ├── scraped/                   # raw scraped headlines (Fox + NBC)
-│   └── processed/                 # cleaned + 5 preprocessing variants + 70/15/15 splits
-├── models/                        # trained model weights (LFS) + per-model metadata JSON
-├── reports/                       # metrics JSON, full results CSV, figures, per-model breakdown folders
-├── submission/                    # 4 leaderboard-ready packages + currently-active model.py/preprocess.py/model.pt
-└── logs/                          # training/scraping run logs for reproducibility
+├── main.tex                       5-page project report (compile to main.pdf)
+├── README.md                      this file (grader-facing entry point)
+├── requirements.txt               Python dependencies
+├── url_only_data.csv              course-provided URL CSV (input format reference)
+│
+├── helpers/        ── README ──   course-provided handouts, templates, eval script
+├── src/            ── README ──   full ML pipeline source (data → train → eval → predict)
+│   └── models/                    per-family sklearn model definitions
+├── data/           ── README ──   raw URLs, scraped headlines, cleaned + split dataset
+│   ├── raw/                       discovered URLs + collector state
+│   ├── scraped/                   raw scraped headlines (Fox + NBC)
+│   └── processed/                 cleaned + 5 normalisation variants + 70/15/15 splits
+├── models/         ── README ──   trained model weights (LFS) + per-model metadata JSON
+├── reports/        ── README ──   metrics JSON, full results CSV, figures, per-model breakdown folders
+├── submission/     ── README ──   4 leaderboard-ready packages + currently-active model.py / preprocess.py / model.pt
+└── logs/           ── README ──   per-run pipeline + training logs (gitignored, regenerable)
 ```
+
+> Click into any folder above to read the orientation README before diving into individual files.
 
 ---
 

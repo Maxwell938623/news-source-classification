@@ -1,8 +1,0 @@
-2026-05-04 20:41:26,949  INFO      Data sizes — train:5000 val:2000 test:2000
-2026-05-04 20:41:27,313  WARNING   Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
-2026-05-04 20:44:08,485  INFO      Data sizes — train:5000 val:2000 test:2000
-2026-05-04 20:44:09,996  WARNING   Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
-2026-05-04 20:44:26,086  WARNING   Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
-2026-05-04 20:56:11,497  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_deberta_small.json
-2026-05-04 20:56:11,871  INFO      Saved confusion matrix figure for deberta_small
-2026-05-04 20:56:13,035  INFO      Saved model/tokenizer: C:\Users\maxwe\PromProjects\news-source-classification\models\deberta_small_hf

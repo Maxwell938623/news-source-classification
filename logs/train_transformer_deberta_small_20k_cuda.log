@@ -1,4 +1,0 @@
-2026-05-06 11:30:56,039  INFO      Data sizes — train:13999 val:3000 test:3001
-2026-05-06 11:34:48,662  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_deberta_small_20k_cuda.json
-2026-05-06 11:34:48,777  INFO      Saved confusion matrix figure for deberta_small_20k_cuda
-2026-05-06 11:34:49,515  INFO      Saved model/tokenizer: C:\Users\maxwe\PromProjects\news-source-classification\models\deberta_small_20k_cuda_hf
