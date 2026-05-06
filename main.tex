@@ -85,7 +85,7 @@ For the classical-model experiments we built a 20,000-headline cleaned dataset: 
 \subsection{Model Design}
 We compared sparse classical models, dense embedding heads, ensemble combinations, and fine-tuned transformer classifiers on the shared headline splits.
 
-Training protocol (classical and embedding heads): FoxNews encoded as class 0 and NBC as class 1; stratified splits use seed 42; hyperparameters are chosen by validation macro-F1; the selected model is refit on train plus validation and scored once on the held-out test set.
+Training protocol (classical and embedding heads): FoxNews encoded as class 0 and NBC as class 1; stratified splits use seed 42; hyperparameters are chosen by validation macro-F1; the selected model is refit on train plus validation and scored once on the held-out test set. \emph{Note on label encoding:} the handout's §3.3 baseline snippet contains an internal contradiction --- the comment specifies ``0 for FoxNews, 1 for NBC'' while the lambda code on the next line uses the opposite mapping. We follow the comment because (a) it matches the implicit ordering in the URL CSV and (b) the leaderboard backend documents a robust 2-class remapping in §4.2 of \texttt{submission.txt}, so the reverse encoding would still be scored correctly.
 
 Baseline:
 \begin{itemize}
@@ -112,11 +112,12 @@ Fine-tuned transformers (SOTA checkpoints adapted to headline classification):
     \item ModernBERT-base (AnswerDotAI).
 \end{itemize}
 
-Submitted artifacts:
+Submitted artifacts. We packaged four leaderboard-ready submissions under \texttt{submission/}, each conforming to the \texttt{model.py} + \texttt{preprocess.py} + \texttt{model.pt} contract in \texttt{submission.txt}, so the team can swap the active package between leaderboard attempts based on observed accuracy:
 \begin{itemize}
-    \item Primary neural model: ModernBERT-base sequence classifier.
-    \item Classical fallback: four-base stacking ensemble with histogram gradient boosting meta-learner (strongest sparse pipeline in Table~\ref{tab:results}).
-    \item Additional transformer references: DistilBERT-base uncased and DeBERTa-v3-small checkpoints trained under the same headline regime (Table~\ref{tab:results}).
+    \item \texttt{submission/distilbert\_model/} --- fine-tuned DistilBERT-base uncased (highest test macro-F1 in Table~\ref{tab:results}).
+    \item \texttt{submission/modernbert\_model/} --- fine-tuned ModernBERT-base sequence classifier.
+    \item \texttt{submission/stack\_4base\_histgbm\_model/} --- four-base stacking ensemble with histogram gradient boosting meta-learner (strongest sparse pipeline in Table~\ref{tab:results}); serialised as a scikit-learn \texttt{Pipeline} embedded inside a torch \texttt{state\_dict} via a byte-buffer wrapper so the leaderboard backend's \texttt{torch.load} machinery can transparently reconstruct it.
+    \item \texttt{submission/gbdt\_model/} --- gradient boosted trees over TF-IDF + stylometry features (compact baseline reference).
 \end{itemize}
 
 \subsection{Evaluation and Model Performance}
@@ -202,11 +203,12 @@ Baseline TF-IDF100 plus logistic regression & 0.6248 & 0.6162 \\
 \end{itemize}
 
 \subsection{Leaderboard Submission Record}
-We submitted our best classical model to the leaderboard.
+We submit the package selected from the four prepared at \texttt{submission/} based on validation macro-F1 and prior leaderboard accuracy. All four packages share the same I/O contract, which lets us iterate on the leaderboard without re-engineering the submission boilerplate.
 \begin{itemize}
-    \item Leaderboard submission ID: [Fill before submission]
-    \item Submission date/time: [Fill before submission]
-    \item Leaderboard score/metric: [Fill before submission]
+    \item Active submission package: \textcolor{red}{TODO: fill before final submission (one of \texttt{distilbert\_model/}, \texttt{modernbert\_model/}, \texttt{stack\_4base\_histgbm\_model/}, \texttt{gbdt\_model/})}.
+    \item Leaderboard submission ID: \textcolor{red}{TODO: fill after submission}.
+    \item Submission date/time: \textcolor{red}{TODO: fill after submission}.
+    \item Leaderboard score/metric: \textcolor{red}{TODO: fill after submission}.
 \end{itemize}
 
 %\subsection{Model Design} 
