@@ -128,27 +128,31 @@ def build_all_configs(fast: bool = False) -> list[ModelConfig]:
 
 def _plot_experiment_comparison(results_df: pd.DataFrame,
                                  output_path: Path) -> None:
-    TOP_N = 15
-    df = results_df.sort_values("val_f1_macro", ascending=True)
+    TOP_N = 10
+    top = (
+        results_df.nlargest(TOP_N, "val_f1_macro")
+        .sort_values("val_f1_macro", ascending=True)
+        .reset_index(drop=True)
+    )
 
-    top_names = set(results_df.nlargest(TOP_N, "val_f1_macro")["name"])
-    colors = [
-        "steelblue" if n in top_names else "lightgray" for n in df["name"]
-    ]
-
-    fig, ax = plt.subplots(figsize=(11, max(6, len(df) * 0.26)))
-    bars = ax.barh(df["name"], df["val_f1_macro"],
-                   color=colors, edgecolor="white", height=0.72)
-    ax.set_xlabel("Validation F1 Macro", fontsize=11)
-    ax.set_title("All Experiments — Validation F1 Macro", fontsize=13, pad=10)
-    ax.axvline(x=0.6649, color="red", linestyle="--", linewidth=1.0,
-               label="Baseline (~0.6649)")
-    ax.legend(fontsize=9)
-    ax.set_xlim(0, 1.0)
+    fig, ax = plt.subplots(figsize=(11, 5.5))
+    bars = ax.barh(
+        top["name"], top["val_f1_macro"],
+        color="steelblue", edgecolor="white", height=0.72,
+    )
+    ax.set_xlabel("Validation macro-F1", fontsize=11)
+    ax.set_title(
+        f"Top {TOP_N} classical experiment configurations (by validation macro-F1)",
+        fontsize=13, pad=10,
+    )
+    ax.axvline(x=0.6649, color="red", linestyle="--", linewidth=1.2,
+               label="Handout reference baseline (~0.6649)")
+    ax.legend(fontsize=9, loc="lower right")
+    ax.set_xlim(0.6, 0.85)
     for bar in bars:
         w = bar.get_width()
-        ax.text(w + 0.004, bar.get_y() + bar.get_height() / 2,
-                f"{w:.4f}", va="center", ha="left", fontsize=6.5)
+        ax.text(w + 0.002, bar.get_y() + bar.get_height() / 2,
+                f"{w:.4f}", va="center", ha="left", fontsize=9)
     plt.tight_layout()
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=150, bbox_inches="tight")
