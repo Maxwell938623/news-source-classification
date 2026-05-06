@@ -51,8 +51,8 @@
 \begin{document}
 \head{Spring 2026}{News Source Classification from Headlines}{Team Members: Isaac Dcruz, Arjun Verma, Maxwell Zhang}{Project: News Source}
 
-Code: \href{https://github.com/Maxwell938623/news-source-classification}{GitHub repository (Maxwell938623/news-source-classification)}\\
-Dataset: \href{https://huggingface.co/datasets/Maxwell938/CIS5190Project/tree/main}{Hugging Face dataset CIS5190Project}
+\textbf{Code:} \href{https://github.com/Maxwell938623/news-source-classification}{\texttt{github.com/Maxwell938623/news-source-classification}} (branch \texttt{exploration})\\
+\textbf{Dataset:} \href{https://huggingface.co/datasets/Maxwell938/CIS5190Project/tree/main}{\texttt{huggingface.co/datasets/Maxwell938/CIS5190Project}}
 
 \section{Introduction}
 In this project, we built an end-to-end binary NLP classification pipeline to predict whether a headline came from Fox News or NBC News. Our core objective was to make the system reproducible and extensible: every major stage (URL collection, scraping, preprocessing, splitting, training, evaluation, and prediction) is implemented as a script.
@@ -125,7 +125,7 @@ We report accuracy, macro-F1, per-class F1, confusion matrices, and (when availa
 
 Held-out accuracy and macro-F1 across models are summarized in Table~\ref{tab:results}. Validation macro-F1 for selection was 0.8004 for the HistGBM-meta stack, 0.7727 for the GBDT hybrid, and 0.8218 for ModernBERT (other validation scores omitted here). The table omits per-class F1; on the headline split those are, for example, baseline FoxNews 0.6736 and NBC 0.5588; HistGBM-meta stack 0.8018 and 0.7893; GBDT hybrid 0.7721 and 0.7518; ModernBERT 0.8284 and 0.8078 on its 3{,}000-example fold. Supplementary plots include confusion matrices for the baseline and strong checkpoints and validation macro-F1 across classical configurations (Figure~\ref{fig:results_visual}).
 
-Relative to baseline on the 20k split, the HistGBM-meta stack lifts test accuracy by 17.1 percentage points (from 0.6248 to 0.7957) and macro-F1 by 17.9 points (from 0.6162 to 0.7955). DistilBERT adds roughly another 3.1 macro-F1 points on top of that stack. ModernBERT-base reaches 0.8181 macro-F1 on its held-out fold, slightly below DistilBERT and DeBERTa on this split but still competitive.
+Relative to baseline on the 20k split, the HistGBM-meta stack lifts test accuracy by 17.1 percentage points (from 0.6248 to 0.7957) and macro-F1 by 17.9 points (from 0.6162 to 0.7955). DistilBERT adds roughly another 3.1 macro-F1 points on top of that stack. ModernBERT-base reaches 0.8181 macro-F1 on its held-out fold, slightly below DistilBERT and DeBERTa on this split but still competitive. \emph{Note on the handout-reference baseline of 0.6649:} our 0.6248 baseline accuracy is on the 3{,}001-example held-out test fold of the 20k curated dataset described in §2.1, not on the 758-example illustrative split shown in the handout's §3.3 code snippet. We use the exact same vectoriser configuration (\texttt{TfidfVectorizer(stop\_words='english', max\_features=100)}) and classifier configuration (\texttt{LogisticRegression(max\_iter=100)}); the difference is the test-set size and composition. All non-baseline models in Table~\ref{tab:results} clear the handout's 0.6649 reference comfortably.
 
 \begin{table}[h]
 \centering
@@ -269,6 +269,6 @@ Beyond the reference baseline we documented several exploratory threads that sha
 
 \section{Extra Credit}
 Optional demo video (max 10 minutes, all team members present):\\
-Link: [Add final video URL here if submitted.]
+\textbf{Link:} \textcolor{red}{TODO: paste final video URL here before Gradescope submission.}
 
 \end{document}
