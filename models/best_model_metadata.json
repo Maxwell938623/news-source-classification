@@ -9,7 +9,7 @@
     "FoxNews": 0,
     "NBC": 1
   },
-  "train_date": "2026-05-04",
+  "train_date": "2026-05-05",
   "train_size": 109531,
   "test_size": 19330,
   "val_metrics": {

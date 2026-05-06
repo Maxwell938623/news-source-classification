@@ -87,6 +87,7 @@ from models.stylometric       import get_configs as _stylo_configs
 from models.hybrid            import get_configs as _hybrid_configs
 from models.voting_ensemble   import get_configs as _voting_configs
 from models.stacking_ensemble import get_configs as _stacking_configs
+from models.gbdt import get_configs as _gbdt_configs
 
 
 # ---------------------------------------------------------------------------
@@ -109,6 +110,7 @@ def build_all_configs(fast: bool = False) -> list[ModelConfig]:
         configs += _char_configs()
         configs += _stylo_configs()
         configs += _hybrid_configs()
+        configs += _gbdt_configs()
         configs += _voting_configs()
         configs += _stacking_configs()
 

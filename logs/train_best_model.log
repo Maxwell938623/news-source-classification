@@ -35,3 +35,36 @@ G5_CNG_combined_c46_wmf10000_cmf10000 G5_CNG_combined      0.809927      0.82678
 2026-05-04 00:20:34,016  INFO      Saved experiment comparison plot.
 2026-05-04 00:20:34,070  INFO      Saved confusion matrix plot.
 2026-05-04 00:20:34,070  INFO      Top features: skipped (tfidf or clf step not found).
+2026-05-05 22:07:58,875  INFO      Data — train:90202  val:19329  test:19330
+2026-05-05 22:07:58,876  INFO      Total experiments: 156  (fast=False)
+2026-05-05 23:02:05,474  INFO      Saved results table: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/reports/experiment_results.csv
+2026-05-05 23:02:05,475  INFO      
+Top 10 experiments by val_f1_macro:
+2026-05-05 23:02:05,480  INFO                                       name           group  val_f1_macro  val_accuracy
+    HYB_word12_char36_mf5000_style_LR       G6_hybrid      0.828722      0.842051
+    HYB_word12_char46_mf5000_style_LR       G6_hybrid      0.824788      0.838378
+           Stack_4base_style_HGB_meta     G8_stacking      0.817838      0.830669
+           Stack_5base_calSVM_LR_meta     G8_stacking      0.811730      0.827668
+          HYB_word12_mf10000_style_LR       G6_hybrid      0.811729      0.826375
+ G5_CNG_combined_c36_wmf5000_cmf10000 G5_CNG_combined      0.810159      0.826634
+G5_CNG_combined_c46_wmf10000_cmf10000 G5_CNG_combined      0.809927      0.826789
+            Stack_4base_style_LR_meta     G8_stacking      0.808198      0.823374
+  G5_CNG_combined_c46_wmf5000_cmf5000 G5_CNG_combined      0.805861      0.823167
+        Vote_4way_word_char_mnb_style       G7_voting      0.804108      0.815562
+2026-05-05 23:02:05,480  INFO      Best: 'HYB_word12_char36_mf5000_style_LR'  (val_f1_macro=0.8287, group=G6_hybrid)
+2026-05-05 23:02:15,900  INFO      Retrained best model on train+val (109531 samples).
+2026-05-05 23:02:17,171  INFO      ==============================================================
+2026-05-05 23:02:17,171  INFO      BEST MODEL — FINAL TEST RESULTS
+2026-05-05 23:02:17,171  INFO        Experiment   : HYB_word12_char36_mf5000_style_LR
+2026-05-05 23:02:17,171  INFO        Group        : G6_hybrid
+2026-05-05 23:02:17,171  INFO        Preprocessing: headline_minimal
+2026-05-05 23:02:17,171  INFO        Accuracy     : 0.8418
+2026-05-05 23:02:17,171  INFO        F1 macro     : 0.8292
+2026-05-05 23:02:17,171  INFO        F1 FoxNews   : 0.8756
+2026-05-05 23:02:17,171  INFO        F1 NBC       : 0.7828
+2026-05-05 23:02:17,171  INFO      ==============================================================
+2026-05-05 23:02:17,222  INFO      Saved model: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/models/best_model.joblib
+2026-05-05 23:02:17,229  INFO      Saved metadata: /Users/isaacdcruz/Downloads/Classes/Spring 2026/CIS 5190/news-source-classification/models/best_model_metadata.json
+2026-05-05 23:02:18,309  INFO      Saved experiment comparison plot.
+2026-05-05 23:02:18,364  INFO      Saved confusion matrix plot.
+2026-05-05 23:02:18,364  INFO      Top features: skipped (tfidf or clf step not found).
