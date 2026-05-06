@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Train and compare three requested binary-classification model families:
+Train and compare three model families:
 1) TF-IDF word + char n-grams + LinearSVC
 2) fastText supervised (wordNgrams=2/3)
 3) Static averaged embeddings (Word2Vec/FastText) + XGBoost/MLP
