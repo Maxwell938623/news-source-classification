@@ -1,0 +1,30 @@
+{
+  "group": "voting_ensemble",
+  "experiment_name": "Vote_4way_word_char_mnb_style",
+  "prep_col": "headline_minimal",
+  "description": "Soft voting 4-way (minimal input): word LR + char LR + MNB + stylometric LR",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "val_f1_macro": 0.8040971923246785,
+  "test_metrics": {
+    "accuracy": 0.8123642007242629,
+    "f1_macro": 0.8014144481566825,
+    "f1_weighted": 0.8140118502073334,
+    "f1_foxnews": 0.8480455821358247,
+    "f1_nbc": 0.7547833141775404,
+    "precision_macro": 0.79724754794415,
+    "recall_macro": 0.8078891455321666,
+    "confusion_matrix": [
+      [
+        10121,
+        2155
+      ],
+      [
+        1472,
+        5582
+      ]
+    ]
+  }
+}

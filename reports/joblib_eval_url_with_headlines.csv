@@ -1,0 +1,11 @@
+model_path,status,accuracy,error
+models/best_model.joblib,ok,0.7177398160315375,
+models/hybrid_best.joblib,ok,0.7140604467805519,
+models/stylometric_best.joblib,ok,0.6509855453350855,
+models/voting_ensemble_best.joblib,ok,0.6370565045992116,
+models/char_ngram_best.joblib,ok,0.6367936925098554,
+models/stacking_ensemble_best.joblib,ok,0.6283837056504599,
+models/tfidf_svm_best.joblib,ok,0.6078843626806834,
+models/tfidf_nb_best.joblib,ok,0.6060446780551906,
+models/tfidf_logreg_best.joblib,ok,0.59053876478318,
+models/baseline_pipeline.joblib,ok,0.5122207621550592,

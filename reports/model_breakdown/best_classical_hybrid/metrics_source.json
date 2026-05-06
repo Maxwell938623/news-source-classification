@@ -1,0 +1,25 @@
+{
+  "model": "HYB_word12_char36_mf5000_style_LR",
+  "text_column": "headline_minimal",
+  "train_size": 109531,
+  "test_size": 19330,
+  "metrics": {
+    "accuracy": 0.8420072426280393,
+    "f1_macro": 0.8293728013623858,
+    "f1_weighted": 0.8419159671968426,
+    "f1_foxnews": 0.8758031720211468,
+    "f1_nbc": 0.7829424307036247,
+    "precision_macro": 0.8297572786136387,
+    "recall_macro": 0.828996126608097,
+    "confusion_matrix": [
+      [
+        10768,
+        1508
+      ],
+      [
+        1546,
+        5508
+      ]
+    ]
+  }
+}

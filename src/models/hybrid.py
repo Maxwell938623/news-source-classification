@@ -16,7 +16,7 @@ The TF-IDF branch uses lowercase=True because the input column is
 headline_minimal (capitalisation preserved for stylometric branch).
 
 Groups:
-  G6_hybrid  varied TF-IDF configurations + LR or HistGB classifier
+  G6_hybrid  varied TF-IDF configurations + LR classifier
 
 Standalone:
     python src/models/hybrid.py
@@ -29,7 +29,6 @@ from pathlib import Path
 import numpy as np
 import scipy.sparse as sp
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import FeatureUnion, Pipeline
@@ -160,24 +159,6 @@ def get_configs() -> list[ModelConfig]:
                                        random_state=42),
             ),
             description=f"word (1,2) mf=5000 + stylo → LR C={C}",
-        ))
-
-    # ---- Word TF-IDF + stylometric, HistGradientBoosting ----------------
-    # HGB handles mixed-scale features natively; it may find non-linear
-    # interactions between stylometric signals and vocabulary patterns.
-    for max_iter in [200, 400]:
-        configs.append(ModelConfig(
-            name=f"HYB_word12_mf5000_style_HGB_iter{max_iter}",
-            group="G6_hybrid",
-            prep_col="headline_minimal",
-            estimator=_hybrid_pipeline(
-                ngram=(1, 2), word_mf=5_000,
-                clf=HistGradientBoostingClassifier(
-                    max_iter=max_iter, learning_rate=0.1,
-                    max_depth=4, random_state=42,
-                ),
-            ),
-            description=f"word (1,2) mf=5000 + stylo → HistGBM iter={max_iter}",
         ))
 
     # ---- Word + Char TF-IDF + stylometric (3 branches), LR -------------

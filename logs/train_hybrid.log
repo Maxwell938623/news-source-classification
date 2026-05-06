@@ -1,0 +1,28 @@
+2026-05-04 21:58:43,053  INFO      Running 10 configs for 'hybrid'.
+2026-05-04 22:00:53,393  INFO      
+Top 5 by val_f1_macro:
+                             name  val_f1_macro  val_accuracy
+HYB_word12_char36_mf5000_style_LR      0.829647      0.842982
+HYB_word12_char46_mf5000_style_LR      0.825783      0.839361
+      HYB_word12_mf10000_style_LR      0.812054      0.826685
+       HYB_word12_mf5000_style_LR      0.801245      0.816959
+  HYB_word12_mf5000_style_LR_C2.0      0.801208      0.816700
+2026-05-04 22:00:53,394  INFO      Best: HYB_word12_char36_mf5000_style_LR  (val_f1_macro=0.8296)
+2026-05-04 22:01:27,311  INFO      ========================================================
+2026-05-04 22:01:27,311  INFO      BEST (hybrid): HYB_word12_char36_mf5000_style_LR
+2026-05-04 22:01:27,312  INFO        val F1-macro  = 0.8296
+2026-05-04 22:01:27,312  INFO        test accuracy = 0.8420
+2026-05-04 22:01:27,312  INFO        test F1-macro = 0.8294
+2026-05-04 22:01:27,312  INFO      ========================================================
+2026-05-04 22:01:27,321  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.87      0.88      0.88     12276
+         NBC       0.79      0.78      0.78      7054
+
+    accuracy                           0.84     19330
+   macro avg       0.83      0.83      0.83     19330
+weighted avg       0.84      0.84      0.84     19330
+
+2026-05-04 22:01:27,469  INFO      Saved model : C:\Users\maxwe\PromProjects\news-source-classification\models\hybrid_best.joblib
+2026-05-04 22:01:27,470  INFO      Saved meta  : C:\Users\maxwe\PromProjects\news-source-classification\models\hybrid_best_metadata.json

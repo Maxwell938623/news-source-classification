@@ -1,0 +1,47 @@
+{
+  "total": 8,
+  "success": 8,
+  "failed": 0,
+  "results": [
+    {
+      "script": "src/models/tfidf_logreg.py",
+      "exit_code": 0,
+      "elapsed_seconds": 98.31
+    },
+    {
+      "script": "src/models/tfidf_svm.py",
+      "exit_code": 0,
+      "elapsed_seconds": 114.09
+    },
+    {
+      "script": "src/models/tfidf_nb.py",
+      "exit_code": 0,
+      "elapsed_seconds": 98.19
+    },
+    {
+      "script": "src/models/char_ngram.py",
+      "exit_code": 0,
+      "elapsed_seconds": 376.19
+    },
+    {
+      "script": "src/models/stylometric.py",
+      "exit_code": 0,
+      "elapsed_seconds": 84.54
+    },
+    {
+      "script": "src/models/hybrid.py",
+      "exit_code": 0,
+      "elapsed_seconds": 167.12
+    },
+    {
+      "script": "src/models/voting_ensemble.py",
+      "exit_code": 0,
+      "elapsed_seconds": 191.75
+    },
+    {
+      "script": "src/models/stacking_ensemble.py",
+      "exit_code": 0,
+      "elapsed_seconds": 962.33
+    }
+  ]
+}

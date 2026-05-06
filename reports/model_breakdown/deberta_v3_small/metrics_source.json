@@ -1,0 +1,30 @@
+{
+  "run_name": "deberta_small",
+  "model_name": "microsoft/deberta-v3-small",
+  "text_col": "headline_minimal",
+  "seed": 42,
+  "epochs": 1,
+  "batch_size": 16,
+  "learning_rate": 2e-05,
+  "max_length": 96,
+  "device": "cpu",
+  "max_train_samples": 5000,
+  "max_val_samples": 2000,
+  "max_test_samples": 2000,
+  "val_metrics": {
+    "accuracy": 0.8025,
+    "f1_macro": 0.7944835749452064,
+    "f1_foxnews": 0.8350730688935282,
+    "f1_nbc": 0.7538940809968847,
+    "precision_macro": 0.790179025531482,
+    "recall_macro": 0.8068215428463876
+  },
+  "test_metrics": {
+    "accuracy": 0.804,
+    "f1_macro": 0.7955758867156659,
+    "f1_foxnews": 0.8370739817123857,
+    "f1_nbc": 0.7540777917189461,
+    "precision_macro": 0.7909753399700696,
+    "recall_macro": 0.8101799470259539
+  }
+}

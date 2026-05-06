@@ -9,3 +9,15 @@
 2026-04-17 01:41:43,919  INFO      Saved master clean dataset: C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\processed\clean_headlines.csv
 2026-04-17 01:41:43,927  INFO      Saved 5 variant CSV files to C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\processed
 2026-04-17 01:41:43,927  INFO      Saved dataset summary: C:\Users\maxwe\AppData\Local\Temp\tmpq7rtv3mq\processed\dataset_summary.txt
+2026-05-04 19:50:15,680  INFO      Loading raw scraped data from: data\scraped\raw_scraped_headlines_merged.csv
+2026-05-04 19:50:16,005  INFO      Total rows loaded: 132271
+2026-05-04 19:50:16,031  INFO      Successful scrapes: 129331  |  Failed/skipped: 2940
+2026-05-04 19:50:16,045  INFO      Dropped 0 rows with null/empty raw headline.
+2026-05-04 19:50:16,429  INFO      Removed 314 within-source duplicates.
+2026-05-04 19:50:16,443  WARNING   156 headlines appear in both sources (potential label leakage) — removing.
+2026-05-04 19:50:16,494  INFO      Final clean dataset size: 128861 rows
+2026-05-04 19:50:22,080  INFO      Applied stopword removal and lemmatization (NLTK).
+2026-05-04 19:50:22,292  WARNING   7940 headlines are fewer than 3 words — inspect for navigation/stub text.
+2026-05-04 19:50:23,214  INFO      Saved master clean dataset: C:\Users\maxwe\PromProjects\news-source-classification\data\processed\clean_headlines.csv
+2026-05-04 19:50:24,716  INFO      Saved 5 variant CSV files to C:\Users\maxwe\PromProjects\news-source-classification\data\processed
+2026-05-04 19:50:24,717  INFO      Saved dataset summary: C:\Users\maxwe\PromProjects\news-source-classification\data\processed\dataset_summary.txt

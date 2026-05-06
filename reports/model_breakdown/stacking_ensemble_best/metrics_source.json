@@ -1,0 +1,30 @@
+{
+  "group": "stacking_ensemble",
+  "experiment_name": "Stack_4base_style_HGB_meta",
+  "prep_col": "headline_minimal",
+  "description": "Stacking 4-base (minimal input): word LR + char LR + MNB + stylo LR \u2192 HistGBM meta, cv=5",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "val_f1_macro": 0.816846723192838,
+  "test_metrics": {
+    "accuracy": 0.8282462493533368,
+    "f1_macro": 0.8161928635094047,
+    "f1_weighted": 0.8289085768178923,
+    "f1_foxnews": 0.8632619439868204,
+    "f1_nbc": 0.7691237830319889,
+    "precision_macro": 0.8139440370363396,
+    "recall_macro": 0.8188253202521016,
+    "confusion_matrix": [
+      [
+        10480,
+        1796
+      ],
+      [
+        1524,
+        5530
+      ]
+    ]
+  }
+}

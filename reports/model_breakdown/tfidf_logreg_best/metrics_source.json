@@ -1,0 +1,30 @@
+{
+  "group": "tfidf_logreg",
+  "experiment_name": "G4_LR_w12_mf5000_prep_nostop",
+  "prep_col": "headline_nostop",
+  "description": "word (1,2), mf=5000, C=1, prep=nostop",
+  "label_encoding": {
+    "FoxNews": 0,
+    "NBC": 1
+  },
+  "val_f1_macro": 0.7798815387233313,
+  "test_metrics": {
+    "accuracy": 0.8013967925504397,
+    "f1_macro": 0.7811685880322216,
+    "f1_weighted": 0.7991423304167945,
+    "f1_foxnews": 0.8477010354266672,
+    "f1_nbc": 0.7146361406377759,
+    "precision_macro": 0.788721331677992,
+    "recall_macro": 0.7758866965196936,
+    "confusion_matrix": [
+      [
+        10684,
+        1592
+      ],
+      [
+        2247,
+        4807
+      ]
+    ]
+  }
+}

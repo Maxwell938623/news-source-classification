@@ -1,0 +1,28 @@
+2026-05-04 21:45:51,659  INFO      Running 25 configs for 'tfidf_logreg'.
+2026-05-04 21:47:22,077  INFO      
+Top 5 by val_f1_macro:
+                        name  val_f1_macro  val_accuracy
+G4_LR_w12_mf5000_prep_nostop      0.779882      0.801956
+           G1_LR_w11_mf20000      0.775418      0.799110
+      G3_LR_w12_mf5000_C10.0      0.775308      0.795644
+           G1_LR_w11_mf10000      0.775208      0.798696
+       G3_LR_w12_mf5000_C5.0      0.774747      0.795592
+2026-05-04 21:47:22,077  INFO      Best: G4_LR_w12_mf5000_prep_nostop  (val_f1_macro=0.7799)
+2026-05-04 21:47:27,185  INFO      ========================================================
+2026-05-04 21:47:27,188  INFO      BEST (tfidf_logreg): G4_LR_w12_mf5000_prep_nostop
+2026-05-04 21:47:27,188  INFO        val F1-macro  = 0.7799
+2026-05-04 21:47:27,188  INFO        test accuracy = 0.8014
+2026-05-04 21:47:27,188  INFO        test F1-macro = 0.7812
+2026-05-04 21:47:27,188  INFO      ========================================================
+2026-05-04 21:47:27,197  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.83      0.87      0.85     12276
+         NBC       0.75      0.68      0.71      7054
+
+    accuracy                           0.80     19330
+   macro avg       0.79      0.78      0.78     19330
+weighted avg       0.80      0.80      0.80     19330
+
+2026-05-04 21:47:27,282  INFO      Saved model : C:\Users\maxwe\PromProjects\news-source-classification\models\tfidf_logreg_best.joblib
+2026-05-04 21:47:27,282  INFO      Saved meta  : C:\Users\maxwe\PromProjects\news-source-classification\models\tfidf_logreg_best_metadata.json

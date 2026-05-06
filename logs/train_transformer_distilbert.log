@@ -1,0 +1,4 @@
+2026-05-04 20:29:05,069  INFO      Data sizes — train:10000 val:3000 test:3000
+2026-05-04 20:40:38,234  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_distilbert.json
+2026-05-04 20:40:38,489  INFO      Saved confusion matrix figure for distilbert
+2026-05-04 20:40:38,933  INFO      Saved model/tokenizer: C:\Users\maxwe\PromProjects\news-source-classification\models\distilbert_hf

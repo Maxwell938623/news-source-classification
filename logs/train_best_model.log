@@ -1,0 +1,101 @@
+2026-05-04 19:52:19,735  INFO      Data — train:90202  val:19329  test:19330
+2026-05-04 19:52:19,736  INFO      Total experiments: 131  (fast=False)
+2026-05-04 20:00:13,962  INFO      Data — train:90202  val:19329  test:19330
+2026-05-04 20:00:13,963  INFO      Total experiments: 129  (fast=False)
+2026-05-04 20:17:29,305  INFO      Saved results table: C:\Users\maxwe\PromProjects\news-source-classification\reports\experiment_results.csv
+2026-05-04 20:17:29,306  INFO      
+Top 10 experiments by val_f1_macro:
+2026-05-04 20:17:29,313  INFO                                       name           group  val_f1_macro  val_accuracy
+    HYB_word12_char36_mf5000_style_LR       G6_hybrid      0.829647      0.842982
+    HYB_word12_char46_mf5000_style_LR       G6_hybrid      0.825783      0.839361
+           Stack_4base_style_HGB_meta     G8_stacking      0.816847      0.829582
+G5_CNG_combined_c46_wmf10000_cmf10000 G5_CNG_combined      0.812363      0.828910
+          HYB_word12_mf10000_style_LR       G6_hybrid      0.812054      0.826685
+           Stack_5base_calSVM_LR_meta     G8_stacking      0.811895      0.827979
+ G5_CNG_combined_c36_wmf5000_cmf10000 G5_CNG_combined      0.811745      0.828289
+            Stack_4base_style_LR_meta     G8_stacking      0.808224      0.823426
+  G5_CNG_combined_c46_wmf5000_cmf5000 G5_CNG_combined      0.806202      0.823478
+        Vote_4way_word_char_mnb_style       G7_voting      0.804097      0.815562
+2026-05-04 20:17:29,313  INFO      Best: 'HYB_word12_char36_mf5000_style_LR'  (val_f1_macro=0.8296, group=G6_hybrid)
+2026-05-04 20:17:46,598  INFO      Retrained best model on train+val (109531 samples).
+2026-05-04 20:17:48,458  INFO      ==============================================================
+2026-05-04 20:17:48,458  INFO      BEST MODEL — FINAL TEST RESULTS
+2026-05-04 20:17:48,458  INFO        Experiment   : HYB_word12_char36_mf5000_style_LR
+2026-05-04 20:17:48,458  INFO        Group        : G6_hybrid
+2026-05-04 20:17:48,458  INFO        Preprocessing: headline_minimal
+2026-05-04 20:17:48,458  INFO        Accuracy     : 0.8420
+2026-05-04 20:17:48,458  INFO        F1 macro     : 0.8294
+2026-05-04 20:17:48,458  INFO        F1 FoxNews   : 0.8758
+2026-05-04 20:17:48,458  INFO        F1 NBC       : 0.7829
+2026-05-04 20:17:48,458  INFO      ==============================================================
+2026-05-04 20:17:48,575  INFO      Saved model: C:\Users\maxwe\PromProjects\news-source-classification\models\best_model.joblib
+2026-05-04 20:17:48,590  INFO      Saved metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\best_model_metadata.json
+2026-05-04 20:17:49,776  INFO      Saved experiment comparison plot.
+2026-05-04 20:17:49,855  INFO      Saved confusion matrix plot.
+2026-05-04 20:17:49,855  INFO      Top features: skipped (tfidf or clf step not found).
+2026-05-05 01:57:20,459  INFO      Data — train:90202  val:19329  test:19330
+2026-05-05 01:57:20,460  INFO      Total experiments: 129  (fast=False)
+2026-05-05 11:39:07,229  INFO      Data — train:90202  val:19329  test:19330
+2026-05-05 11:39:07,232  INFO      Total experiments: 129  (fast=False)
+2026-05-05 12:15:52,741  INFO      Saved results table: C:\Users\maxwe\PromProjects\news-source-classification\reports\experiment_results.csv
+2026-05-05 12:15:52,742  INFO      
+Top 10 experiments by val_f1_macro:
+2026-05-05 12:15:52,757  INFO                                       name           group  val_f1_macro  val_accuracy
+    HYB_word12_char36_mf5000_style_LR       G6_hybrid      0.829647      0.842982
+    HYB_word12_char46_mf5000_style_LR       G6_hybrid      0.825783      0.839361
+           Stack_4base_style_HGB_meta     G8_stacking      0.816847      0.829582
+G5_CNG_combined_c46_wmf10000_cmf10000 G5_CNG_combined      0.812363      0.828910
+          HYB_word12_mf10000_style_LR       G6_hybrid      0.812054      0.826685
+           Stack_5base_calSVM_LR_meta     G8_stacking      0.811895      0.827979
+ G5_CNG_combined_c36_wmf5000_cmf10000 G5_CNG_combined      0.811745      0.828289
+            Stack_4base_style_LR_meta     G8_stacking      0.808224      0.823426
+  G5_CNG_combined_c46_wmf5000_cmf5000 G5_CNG_combined      0.806202      0.823478
+        Vote_4way_word_char_mnb_style       G7_voting      0.804097      0.815562
+2026-05-05 12:15:52,758  INFO      Best: 'HYB_word12_char36_mf5000_style_LR'  (val_f1_macro=0.8296, group=G6_hybrid)
+2026-05-05 12:16:25,546  INFO      Retrained best model on train+val (109531 samples).
+2026-05-05 12:16:29,548  INFO      ==============================================================
+2026-05-05 12:16:29,549  INFO      BEST MODEL — FINAL TEST RESULTS
+2026-05-05 12:16:29,549  INFO        Experiment   : HYB_word12_char36_mf5000_style_LR
+2026-05-05 12:16:29,549  INFO        Group        : G6_hybrid
+2026-05-05 12:16:29,549  INFO        Preprocessing: headline_minimal
+2026-05-05 12:16:29,549  INFO        Accuracy     : 0.8420
+2026-05-05 12:16:29,549  INFO        F1 macro     : 0.8294
+2026-05-05 12:16:29,549  INFO        F1 FoxNews   : 0.8758
+2026-05-05 12:16:29,550  INFO        F1 NBC       : 0.7829
+2026-05-05 12:16:29,550  INFO      ==============================================================
+2026-05-05 12:16:29,801  INFO      Saved model: C:\Users\maxwe\PromProjects\news-source-classification\models\best_model.joblib
+2026-05-05 12:16:29,827  INFO      Saved metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\best_model_metadata.json
+2026-05-05 12:16:32,462  INFO      Saved experiment comparison plot.
+2026-05-05 12:16:32,603  INFO      Saved confusion matrix plot.
+2026-05-05 12:16:32,603  INFO      Top features: skipped (tfidf or clf step not found).
+2026-05-05 12:26:04,490  INFO      Saved results table: C:\Users\maxwe\PromProjects\news-source-classification\reports\experiment_results.csv
+2026-05-05 12:26:04,491  INFO      
+Top 10 experiments by val_f1_macro:
+2026-05-05 12:26:04,500  INFO                                       name           group  val_f1_macro  val_accuracy
+    HYB_word12_char36_mf5000_style_LR       G6_hybrid      0.829647      0.842982
+    HYB_word12_char46_mf5000_style_LR       G6_hybrid      0.825783      0.839361
+           Stack_4base_style_HGB_meta     G8_stacking      0.816847      0.829582
+G5_CNG_combined_c46_wmf10000_cmf10000 G5_CNG_combined      0.812363      0.828910
+          HYB_word12_mf10000_style_LR       G6_hybrid      0.812054      0.826685
+           Stack_5base_calSVM_LR_meta     G8_stacking      0.811895      0.827979
+ G5_CNG_combined_c36_wmf5000_cmf10000 G5_CNG_combined      0.811745      0.828289
+            Stack_4base_style_LR_meta     G8_stacking      0.808224      0.823426
+  G5_CNG_combined_c46_wmf5000_cmf5000 G5_CNG_combined      0.806202      0.823478
+        Vote_4way_word_char_mnb_style       G7_voting      0.804097      0.815562
+2026-05-05 12:26:04,500  INFO      Best: 'HYB_word12_char36_mf5000_style_LR'  (val_f1_macro=0.8296, group=G6_hybrid)
+2026-05-05 12:26:36,602  INFO      Retrained best model on train+val (109531 samples).
+2026-05-05 12:26:41,143  INFO      ==============================================================
+2026-05-05 12:26:41,145  INFO      BEST MODEL — FINAL TEST RESULTS
+2026-05-05 12:26:41,145  INFO        Experiment   : HYB_word12_char36_mf5000_style_LR
+2026-05-05 12:26:41,145  INFO        Group        : G6_hybrid
+2026-05-05 12:26:41,145  INFO        Preprocessing: headline_minimal
+2026-05-05 12:26:41,145  INFO        Accuracy     : 0.8420
+2026-05-05 12:26:41,145  INFO        F1 macro     : 0.8294
+2026-05-05 12:26:41,146  INFO        F1 FoxNews   : 0.8758
+2026-05-05 12:26:41,146  INFO        F1 NBC       : 0.7829
+2026-05-05 12:26:41,146  INFO      ==============================================================
+2026-05-05 12:26:41,468  INFO      Saved model: C:\Users\maxwe\PromProjects\news-source-classification\models\best_model.joblib
+2026-05-05 12:26:41,488  INFO      Saved metadata: C:\Users\maxwe\PromProjects\news-source-classification\models\best_model_metadata.json
+2026-05-05 12:26:43,875  INFO      Saved experiment comparison plot.
+2026-05-05 12:26:44,034  INFO      Saved confusion matrix plot.
+2026-05-05 12:26:44,034  INFO      Top features: skipped (tfidf or clf step not found).

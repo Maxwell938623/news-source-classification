@@ -1,0 +1,92 @@
+2026-05-04 20:22:22,996  INFO      Loaded pipeline: models\best_model.joblib
+2026-05-04 20:22:23,123  INFO      Using text column: 'headline_minimal'
+2026-05-04 20:22:24,983  INFO      ========================================================
+2026-05-04 20:22:24,984  INFO      EVALUATION RESULTS  —  best_model.joblib
+2026-05-04 20:22:24,984  INFO        Data:              test.csv  (n=19330)
+2026-05-04 20:22:24,984  INFO        Text column:       headline_minimal
+2026-05-04 20:22:24,984  INFO        Accuracy:          0.8420
+2026-05-04 20:22:24,984  INFO        F1 macro:          0.8294
+2026-05-04 20:22:24,984  INFO        F1 weighted:       0.8419
+2026-05-04 20:22:24,984  INFO        F1 FoxNews:        0.8758
+2026-05-04 20:22:24,985  INFO        F1 NBC:            0.7829
+2026-05-04 20:22:24,986  INFO        Precision macro:   0.8298
+2026-05-04 20:22:24,986  INFO        Recall macro:      0.8290
+2026-05-04 20:22:24,986  INFO      ========================================================
+2026-05-04 20:22:24,991  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.87      0.88      0.88     12276
+         NBC       0.79      0.78      0.78      7054
+
+    accuracy                           0.84     19330
+   macro avg       0.83      0.83      0.83     19330
+weighted avg       0.84      0.84      0.84     19330
+
+2026-05-04 20:22:24,992  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_eval_best.json
+2026-05-04 20:22:25,084  INFO      Feature importance: not available for this model type.
+2026-05-04 20:22:25,084  INFO      --------------------------------------------------------
+2026-05-04 20:22:25,084  INFO      ERROR ANALYSIS
+2026-05-04 20:22:25,084  INFO        Total test examples:    19330
+2026-05-04 20:22:25,084  INFO        Misclassified:          3054  (15.8%)
+2026-05-04 20:22:25,088  INFO        FoxNews predicted as NBC: 1508
+2026-05-04 20:22:25,089  INFO        NBC predicted as FoxNews: 1546
+2026-05-04 20:22:25,100  INFO        Avg words — correct: 10.8  |  wrong: 12.3
+2026-05-04 20:22:25,104  INFO        Saved 20 misclassified examples to: C:\Users\maxwe\PromProjects\news-source-classification\reports\misclassified_sample.csv
+2026-05-04 20:22:26,849  INFO        Most confident errors (top 10):
+2026-05-04 20:22:26,849  INFO          [true=NBC / pred=FoxNews / conf=1.00]  Early Vote
+2026-05-04 20:22:26,849  INFO          [true=NBC / pred=FoxNews / conf=1.00]  No. 2 seed Iowa State shuts down No. 7 Kentucky in 82-63 NCAA tourney victory
+2026-05-04 20:22:26,849  INFO          [true=NBC / pred=FoxNews / conf=1.00]  Living Color: Fathers Talk to Their Bi-Racial Sons About Identity
+2026-05-04 20:22:26,849  INFO          [true=NBC / pred=FoxNews / conf=1.00]  Cats
+2026-05-04 20:22:26,849  INFO          [true=NBC / pred=FoxNews / conf=1.00]  Players scuffle on field after Michigan upsets No. 2 Ohio State 13-10
+2026-05-04 20:22:26,849  INFO          [true=NBC / pred=FoxNews / conf=1.00]  Good Cents
+2026-05-04 20:22:26,849  INFO          [true=NBC / pred=FoxNews / conf=1.00]  BETTER Gift Guide
+2026-05-04 20:22:26,849  INFO          [true=NBC / pred=FoxNews / conf=0.99]  South Sudan in Crisis as Famine Ravages World's Newest Country
+2026-05-04 20:22:26,849  INFO          [true=FoxNews / pred=NBC / conf=0.99]  The U.N. Humiliates the U.S.A.
+2026-05-04 20:22:26,849  INFO          [true=NBC / pred=FoxNews / conf=0.99]  Mobile
+2026-05-04 20:22:27,020  INFO      --------------------------------------------------------
+2026-05-04 20:22:29,221  INFO      Loaded pipeline: models\baseline_pipeline.joblib
+2026-05-04 20:22:29,403  INFO      Using text column: 'headline_minimal'
+2026-05-04 20:22:29,554  INFO      ========================================================
+2026-05-04 20:22:29,554  INFO      EVALUATION RESULTS  —  baseline_pipeline.joblib
+2026-05-04 20:22:29,554  INFO        Data:              test.csv  (n=19330)
+2026-05-04 20:22:29,554  INFO        Text column:       headline_minimal
+2026-05-04 20:22:29,554  INFO        Accuracy:          0.7051
+2026-05-04 20:22:29,554  INFO        F1 macro:          0.6481
+2026-05-04 20:22:29,554  INFO        F1 weighted:       0.6864
+2026-05-04 20:22:29,554  INFO        F1 FoxNews:        0.7897
+2026-05-04 20:22:29,554  INFO        F1 NBC:            0.5066
+2026-05-04 20:22:29,554  INFO        Precision macro:   0.6860
+2026-05-04 20:22:29,554  INFO        Recall macro:      0.6434
+2026-05-04 20:22:29,554  INFO      ========================================================
+2026-05-04 20:22:29,561  INFO      Classification report:
+              precision    recall  f1-score   support
+
+     FoxNews       0.72      0.87      0.79     12276
+         NBC       0.65      0.41      0.51      7054
+
+    accuracy                           0.71     19330
+   macro avg       0.69      0.64      0.65     19330
+weighted avg       0.70      0.71      0.69     19330
+
+2026-05-04 20:22:29,562  INFO      Saved metrics: C:\Users\maxwe\PromProjects\news-source-classification\reports\metrics_eval_baseline.json
+2026-05-04 20:22:29,916  INFO      Saved feature importance plot.
+2026-05-04 20:22:29,916  INFO      --------------------------------------------------------
+2026-05-04 20:22:29,916  INFO      ERROR ANALYSIS
+2026-05-04 20:22:29,916  INFO        Total test examples:    19330
+2026-05-04 20:22:29,916  INFO        Misclassified:          5701  (29.5%)
+2026-05-04 20:22:29,921  INFO        FoxNews predicted as NBC: 1574
+2026-05-04 20:22:29,921  INFO        NBC predicted as FoxNews: 4127
+2026-05-04 20:22:29,933  INFO        Avg words — correct: 10.4  |  wrong: 12.4
+2026-05-04 20:22:29,936  INFO        Saved 20 misclassified examples to: C:\Users\maxwe\PromProjects\news-source-classification\reports\misclassified_sample.csv
+2026-05-04 20:22:30,056  INFO        Most confident errors (top 10):
+2026-05-04 20:22:30,056  INFO          [true=NBC / pred=FoxNews / conf=0.99]  Knicks win NBA Cup after rallying to beat Spurs; Jalen Brunson named tournament 
+2026-05-04 20:22:30,056  INFO          [true=NBC / pred=FoxNews / conf=0.98]  Barack Obama's fiery DNC speech and highest rate of job seekers in a decade: Mor
+2026-05-04 20:22:30,056  INFO          [true=NBC / pred=FoxNews / conf=0.98]  Tulsi Gabbard's unprecedented accusation against Obama and 'The Osbournes' cultu
+2026-05-04 20:22:30,056  INFO          [true=NBC / pred=FoxNews / conf=0.98]  Mavs rookie Cooper Flagg scores 51 points to become first teen to reach 50 in an
+2026-05-04 20:22:30,056  INFO          [true=NBC / pred=FoxNews / conf=0.97]  Bobrovsky makes 32 saves as the Panthers shut out the Oilers 3-0 in Game 1 of St
+2026-05-04 20:22:30,056  INFO          [true=NBC / pred=FoxNews / conf=0.97]  Taylor Swift and Travis Kelce have date night at Game 4 of the Stanley Cup Final
+2026-05-04 20:22:30,057  INFO          [true=NBC / pred=FoxNews / conf=0.96]  Starbucks’ viral bearista cup is already causing mayhem: ‘I will fight you for i
+2026-05-04 20:22:30,057  INFO          [true=NBC / pred=FoxNews / conf=0.96]  Georgia rallies to beat Georgia Tech 44-42 in 8th OT
+2026-05-04 20:22:30,057  INFO          [true=NBC / pred=FoxNews / conf=0.96]  Bakeries can't beat egg prices, so your cake may cost more
+2026-05-04 20:22:30,057  INFO          [true=NBC / pred=FoxNews / conf=0.96]  Apple scores big victory with ‘F1,’ but AI is still a major problem in Cupertino
+2026-05-04 20:22:30,254  INFO      --------------------------------------------------------

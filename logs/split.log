@@ -1,0 +1,7 @@
+2026-05-04 19:50:48,614  INFO      Loading clean dataset from: data\processed\clean_headlines.csv
+2026-05-04 19:50:49,435  INFO      Total rows: 128861  |  Classes: {0: 81837, 1: 47024}
+2026-05-04 19:50:49,546  INFO      train   n=90202  |  label-0=63.5%  label-1=36.5%
+2026-05-04 19:50:49,546  INFO      val     n=19329  |  label-0=63.5%  label-1=36.5%
+2026-05-04 19:50:49,547  INFO      test    n=19330  |  label-0=63.5%  label-1=36.5%
+2026-05-04 19:50:50,397  INFO      Splits saved to: C:\Users\maxwe\PromProjects\news-source-classification\data\processed\splits
+2026-05-04 19:50:50,397  INFO        train=90202  val=19329  test=19330
