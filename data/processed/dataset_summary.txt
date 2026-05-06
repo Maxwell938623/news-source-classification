@@ -2,38 +2,36 @@
 DATASET SUMMARY — Fox News / NBC News Classification
 ================================================================
 
-  Input file:                 data\scraped\raw_scraped_headlines_merged.csv
-  Output directory:           C:\Users\maxwe\PromProjects\news-source-classification\data\processed
+  Input file:                 data\scraped\helper_as_raw.csv
+  Output directory:           data\processed
 
 LABEL ENCODING
   0  =  FoxNews
   1  =  NBC
 
 RAW COUNTS
-  Total URLs in input:        132271
-  Successful scrapes:         129331
-  Failed / skipped:           2940
-  Failure breakdown:
-    fetch_failed                   2940
+  Total URLs in input:        3805
+  Successful scrapes:         3805
+  Failed / skipped:           0
 
 CLEANING STEPS (rows dropped)
-  Null / empty raw headline:  0
+  Null / empty raw headline:  4
   Empty after minimal clean:  0
-  Within-source duplicates:   314
-  Cross-source duplicates:    156
+  Within-source duplicates:   2
+  Cross-source duplicates:    0
 
 FINAL DATASET
-  Total headlines:            128861
+  Total headlines:            3799
 
   Class distribution:
-    FoxNews      (label=0)  81837  (63.5%)
-    NBC          (label=1)  47024  (36.5%)
+    FoxNews      (label=0)   2000  (52.6%)
+    NBC          (label=1)   1799  (47.4%)
 
 HEADLINE LENGTH STATISTICS (word count, minimal variant)
-  Average:    11.0 words
-  Median:     12.0 words
-  Minimum:    1 words
-  Maximum:    28 words
+  Average:    13.3 words
+  Median:     13.0 words
+  Minimum:    4 words
+  Maximum:    39 words
 
 PREPROCESSING VARIANTS SAVED
   headlines_minimal.csv    — strip + normalize + dedup

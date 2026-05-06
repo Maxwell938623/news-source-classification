@@ -1,0 +1,114 @@
+[
+  {
+    "file": "data\\processed\\clean_headlines.csv",
+    "expected_fields": 9,
+    "rows_seen_excl_header": 128861,
+    "rows_kept": 128861,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\processed\\headlines_lemma.csv",
+    "expected_fields": 4,
+    "rows_seen_excl_header": 128861,
+    "rows_kept": 128861,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\processed\\headlines_lowercase.csv",
+    "expected_fields": 4,
+    "rows_seen_excl_header": 128861,
+    "rows_kept": 128861,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\processed\\headlines_minimal.csv",
+    "expected_fields": 4,
+    "rows_seen_excl_header": 128861,
+    "rows_kept": 128861,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\processed\\headlines_nopunct.csv",
+    "expected_fields": 4,
+    "rows_seen_excl_header": 128861,
+    "rows_kept": 128861,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\processed\\headlines_nostop.csv",
+    "expected_fields": 4,
+    "rows_seen_excl_header": 128861,
+    "rows_kept": 128861,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\processed\\splits\\test.csv",
+    "expected_fields": 9,
+    "rows_seen_excl_header": 19330,
+    "rows_kept": 19330,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\processed\\splits\\train.csv",
+    "expected_fields": 9,
+    "rows_seen_excl_header": 90202,
+    "rows_kept": 90202,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\processed\\splits\\val.csv",
+    "expected_fields": 9,
+    "rows_seen_excl_header": 19329,
+    "rows_kept": 19329,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\raw\\latest_collected_urls.csv",
+    "expected_fields": 2,
+    "rows_seen_excl_header": 464,
+    "rows_kept": 464,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\raw\\original_urls.csv",
+    "expected_fields": 2,
+    "rows_seen_excl_header": 172488,
+    "rows_kept": 172488,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\scraped\\raw_scraped_headlines.csv",
+    "expected_fields": 6,
+    "rows_seen_excl_header": 77083,
+    "rows_kept": 77083,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\scraped\\raw_scraped_headlines_merged.csv",
+    "expected_fields": 6,
+    "rows_seen_excl_header": 124215,
+    "rows_kept": 124215,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  },
+  {
+    "file": "data\\scraped\\raw_scraped_headlines_nbc.csv",
+    "expected_fields": 6,
+    "rows_seen_excl_header": 47132,
+    "rows_kept": 47132,
+    "rows_removed_malformed": 0,
+    "status": "ok"
+  }
+]

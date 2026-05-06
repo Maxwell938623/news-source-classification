@@ -10,45 +10,45 @@
     "test": 0.15
   },
   "sizes": {
-    "total": 128861,
-    "train": 90202,
-    "val": 19329,
-    "test": 19330
+    "total": 10002,
+    "train": 7001,
+    "val": 1500,
+    "test": 1501
   },
   "actual_ratios": {
     "train": 0.7,
     "val": 0.15,
-    "test": 0.15
+    "test": 0.1501
   },
   "class_distribution": {
     "train": {
       "FoxNews": {
-        "count": 57285,
-        "pct": 63.51
+        "count": 3680,
+        "pct": 52.56
       },
       "NBC": {
-        "count": 32917,
-        "pct": 36.49
+        "count": 3321,
+        "pct": 47.44
       }
     },
     "val": {
       "FoxNews": {
-        "count": 12276,
-        "pct": 63.51
+        "count": 789,
+        "pct": 52.6
       },
       "NBC": {
-        "count": 7053,
-        "pct": 36.49
+        "count": 711,
+        "pct": 47.4
       }
     },
     "test": {
       "FoxNews": {
-        "count": 12276,
-        "pct": 63.51
+        "count": 789,
+        "pct": 52.56
       },
       "NBC": {
-        "count": 7054,
-        "pct": 36.49
+        "count": 712,
+        "pct": 47.44
       }
     }
   }

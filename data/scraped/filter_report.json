@@ -1,0 +1,26 @@
+[
+  {
+    "file": "data\\scraped\\raw_scraped_headlines.csv",
+    "rows_before_parsed": 84825,
+    "rows_after": 77083,
+    "rows_removed": 7742,
+    "fox_person_removed": 7742,
+    "nbc_section_removed": 0
+  },
+  {
+    "file": "data\\scraped\\raw_scraped_headlines_nbc.csv",
+    "rows_before_parsed": 47446,
+    "rows_after": 47132,
+    "rows_removed": 314,
+    "fox_person_removed": 0,
+    "nbc_section_removed": 314
+  },
+  {
+    "file": "data\\scraped\\raw_scraped_headlines_merged.csv",
+    "rows_before_parsed": 132271,
+    "rows_after": 124215,
+    "rows_removed": 8056,
+    "fox_person_removed": 7742,
+    "nbc_section_removed": 314
+  }
+]
