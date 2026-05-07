@@ -1,4 +1,4 @@
-# News Source Classification — Final Project
+# News Source Classification Final Project
 
 **Team 58:** Maxwell Zhang, Arjun Verma, Isaac Dcruz  
 **Task Project B:** Binary classification of news headlines
@@ -6,7 +6,7 @@
 
 | Resource                          | Link                                                                                                                                       |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Final project report (5-page PDF) | Submitted separately — **not** in this repository                                                                                          |
+| Final project report (5-page PDF) | Submitted separately, **not** in this repository                                                                                           |
 | Hugging Face dataset              | [https://huggingface.co/datasets/Maxwell938/CIS5190Project/tree/main](https://huggingface.co/datasets/Maxwell938/CIS5190Project/tree/main) |
 | Leaderboard submission models     | `[submission/](submission/)` folder                                                                                                        |
 
@@ -136,4 +136,10 @@ Selection criterion across all classical configurations: validation macro-F1. Wi
 
 ## Team Contributions
 
-See final report section 4 for the official statements. In brief: **Maxwell Zhang** — data acquisition, model experiments and evaluation. **Arjun Verma** — data cleaning, model experiments and evaluation. **Isaac Dcruz** — model experiments and evaluation.
+See final report section 4 for the official statements. In brief: 
+
+**Maxwell Zhang**: data acquisition, model experiments and evaluation. 
+
+**Arjun Verma**: data cleaning, model experiments and evaluation. 
+
+**Isaac Dcruz**: model experiments and evaluation.
