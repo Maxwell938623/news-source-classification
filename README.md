@@ -8,7 +8,7 @@
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | Final project report (5-page PDF) | Submitted separately — **not** in this repository                                                                                          |
 | Hugging Face dataset              | [https://huggingface.co/datasets/Maxwell938/CIS5190Project/tree/main](https://huggingface.co/datasets/Maxwell938/CIS5190Project/tree/main) |
-| Leaderboard submission models   | `[submission/](submission/)` folder                                                                                                               |
+| Leaderboard submission models     | `[submission/](submission/)` folder                                                                                                        |
 
 
 ---
@@ -57,7 +57,7 @@ Every basic + exploratory requirement from section 1.4 of the handout, mapped to
 We have **four** submission-ready models, listed below:
 
 
-| Package                                                                          | Underlying model                                | Notes                                                                                                                                                                                           |
+| Model folder                                                                     | Underlying model                                | Notes                                                                                                                                                                                           |
 | -------------------------------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `[submission/distilbert_model/](submission/distilbert_model/)`                   | DistilBERT-base uncased (fine-tuned)            | Highest test macro-F1 in our sweep                                                                                                                                                              |
 | `[submission/modernbert_model/](submission/modernbert_model/)`                   | ModernBERT-base (Answer.AI, Dec 2024)           | Modern SOTA-class encoder                                                                                                                                                                       |
@@ -65,7 +65,7 @@ We have **four** submission-ready models, listed below:
 | `[submission/gbdt_model/](submission/gbdt_model/)`                               | Gradient boosted trees over TF-IDF + stylometry | Compact reference baseline                                                                                                                                                                      |
 
 
-The currently-active package at `submission/model.py` + `submission/model.pt` is the classical stacking ensemble.
+The currently-active package is the 4-base stacking ensemble with HistGBM meta.
 
 ---
 
