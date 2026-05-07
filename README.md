@@ -46,7 +46,7 @@ Every basic + exploratory requirement from section 1.4 of the handout, mapped to
 | Error analysis                                        | Final report section 2.4 (per-class numerical breakdown), raw confusion matrices in `reports/metrics_*.json`                                                                                                         |
 | Exploratory components (≥1; we have 5)                | Final report section 3, Code/engineering, Techniques & literature grounding, Dataset expansion, Analysis, SOTA Comparison                                                                                            |
 | Leaderboard submission record                         | Final report section 2.5, code in `submission/`                                                                                                                                                                      |
-| Best-performing model artifact                        | `submission/model.pt` (LFS), currently the active classical-stack package; swappable to any of the four sub-packages described below                                                                                 |
+| Best-performing model artifact                        | `submission/stack_4base_histgbm_model/model.pt`                                                                                                                                                                      |
 | Team contribution statements                          | Final report section 4                                                                                                                                                                                               |
 
 
@@ -65,7 +65,7 @@ We have **four** submission-ready models, listed below:
 | `[submission/gbdt_model/](submission/gbdt_model/)`                               | Gradient boosted trees over TF-IDF + stylometry | Compact reference baseline                                                                                                                                                                      |
 
 
-The currently-active package is the 4-base stacking ensemble with HistGBM meta.
+The best-performing packaged artifact is the 4-base stacking ensemble with HistGBM meta under `[submission/stack_4base_histgbm_model/](submission/stack_4base_histgbm_model/)`.
 
 ---
 
