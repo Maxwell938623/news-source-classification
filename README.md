@@ -8,7 +8,9 @@
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | Final project report (5-page PDF) | Submitted separately — **not** in this repository                                                                                          |
 | Hugging Face dataset              | [https://huggingface.co/datasets/Maxwell938/CIS5190Project/tree/main](https://huggingface.co/datasets/Maxwell938/CIS5190Project/tree/main) |
-| Leaderboard submission packages   | `[submission/](submission/)` (4 swappable packages, see below)                                                                             |
+| Leaderboard submission models   | `[submission/](submission/)` folder                                                                                                               |
+
+
 ---
 
 ## Headline Results
@@ -103,28 +105,24 @@ git lfs pull
 
 ## Repository Layout
 
-Each top-level directory has its own `README.md` describing what's inside.
-
 ```
 .
 ├── README.md                      this file (grader-facing entry point)
 ├── requirements.txt               Python dependencies
 ├── url_only_data.csv              course-provided URL CSV (input format reference)
 │
-├── helpers/        ── README ──   course-provided handouts, templates, eval script
-├── src/            ── README ──   full ML pipeline source (data → train → eval → predict)
+├── helpers/                       course-provided handouts, templates, eval script
+├── src/                           full ML pipeline source (data → train → eval → predict)
 │   └── models/                    per-family sklearn model definitions
-├── data/           ── README ──   raw URLs, scraped headlines, cleaned + split dataset
+├── data/                          raw URLs, scraped headlines, cleaned + split dataset
 │   ├── raw/                       discovered URLs + collector state
 │   ├── scraped/                   raw scraped headlines (Fox + NBC)
 │   └── processed/                 cleaned + 5 normalisation variants + 70/15/15 splits
-├── models/         ── README ──   trained model weights (LFS) + per-model metadata JSON
-├── reports/        ── README ──   metrics JSON, full results CSV, figures, per-model breakdown folders
-├── submission/     ── README ──   4 submission-ready models
-└── logs/           ── README ──   per-run pipeline + training logs (gitignored, regenerable)
+├── models/                        trained model weights (LFS) + per-model metadata JSON
+├── reports/                       metrics JSON, full results CSV, figures, per-model breakdown folders
+├── submission/                    4 submission-ready models
+└── logs/                          per-run pipeline + training logs (gitignored, regenerable)
 ```
-
-> Click into any folder above to read the orientation README before diving into individual files.
 
 ---
 
