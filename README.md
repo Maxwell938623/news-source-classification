@@ -15,7 +15,7 @@
 
 ## Headline Results
 
-Held-out test on the 20 000-headline curated subset (3 001-example test fold, stratified seed 42; full numbers and protocol in section 2.3 of the final report):
+Held-out test on the 20000-headline curated subset (3001-example test fold, stratified seed 42; full numbers and protocol in section 2.3 of the final report):
 
 
 | Rank | Model                                           | Test Accuracy | Macro-F1   |
@@ -39,7 +39,7 @@ Every basic + exploratory requirement from section 1.4 of the handout, mapped to
 | Requirement                                           | Where it is                                                                                                                                                                                                          |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Data collection procedure & cleaning                  | Final report section 2.1, pipeline scripts: `src/collect_urls.py`, `src/scrape.py`, `src/preprocess.py`, `src/split.py`, stats: `data/processed/dataset_summary.txt` and `data/processed/splits/split_metadata.json` |
-| Final dataset                                         | `data/processed/clean_headlines.csv` (20 000 rows; 10 513 Fox / 9 487 NBC); also published on Hugging Face (link above)                                                                                              |
+| Final dataset                                         | `data/processed/clean_headlines.csv` (20000 rows; 10513 Fox / 9487 NBC); also published on Hugging Face (link above)                                                                                                 |
 | Model design + iterative process                      | Final report section 2.2, per-family training scripts under `src/models/`, transformer training in `src/train_transformer.py`                                                                                        |
 | Evaluation protocol + metrics + model selection       | Final report section 2.3, selection logic in `src/train_best_model.py`, per-model artifacts in `reports/model_breakdown/<model>/`                                                                                    |
 | Required model-comparison line chart (incl. baseline) | `reports/figures/experiment_comparison.png` (Figure 1 in the final report)                                                                                                                                           |
